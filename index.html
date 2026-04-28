@@ -542,6 +542,35 @@
         </div></div>
     </main>
 
+    <!-- =========== VIDEO TASK PAGE (NEW FEATURE) =========== -->
+    <main id="video-task-page" class="page-content hidden h-full bg-white">
+        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white sticky top-0 border-b border-slate-100">
+            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
+            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Watch & Earn</h1>
+            <div class="size-10"></div>
+        </header>
+        <div class="flex-grow flex flex-col pt-6 px-4 pb-24 items-center">
+            <div class="w-full aspect-video bg-black rounded-xl overflow-hidden mb-6 relative shadow-google-md" id="video-container">
+                <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            
+            <div class="material-card w-full p-6 text-center shadow-google-sm border border-slate-100">
+                <h3 class="font-bold text-[18px] text-text-main mb-2 tracking-tight">Complete Watch Time</h3>
+                <div id="video-timer-display" class="text-[40px] font-black text-primary mb-2 font-mono">00:00</div>
+                <p class="text-[13px] text-text-secondary mb-6 px-2">Do not close this page or skip the video. Watch until the timer ends to unlock your coins.</p>
+                
+                <div class="flex justify-center gap-2 mb-6">
+                    <div class="bg-[#FFF8E1] text-google-yellow font-bold text-[16px] px-5 py-2.5 rounded-full border border-[#FBE9E7] inline-flex items-center gap-1.5 shadow-sm">
+                        <span class="material-symbols-outlined text-[22px] font-fill">monetization_on</span>
+                        <span id="video-reward-coins">+0 Coins</span>
+                    </div>
+                </div>
+                
+                <button id="claim-video-reward-btn" class="action-btn w-full py-4 text-[16px]" disabled>Watch to Claim...</button>
+            </div>
+        </div>
+    </main>
+
     <!-- =========== TASK SUBMISSION PAGE =========== -->
     <main id="task-submission-page" class="page-content hidden h-full bg-white">
         <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white sticky top-0 border-b border-slate-100">
@@ -640,6 +669,8 @@
             localStorage.setItem('userId', userId);
         }
 
+        window.videoTimerInterval = null; // Global access for video timer
+
         document.addEventListener('DOMContentLoaded', () => {
             const pages = document.querySelectorAll('.page-content');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -674,6 +705,13 @@
             }
 
             function showPage(pageId) {
+                // Video cleanup security if leaving video page
+                if (pageId !== 'video-task') {
+                    const iframe = document.getElementById('video-iframe');
+                    if(iframe) iframe.src = "";
+                    if(window.videoTimerInterval) clearInterval(window.videoTimerInterval);
+                }
+
                 pages.forEach(page => page.classList.add('hidden'));
                 const targetPage = document.getElementById(pageId + '-page');
                 if (targetPage) targetPage.classList.remove('hidden');
@@ -870,21 +908,93 @@
                 }
             });
 
+            // --- VIDEO TASK TIMER LOGIC ---
+            let videoTimeLeft = 60; // Set default video timer to 60 seconds
+            
+            function setupVideoTask(link, coins) {
+                const iframe = document.getElementById('video-iframe');
+                // Convert YouTube links to embed automatically
+                let embedLink = link;
+                if(link.includes('youtube.com/watch?v=')) {
+                    embedLink = link.replace('youtube.com/watch?v=', 'youtube.com/embed/') + "?autoplay=1&mute=0";
+                } else if(link.includes('youtu.be/')) {
+                    embedLink = link.replace('youtu.be/', 'youtube.com/embed/') + "?autoplay=1&mute=0";
+                }
+                iframe.src = embedLink;
+                
+                document.getElementById('video-reward-coins').textContent = '+' + coins + ' Coins';
+                
+                videoTimeLeft = 60; // Restart timer each time
+                updateVideoTimerUI();
+                
+                const claimBtn = document.getElementById('claim-video-reward-btn');
+                claimBtn.disabled = true;
+                claimBtn.textContent = "Watch to Claim...";
+                
+                if(window.videoTimerInterval) clearInterval(window.videoTimerInterval);
+                window.videoTimerInterval = setInterval(() => {
+                    videoTimeLeft--;
+                    updateVideoTimerUI();
+                    if(videoTimeLeft <= 0) {
+                        clearInterval(window.videoTimerInterval);
+                        claimBtn.disabled = false;
+                        claimBtn.textContent = "Claim Reward Now";
+                        claimBtn.classList.remove('bg-E8EAED');
+                        claimBtn.classList.add('bg-primary');
+                    }
+                }, 1000);
+            }
+            
+            function updateVideoTimerUI() {
+                const mins = Math.floor(videoTimeLeft / 60);
+                const secs = videoTimeLeft % 60;
+                document.getElementById('video-timer-display').textContent = 
+                    (mins < 10 ? "0"+mins : mins) + ":" + (secs < 10 ? "0"+secs : secs);
+            }
+            
+            // Video Task Submit Action
+            document.getElementById('claim-video-reward-btn').addEventListener('click', async function() {
+                this.disabled = true;
+                this.textContent = "Crediting Coins...";
+                
+                const updatedCoins = currentUserCoins + currentActiveTask.coins;
+                
+                try {
+                    // Update user's coin securely in Firebase
+                    await set(ref(db, 'users/' + userId + '/coins'), updatedCoins);
+                    alert("Congratulations! " + currentActiveTask.coins + " coins have been securely added to your wallet.");
+                    
+                    document.getElementById('video-iframe').src = ""; // Stop video immediately
+                    goBack(); // Redirect back to task list securely
+                } catch(error) {
+                    alert("Error saving reward to server. Check your connection.");
+                    this.disabled = false;
+                    this.textContent = "Claim Reward Now";
+                }
+            });
+
             // --- ADMIN DYNAMIC TASKS ---
             window.handleStartTaskBtn = function(taskId, title, link, coins, icon) {
                 if (!hasProfile()) { alert("Authentication Required. Please complete your profile setup first."); showPage('profile'); return; }
                 currentActiveTask = { id: taskId, title, link, coins, icon };
                 
-                document.getElementById('td-title').textContent = title;
-                document.getElementById('td-coins').textContent = '+' + coins + ' Coins';
-                document.getElementById('td-icon').textContent = icon;
-                
-                const startBtn = document.getElementById('start-task-btn');
-                startBtn.disabled = false;
-                startBtn.textContent = 'Proceed to Target';
-                document.getElementById('next-btn').classList.add('hidden');
-                
-                showPage('task-detail');
+                // --- INTEGRATED NEW VIDEO ROUTE HERE ---
+                if (icon === "play_circle") {
+                    setupVideoTask(link, coins);
+                    showPage('video-task');
+                } else {
+                    // Normal external task route
+                    document.getElementById('td-title').textContent = title;
+                    document.getElementById('td-coins').textContent = '+' + coins + ' Coins';
+                    document.getElementById('td-icon').textContent = icon;
+                    
+                    const startBtn = document.getElementById('start-task-btn');
+                    startBtn.disabled = false;
+                    startBtn.textContent = 'Proceed to Target';
+                    document.getElementById('next-btn').classList.add('hidden');
+                    
+                    showPage('task-detail');
+                }
             };
 
             onValue(ref(db, 'tasks'), (snapshot) => {
@@ -931,7 +1041,7 @@
                 });
             });
 
-            // --- TASK DETAIL & SUBMISSION ---
+            // --- TASK DETAIL & SUBMISSION (For non-video tasks) ---
             document.getElementById('start-task-btn').addEventListener('click', function() {
                 if(!currentActiveTask) return;
                 this.disabled = true; this.textContent = 'Redirecting securely...';
@@ -1005,7 +1115,7 @@
             document.getElementById('home-withdraw-btn').addEventListener('click', () => {
                 if (!hasProfile()) { alert('Authentication Required: Please complete your profile first.'); showPage('profile'); return; }
                 const message = `*Withdrawal Request*\n\nName: ${currentUserData.name}\nPhone: ${currentUserData.phone}\nUPI/ID: ${currentUserData.payment}\n*Total Balance to Withdraw: ${currentUserCoins} Coins*`;
-                window.open(`https://wa.me/917390928912?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/919104945554?text=${encodeURIComponent(message)}`, '_blank');
             });
 
             // --- PROMOTE PAGE (9:16 SLIDER) LOGIC ---
@@ -1016,7 +1126,7 @@
                     return; 
                 }
                 const message = `*New Promotion Purchase Request*\n\n*Plan Details:*\n- Plan Name: ${planName}\n- Price: ${planPrice}\n\n*My Details:*\n- Name: ${currentUserData.name}\n- Phone: ${currentUserData.phone}\n- Email: ${currentUserData.email}\n- UPI/ID: ${currentUserData.payment}\n- Current Coins: ${currentUserCoins}`;
-                window.open(`https://wa.me/917390928912?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/919104945554?text=${encodeURIComponent(message)}`, '_blank');
             };
 
             onValue(ref(db, 'promote_plans'), (snapshot) => {
