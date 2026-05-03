@@ -87,6 +87,7 @@
         }
         .gateway-form-container h2 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 15px; letter-spacing: 3px; }
         .gateway-form-container p { font-size: 13px; color: #d1d1d1; margin-bottom: 35px; line-height: 1.6; }
+        
         .input-group { margin-bottom: 25px; text-align: left; }
         .input-group label { display: block; font-size: 11px; color: var(--light-gold); margin-bottom: 8px; letter-spacing: 2px; font-weight: 600; }
         .input-group input, .input-group textarea {
@@ -94,6 +95,7 @@
             color: white; font-family: 'Montserrat', sans-serif; outline: none; border-radius: 8px; transition: all 0.4s ease; font-size: 14px;
         }
         .input-group input:focus, .input-group textarea:focus { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); background: rgba(0, 0, 0, 0.9); }
+        
         .btn-unlock {
             width: 100%; background: linear-gradient(135deg, #D4AF37, #AA771C); color: var(--dark-bg); border: none;
             padding: 18px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 8px; font-family: 'Montserrat', sans-serif;
@@ -126,25 +128,24 @@
         /* Scroll Container */
         .carousel-container {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding-bottom: 20px;
-            /* Scrollbar styling */
             scrollbar-width: thin; scrollbar-color: var(--primary-gold) var(--panel-bg);
         }
         .carousel-container::-webkit-scrollbar { height: 8px; }
         .carousel-container::-webkit-scrollbar-track { background: var(--panel-bg); border-radius: 10px; }
         .carousel-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
 
-        /* Provider Card Styling (Used in both Carousel and Grid) */
+        /* Provider Card Styling */
         .provider-card {
             background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px;
             padding: 20px; text-align: center; transition: all 0.4s ease;
         }
         .carousel-container .provider-card {
-            flex: 0 0 calc(33.333% - 20px); /* Exactly 3 cards on desktop */
+            flex: 0 0 calc(33.333% - 20px);
             scroll-snap-align: start;
         }
         .provider-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); border-color: var(--primary-gold); }
         
-        /* EXACT 16:9 RATIO AS REQUESTED */
+        /* 16:9 RATIO FOR IMAGES */
         .image-container-16-9 {
             width: 100%;
             aspect-ratio: 16 / 9; 
@@ -164,7 +165,7 @@
         .btn-whatsapp:hover { background-color: var(--whatsapp-green); color: white; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); transform: scale(1.02); }
 
 
-        /* === SECTION B: PROMO BANNERS (Content based on user images) === */
+        /* === SECTION B: PROMO BANNERS === */
         .promo-wrapper { padding: 20px 10% 80px; }
         
         .promo-box {
@@ -191,7 +192,6 @@
         .offer-text { font-weight: 600; color: #fff; margin-bottom: 20px; font-size: 16px; border-left: 3px solid var(--primary-gold); padding-left: 15px; }
         .tagline-text { font-style: italic; color: var(--primary-gold); font-size: 13px; margin-top: 20px; text-align: center; display: block; letter-spacing: 1px; }
 
-        /* Specific Grid for Before & After */
         .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 10px; }
         .before-after-grid h5 { font-family: 'Cinzel', serif; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .before-after-grid .before-box h5 { color: var(--danger-red); }
@@ -207,19 +207,17 @@
         .btn-promo-cta:hover { background: #e6c555; box-shadow: 0 0 20px rgba(212,175,55,0.5); transform: translateY(-2px); }
 
 
-        /* === 3. VIEW ALL PAGE (3x3 Grid Overlay) === */
+        /* === 3. VIEW ALL PAGE (3x3 Grid) === */
         #view-all-page {
             display: none; min-height: 100vh; background-color: var(--dark-bg); padding: 40px 10%; animation: slideUpFade 0.5s ease forwards;
         }
         .view-all-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
         
-        /* Exact 3-3 Grid Format */
         .grid-3x3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
         }
-        /* Reuse .provider-card from above for grid items */
 
 
         /* === RESPONSIVE QUERIES === */
@@ -287,16 +285,15 @@
                 <button class="btn-view-all" onclick="openViewAllPage()">VIEW ALL THERAPISTS <i class="fa-solid fa-arrow-right"></i></button>
             </div>
             
-            <!-- Horizontal Scroll Container -->
             <div class="carousel-container" id="carouselProviders">
                 <!-- Dynamically populated by Firebase -->
             </div>
         </section>
 
-        <!-- Section B: The Promo Banners (Content integrated precisely) -->
+        <!-- Section B: Promo Banners -->
         <section class="promo-wrapper">
             
-            <!-- Promo 1: Couple Spa -->
+            <!-- Promo 1 -->
             <div class="promo-box">
                 <div class="promo-img-container">
                     <img src="https://i.ibb.co/27DrvN7J/file-0000000006807208855cf489c8a65162.png" alt="Couple Spa">
@@ -312,16 +309,13 @@
                         <li><i class="fa-solid fa-check"></i> Clean & Safe Environment</li>
                         <li><i class="fa-solid fa-check"></i> Expert Therapists</li>
                     </ul>
-                    <div class="offer-text">
-                        💖 Special Couple Discount Available<br>
-                        💆‍♂️💆‍♀️ Book Your Session Today!
-                    </div>
+                    <div class="offer-text">💖 Special Couple Discount Available<br>💆‍♂️💆‍♀️ Book Your Session Today!</div>
                     <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-phone"></i> Call / WhatsApp Now</a>
                     <span class="tagline-text">🌟 Feel Fresh • Feel Relaxed • Feel Loved <br> Because You Both Deserve Relaxation.</span>
                 </div>
             </div>
 
-            <!-- Promo 2: Facial Spa (Reverse Layout) -->
+            <!-- Promo 2 -->
             <div class="promo-box reverse">
                 <div class="promo-img-container">
                     <img src="https://i.ibb.co/9H4N615R/file-000000004dc07208a0a1e54e048d542a.png" alt="Facial Spa Glow">
@@ -329,43 +323,29 @@
                 <div class="promo-content">
                     <h2>✨ Instant Glow, Instant Confidence</h2>
                     <h4>Premium Facial Spa Experience for Radiant Skin</h4>
-                    
-                    <!-- Before/After Grid -->
                     <div class="before-after-grid">
                         <div class="before-box">
                             <h5>❌ Before</h5>
-                            <ul>
-                                <li>Dull Skin</li>
-                                <li>Acne Marks</li>
-                                <li>Uneven Tone</li>
-                                <li>Tired Look</li>
-                            </ul>
+                            <ul><li>Dull Skin</li><li>Acne Marks</li><li>Uneven Tone</li><li>Tired Look</li></ul>
                         </div>
                         <div class="after-box">
                             <h5>✅ After</h5>
-                            <ul>
-                                <li>Bright & Glowing Skin</li>
-                                <li>Clear & Healthy Face</li>
-                                <li>Even Skin Tone</li>
-                                <li>Fresh & Youthful Look</li>
-                            </ul>
+                            <ul><li>Bright & Glowing Skin</li><li>Clear & Healthy Face</li><li>Even Skin Tone</li><li>Fresh & Youthful Look</li></ul>
                         </div>
                     </div>
-
                     <ul class="promo-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
                         <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Deep Cleansing</li>
                         <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Skin Hydration</li>
                         <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Tan Removal</li>
                         <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Glow Boost</li>
                     </ul>
-
                     <div class="offer-text">💖 Beautiful Skin Isn’t Luck, It’s Self Care</div>
                     <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-calendar-check"></i> Book Your Glow Today!</a>
                     <span class="tagline-text">LUXE SPA | Premium Care | Hygienic Environment | Expert Therapists</span>
                 </div>
             </div>
 
-            <!-- Promo 3: Stress Relief -->
+            <!-- Promo 3 -->
             <div class="promo-box">
                 <div class="promo-img-container">
                     <img src="https://i.ibb.co/Pv66qSTy/file-00000000a124720888feaa5fd4e04e61.png" alt="Stress Relief Life">
@@ -390,25 +370,25 @@
         </section>
     </div>
 
-    <!-- 3. VIEW ALL PAGE (Opens on click) -->
+    <!-- 3. VIEW ALL PAGE -->
     <div id="view-all-page">
         <div class="view-all-header">
             <h2 class="section-title" style="margin: 0;">ALL THERAPISTS</h2>
             <button class="btn-view-all" onclick="closeViewAllPage()"><i class="fa-solid fa-arrow-left"></i> BACK TO HOME</button>
         </div>
         
-        <!-- Exact 3-3 Grid Line Container -->
         <div class="grid-3x3" id="gridProviders">
             <!-- Dynamically populated by Firebase -->
         </div>
     </div>
 
 
-    <!-- Firebase v9 SDK Connection Script (100% UNTOUCHED CONFIG) -->
+    <!-- Firebase v9 SDK Connection Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
+        // Your Config 100% Exact Same
         const firebaseConfig = {
             apiKey: "AIzaSyC0oD7NKFbUweD58i1x6bheEBWfK7Yme9Q",
             authDomain: "mediverse-1088d.firebaseapp.com",
@@ -425,13 +405,14 @@
         const providersRef = ref(db, 'Service_Providers');
 
         // ==========================================
-        // LOCAL STORAGE - "Remember Me"
+        // 1. Remember Me Logic (Checks on Page Load)
         // ==========================================
         window.onload = function() {
             const isVIP = localStorage.getItem('luxeSpa_isVIP');
             const savedName = localStorage.getItem('luxeSpa_UserName');
 
             if (isVIP === 'true' && savedName) {
+                // If verified previously, hide form, show dashboard immediately
                 document.getElementById('gateway-section').style.display = 'none';
                 document.getElementById('main-dashboard-wrapper').style.display = 'block';
                 document.getElementById('userWelcomeText').innerText = `Welcome back, ${savedName}.`;
@@ -440,10 +421,11 @@
         };
 
         // ==========================================
-        // GATEWAY FORM SUBMISSION
+        // 2. Gateway Form Submission
         // ==========================================
         document.getElementById('unlockForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
+            
             const btn = document.getElementById('unlockBtn');
             btn.innerHTML = 'VERIFYING... <i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -451,6 +433,7 @@
             const phone = document.getElementById('userPhone').value;
             const address = document.getElementById('userAddress').value;
 
+            // Submit to Firebase
             const newBookingRef = push(bookingsRef);
             set(newBookingRef, {
                 FullName: name,
@@ -459,9 +442,11 @@
                 Timestamp: new Date().toLocaleString()
             })
             .then(() => {
+                // SUCCESS: Save info in browser so it won't ask again
                 localStorage.setItem('luxeSpa_isVIP', 'true');
                 localStorage.setItem('luxeSpa_UserName', name);
 
+                // Transition to Dashboard
                 const gateway = document.getElementById('gateway-section');
                 gateway.style.animation = 'slideOutUp 1s ease forwards';
                 
@@ -483,7 +468,7 @@
         });
 
         // ==========================================
-        // FETCH DATA & POPULATE BOTH CAROUSEL & GRID (16:9 Ratio)
+        // 3. Fetch Data from Admin Panel (16:9 Ratio Setup)
         // ==========================================
         function loadProvidersData() {
             onValue(providersRef, (snapshot) => {
@@ -504,9 +489,9 @@
                         const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
                         const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
 
-                        // HTML Structure with 16:9 aspect ratio applied to image container
+                        // (BUG FIXED HERE: Corrected Javascript Template Literal Syntax)
                         const cardHTML = `
-                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1s};">
+                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1}s;">
                                 <div class="image-container-16-9">
                                     <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
                                 </div>
@@ -519,7 +504,7 @@
                             </div>
                         `;
                         
-                        // Add card to BOTH views
+                        // Push same card to both top slider and view-all grid
                         carouselContainer.innerHTML += cardHTML;
                         gridContainer.innerHTML += cardHTML;
                         index++;
@@ -533,7 +518,7 @@
         }
     </script>
 
-    <!-- Simple JS to handle View All page switching without reload -->
+    <!-- View All Buttons Logic -->
     <script>
         function openViewAllPage() {
             document.getElementById('main-dashboard-wrapper').style.display = 'none';
