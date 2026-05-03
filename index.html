@@ -1,1170 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-    <title>Coin App Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Spa - VIP Exclusive Access</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
-    <!-- Google Fonts: Roboto & Material Symbols -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        /* Official Google Brand Colors */
-                        "primary": "#1A73E8", 
-                        "primary-dark": "#1557B0",
-                        "primary-light": "#E8F0FE",
-                        "background-default": "#F8F9FA", /* Google standard off-white background */
-                        "surface": "#FFFFFF",
-                        "google-yellow": "#FBBC04",
-                        "google-green": "#34A853",
-                        "google-red": "#EA4335",
-                        "text-main": "#202124", /* Google dark grey */
-                        "text-secondary": "#5F6368",
-                    },
-                    fontFamily: {
-                        "display": ["Roboto", "sans-serif"]
-                    },
-                    boxShadow: {
-                        'google-sm': '0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15)',
-                        'google-md': '0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15)',
-                        'google-lg': '0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15)',
-                    }
-                },
-            },
-        }
-    </script>
     <style>
-        /* Google Material Symbols Fill state */
-        .material-symbols-outlined.font-fill { font-variation-settings: 'FILL' 1; }
-        
-        body { 
-            min-height: 100dvh; 
-            max-height: 100dvh; 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            background-color: #F8F9FA;
-            color: #202124;
-            font-family: 'Roboto', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .page-content { display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: hidden; }
-        
-        /* Hide scrollbars for clean UI */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Material Design Surface Cards */
-        .material-card {
-            background-color: #FFFFFF;
-            border-radius: 24px;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-            border: 1px solid rgba(0,0,0,0.03);
-            overflow: hidden;
+        /* === VARIABLES === */
+        :root {
+            --primary-gold: #D4AF37;
+            --light-gold: #F3E5AB;
+            --dark-bg: #050404;
+            --panel-bg: rgba(15, 12, 10, 0.85);
+            --text-light: #ffffff;
+            --whatsapp-green: #25D366;
         }
 
-        /* Google Material Buttons */
-        .action-btn { 
-            background-color: #1A73E8; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           ANIMATION 1: Background Pan & Fade
+           ANIMATION 2: Floating Glow on Icon
+           ANIMATION 3: Glowing Pulse Button
+           ANIMATION 4: Staggered Card Reveal
+           ANIMATION 5: Glassmorphism Slide Up Transition
+        ========================================== */
+
+        @keyframes bgZoom {
+            0% { background-size: 100%; }
+            100% { background-size: 110%; }
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+            50% { transform: translateY(-10px); text-shadow: 0 0 25px rgba(212, 175, 55, 0.8); }
+            100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideOutUp {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-100vh); display: none; }
+        }
+
+        /* === GATEWAY SECTION (Form) === */
+        #gateway-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Background animation applied here */
+            background: linear-gradient(rgba(5, 4, 4, 0.8), rgba(5, 4, 4, 0.9)), 
+                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop') center center fixed;
+            background-size: cover;
+            animation: bgZoom 20s infinite alternate linear;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gateway-header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideUpFade 1s ease forwards;
+        }
+
+        .gateway-header i.fa-spa {
+            font-size: 55px;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            /* Floating animation applied here */
+            animation: floatGlow 4s infinite ease-in-out;
+        }
+
+        .gateway-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 45px;
+            color: var(--primary-gold);
+            letter-spacing: 6px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Glassmorphism Premium Form */
+        .gateway-form-container {
+            background: rgba(15, 12, 10, 0.5);
+            backdrop-filter: blur(15px); /* Frosted Glass Effect */
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+            animation: slideUpFade 1.2s ease forwards;
+        }
+
+        .gateway-form-container h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .gateway-form-container p {
+            font-size: 13px;
+            color: #d1d1d1;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            color: var(--light-gold);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             color: white;
-            border-radius: 100px; /* Fully rounded */
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-            transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s; 
-            font-weight: 500;
-            letter-spacing: 0.25px;
-        }
-        .action-btn:hover:not(:disabled) { 
-            background-color: #1B66C9; 
-            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15); 
-        }
-        .action-btn:active:not(:disabled) { 
-            background-color: #1557B0;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
-            transform: scale(0.99);
-        }
-        .action-btn:disabled { 
-            background-color: #E8EAED; 
-            color: #9AA0A6;
-            box-shadow: none;
-            cursor: not-allowed; 
-        }
-
-        /* Secondary Button (Google Style) */
-        .secondary-btn {
-            background-color: #FFFFFF;
-            color: #1A73E8;
-            border: 1px solid #DADCE0;
-            border-radius: 100px;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-        .secondary-btn:hover { background-color: #F8F9FA; border-color: #D2E3FC; }
-
-        /* Smooth page transitions */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-on-show > * { opacity: 0; animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .animate-on-show > *:nth-child(1) { animation-delay: 0.05s; }
-        .animate-on-show > *:nth-child(2) { animation-delay: 0.1s; }
-        .animate-on-show > *:nth-child(3) { animation-delay: 0.15s; }
-        .animate-on-show > *:nth-child(4) { animation-delay: 0.2s; }
-        
-        /* Standard Google loading spinner */
-        .spinner { 
-            border: 3px solid #E8EAED; 
-            border-radius: 50%; 
-            border-top: 3px solid #1A73E8; 
-            width: 24px; 
-            height: 24px; 
-            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; 
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* Input fields Google style */
-        .google-input {
-            border: 1px solid #DADCE0;
-            border-radius: 8px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .google-input:focus {
+            font-family: 'Montserrat', sans-serif;
             outline: none;
-            border-color: #1A73E8;
-            box-shadow: inset 0 0 0 1px #1A73E8;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            font-size: 14px;
         }
 
-        /* Bottom Nav indicator styling */
-        .nav-link.active-nav .icon-container {
-            background-color: #C2E7FF; /* Google Material 3 active indicator color */
-            color: #001D35;
+        .input-group input:focus, 
+        .input-group textarea:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            background: rgba(0, 0, 0, 0.9);
         }
-        .icon-container {
-            transition: background-color 0.2s ease;
-            border-radius: 16px;
-            padding: 4px 16px;
+
+        .btn-unlock {
+            width: 100%;
+            background: linear-gradient(135deg, #D4AF37, #AA771C);
+            color: var(--dark-bg);
+            border: none;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            /* Pulsing button animation */
+            animation: pulseGlow 2s infinite;
+        }
+
+        .btn-unlock:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* === MAIN VIP DASHBOARD SECTION (Hidden initially) === */
+        #main-content-section {
+            display: none; 
+            min-height: 100vh;
+        }
+
+        .welcome-banner {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(to bottom, #14100E, var(--dark-bg));
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            animation: slideUpFade 1s ease forwards;
+        }
+
+        .welcome-banner h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+
+        .welcome-banner p {
+            font-family: 'Great Vibes', cursive;
+            font-size: 35px;
+            color: var(--light-gold);
+            margin-top: -10px;
+        }
+
+        .providers-section {
+            padding: 60px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--primary-gold);
+            margin-bottom: 50px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* === 3x3 GRID SYSTEM === */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns exactly */
+            gap: 40px;
+        }
+
+        .provider-card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0; /* Hidden for staggered animation */
+        }
+
+        .provider-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+            border-color: var(--primary-gold);
+        }
+
+        /* 1:1 Image Ratio */
+        .image-container {
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            overflow: hidden;
+            border-radius: 50%; /* Made circular for ultra-premium look */
+            border: 3px solid rgba(212, 175, 55, 0.5);
+            margin-bottom: 25px;
+            transition: all 0.5s ease;
+        }
+
+        .provider-card:hover .image-container {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .provider-card:hover .image-container img {
+            transform: scale(1.15); /* Smooth zoom inside image */
+        }
+
+        .provider-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 22px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .provider-card p.address {
+            font-size: 13px;
+            color: #b3b3b3;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--whatsapp-green);
+            border: 1px solid var(--whatsapp-green);
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .providers-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .providers-grid { grid-template-columns: 1fr; }
+            .gateway-header h1 { font-size: 35px; }
+            .gateway-form-container { padding: 40px 25px; }
         }
     </style>
 </head>
-<body class="bg-background-default font-display text-text-main">
+<body>
 
-    <!-- =========== HOME PAGE CONTENT =========== -->
-    <main id="home-page" class="page-content h-full">
-        <!-- Google Style Header -->
-        <header class="flex items-center justify-between px-5 pt-6 pb-4 flex-shrink-0 bg-background-default sticky top-0 z-20">
-            <div class="flex items-center gap-3">
-                <button id="header-profile-btn" class="size-10 rounded-full border border-slate-200 shadow-sm overflow-hidden relative group transition-transform hover:scale-105 active:scale-95">
-                    <img id="header-profile-img" alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7zc-sLFaBCayayyLQFv3gninyPIW8vn5clHeaIVctq8M4tYZHa-1nvx7FFdN1_LePhCSmIqw1_6eeruJA_51VNy_i3JAvfgnGjZlBmHt-X2la9GsAQxglQ2F-A1364VS0NZP4S7_GSwVaamOSZnGQf3xUfLBq08SRS__OrucK2lm7vFTcUhlKQd3Qk_LKNzmD-quEs0GwP0rshwtUDeQyAlYILAO49FgwwDNaoBmRE7Gyt7wvz5Buk82QbtJIPu-PSLizWdTqE2qC"/>
-                    <div class="absolute inset-0 bg-black/30 hidden group-hover:flex items-center justify-center"><span class="material-symbols-outlined text-white text-[16px]">edit</span></div>
-                </button>
-                <div>
-                    <h1 id="header-username" class="text-[18px] font-bold text-text-main tracking-tight">User 👋</h1>
-                    <p class="text-[12px] text-text-secondary font-medium mt-[-2px]">Welcome back</p>
-                </div>
-            </div>
-            <div class="flex gap-2">
-                <button class="size-10 bg-white rounded-full flex items-center justify-center text-text-secondary shadow-google-sm hover:bg-slate-50 transition-colors">
-                    <span class="material-symbols-outlined text-[20px]">notifications</span>
-                </button>
-                <button id="wallet-icon-btn" class="size-10 bg-white rounded-full flex items-center justify-center text-primary shadow-google-sm hover:bg-slate-50 transition-colors">
-                    <span class="material-symbols-outlined text-[20px] font-fill">account_balance_wallet</span>
-                </button>
-            </div>
-        </header>
-
-        <div class="overflow-y-auto no-scrollbar pb-24 px-4">
-            
-            <!-- Balance Card (Google Pay Style) -->
-            <section class="mb-6">
-                <div class="material-card bg-primary text-white p-5 relative overflow-hidden">
-                    <!-- Decorative background circles -->
-                    <div class="absolute -right-8 -top-8 size-32 bg-white/10 rounded-full blur-2xl"></div>
-                    <div class="absolute -left-8 -bottom-8 size-24 bg-black/10 rounded-full blur-xl"></div>
-                    
-                    <div class="flex justify-between items-start relative z-10">
-                        <div>
-                            <p class="text-primary-light text-[12px] font-medium mb-1">Total Balance</p>
-                            <div class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-google-yellow font-fill text-[28px]">monetization_on</span>
-                                <h2 id="home-total-balance" class="text-3xl font-bold tracking-tight">0</h2>
-                            </div>
-                        </div>
-                        <button id="home-wallet-btn" class="bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold px-4 py-1.5 rounded-full transition-colors backdrop-blur-sm border border-white/20">
-                            Details
-                        </button>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-3 mt-5 relative z-10">
-                        <div class="bg-black/10 rounded-xl p-2.5 flex justify-between items-center backdrop-blur-sm border border-white/5">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[14px] text-white/70">hourglass_empty</span>
-                                <p class="text-white/80 text-[10px] uppercase font-medium tracking-wider">Pending</p>
-                            </div>
-                            <p id="home-pending-balance" class="text-white font-bold text-[13px]">0</p>
-                        </div>
-                        <div class="bg-white/10 rounded-xl p-2.5 flex justify-between items-center backdrop-blur-sm border border-white/10">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[14px] text-google-green font-fill">check_circle</span>
-                                <p class="text-white/90 text-[10px] uppercase font-medium tracking-wider">Ready</p>
-                            </div>
-                            <p id="home-ready-balance" class="text-white font-bold text-[13px]">0</p>
-                        </div>
-                    </div>
-                    
-                    <button id="home-withdraw-btn" class="w-full bg-white mt-4 py-3 rounded-xl text-primary font-bold text-[14px] flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors shadow-sm relative z-10">
-                        <span class="material-symbols-outlined text-[18px]">account_balance</span> Withdraw to Bank
-                    </button>
-                </div>
-            </section>
-            
-            <!-- Menu Grid (Google Home style buttons) -->
-            <section class="mb-6">
-                <div class="grid grid-cols-4 gap-3">
-                    <div id="btn-earn-wallet" class="flex flex-col items-center gap-2 cursor-pointer group">
-                        <div class="size-14 bg-white rounded-2xl flex items-center justify-center text-primary shadow-google-sm group-hover:shadow-google-md group-hover:bg-primary-light transition-all border border-slate-100">
-                            <span class="material-symbols-outlined text-[26px]">account_balance_wallet</span>
-                        </div>
-                        <span class="text-[11px] font-medium text-text-secondary">Wallet</span>
-                    </div>
-                    
-                    <div id="btn-home-promote" class="flex flex-col items-center gap-2 cursor-pointer group">
-                        <div class="size-14 bg-white rounded-2xl flex items-center justify-center text-google-green shadow-google-sm group-hover:shadow-google-md group-hover:bg-green-50 transition-all border border-slate-100">
-                            <span class="material-symbols-outlined text-[26px]">campaign</span>
-                        </div>
-                        <span class="text-[11px] font-medium text-text-secondary">Promote</span>
-                    </div>
-                    
-                    <div id="btn-home-buy" class="flex flex-col items-center gap-2 cursor-pointer group">
-                        <div class="size-14 bg-white rounded-2xl flex items-center justify-center text-google-yellow shadow-google-sm group-hover:shadow-google-md group-hover:bg-yellow-50 transition-all border border-slate-100">
-                            <span class="material-symbols-outlined text-[26px]">add_shopping_cart</span>
-                        </div>
-                        <span class="text-[11px] font-medium text-text-secondary">Buy Coins</span>
-                    </div>
-                    
-                    <div id="btn-home-invite" class="flex flex-col items-center gap-2 cursor-pointer group">
-                        <div class="size-14 bg-white rounded-2xl flex items-center justify-center text-google-red shadow-google-sm group-hover:shadow-google-md group-hover:bg-red-50 transition-all border border-slate-100">
-                            <span class="material-symbols-outlined text-[26px]">group_add</span>
-                        </div>
-                        <span class="text-[11px] font-medium text-text-secondary">Invite</span>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Daily Bonus (Material Notice style) -->
-            <section class="mb-6">
-                <div class="material-card bg-[#FFF8E1] p-4 flex items-center justify-between border-l-4 border-l-google-yellow">
-                    <div class="flex items-center gap-3">
-                        <div class="size-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                            <span class="material-symbols-outlined text-google-yellow font-fill text-[20px]">redeem</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-text-main text-[14px]">Daily Check-in</h4>
-                            <p class="text-text-secondary text-[11px]">Claim your reward now!</p>
-                        </div>
-                    </div>
-                    <button class="bg-google-yellow text-white font-bold text-[12px] px-4 py-2 rounded-full hover:bg-[#F9AB00] shadow-sm transition-colors">
-                        Claim +25
-                    </button>
-                </div>
-            </section>
-            
-            <!-- Promo Card (Standard Material Image Card) -->
-            <section class="mb-6">
-                <div class="material-card relative w-full aspect-[21/9] group cursor-pointer">
-                    <img id="promo-banner-img" src="https://i.ibb.co/LDYsqgxr/file-000000009e44720ba0bdf58aa644ed5d.png" alt="Special Offer" class="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                    <div class="absolute bottom-4 right-4 z-20 w-full flex justify-end">
-                        <button id="promo-card-start-btn" class="bg-white text-primary font-bold text-[12px] px-5 py-2 rounded-full shadow-google-md flex items-center gap-1 hover:bg-slate-50 transition-colors">
-                            Explore <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tasks List -->
-            <section class="mb-2">
-                <div class="flex justify-between items-center mb-3 px-1">
-                    <h3 class="text-[16px] font-bold text-text-main">Suggested Tasks</h3>
-                    <button id="see-all-tasks-btn" class="text-primary text-[13px] font-medium hover:bg-primary-light px-3 py-1 rounded-full transition-colors">See all</button>
-                </div>
-                <div id="home-tasks-container" class="space-y-3">
-                    <!-- Tasks injected here via JS -->
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- =========== WALLET PAGE =========== -->
-    <main id="wallet-page" class="page-content hidden h-full bg-background-default">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white shadow-sm sticky top-0">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Google Wallet</h1>
-            <div class="size-10 flex items-center justify-center"><span class="material-symbols-outlined text-text-secondary">help</span></div>
-        </header>
-
-        <div class="flex-grow overflow-y-auto no-scrollbar px-4 pt-6 pb-24">
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <!-- Pending Coins -->
-                <div class="material-card p-5 border-t-4 border-t-google-yellow">
-                    <span class="material-symbols-outlined text-google-yellow text-[24px] mb-2">hourglass_top</span>
-                    <p class="text-[12px] text-text-secondary font-medium mb-1">In Review</p>
-                    <h2 id="wallet-pending-balance" class="text-2xl font-bold text-text-main">0</h2>
-                </div>
-                <!-- Available Coins -->
-                <div class="material-card p-5 border-t-4 border-t-google-green">
-                    <span class="material-symbols-outlined text-google-green text-[24px] mb-2">check_circle</span>
-                    <p class="text-[12px] text-text-secondary font-medium mb-1">Available</p>
-                    <h2 id="wallet-available-balance" class="text-2xl font-bold text-text-main">0</h2>
-                </div>
-            </div>
-
-            <button id="withdraw-btn-wallet" class="action-btn w-full py-4 text-[15px] flex items-center justify-center gap-2 mb-8">
-                <span class="material-symbols-outlined">payments</span> Request Withdrawal
-            </button>
-
-            <div class="material-card p-0 mb-6">
-                <div class="px-5 py-4 border-b border-slate-100 bg-slate-50">
-                    <h3 class="text-[14px] font-medium text-text-main flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-[18px]">history</span> Activity History
-                    </h3>
-                </div>
-                <div id="wallet-history-container" class="p-5">
-                    <div class="flex flex-col items-center justify-center py-6 text-text-secondary">
-                        <span class="material-symbols-outlined text-[40px] mb-2 opacity-20">receipt_long</span>
-                        <p class="text-[13px]">No transactions yet</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="material-card p-0">
-                <div class="px-5 py-4 border-b border-slate-100 bg-slate-50">
-                    <h3 class="text-[14px] font-medium text-text-main flex items-center gap-2">
-                        <span class="material-symbols-outlined text-google-yellow text-[18px] font-fill">emoji_events</span> Global Leaderboard
-                    </h3>
-                </div>
-                <div id="wallet-leaderboard-container" class="p-5">
-                    <div class="flex flex-col items-center justify-center py-4 text-text-secondary">
-                        <div class="spinner mb-3"></div>
-                        <p class="text-[13px]">Syncing leaderboard...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- =========== PROMOTE PAGE =========== -->
-    <main id="promote-page" class="page-content hidden h-full">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white shadow-sm sticky top-0">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Promote with Google</h1>
-            <div class="size-10"></div>
-        </header>
+    <!-- 1. VIP GATEWAY SECTION -->
+    <section id="gateway-section">
         
-        <div class="flex-grow overflow-y-auto no-scrollbar pt-6 pb-24">
-            <div class="px-5 mb-4">
-                <h2 class="text-xl font-bold text-text-main mb-1">Boost Your Content</h2>
-                <p class="text-[13px] text-text-secondary">Swipe left to discover professional promotional plans tailored for maximum reach.</p>
-            </div>
+        <div class="gateway-header">
+            <i class="fa-solid fa-spa"></i>
+            <h1>LUXE SPA</h1>
+            <div style="font-family: 'Great Vibes', cursive; font-size: 40px; color: var(--light-gold);">VIP Experience</div>
+        </div>
+
+        <div class="gateway-form-container">
+            <h2><i class="fa-solid fa-gem" style="margin-right: 8px;"></i> VIP VERIFICATION</h2>
+            <p>Enter your credentials once to permanently unlock the VIP Dashboard on this device.</p>
             
-            <div id="promote-cards-container" class="flex overflow-x-auto snap-x snap-mandatory gap-5 px-5 pb-8 no-scrollbar pt-2">
-                <div class="material-card p-10 w-full text-center border-2 border-dashed border-slate-200 shadow-none bg-transparent">
-                    <div class="spinner inline-block align-middle mb-4 border-primary"></div>
-                    <p class="text-[13px] text-text-secondary font-medium">Fetching plans securely...</p>
+            <form id="unlockForm">
+                <div class="input-group">
+                    <label>FULL NAME</label>
+                    <input type="text" id="userName" placeholder="Enter your full name" required>
                 </div>
-            </div>
+                <div class="input-group">
+                    <label>MOBILE / WHATSAPP NUMBER</label>
+                    <input type="tel" id="userPhone" placeholder="Enter 10-digit number" required>
+                </div>
+                <div class="input-group">
+                    <label>COMPLETE ADDRESS</label>
+                    <textarea id="userAddress" rows="2" placeholder="Enter your service address" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-unlock" id="unlockBtn">
+                    UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>
+                </button>
+            </form>
         </div>
-    </main>
 
-    <!-- =========== BUY COINS PAGE =========== -->
-    <main id="buy-coins-page" class="page-content hidden h-full">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white shadow-sm sticky top-0">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Google Coin Store</h1>
-            <div class="size-10"></div>
-        </header>
+    </section>
 
-        <div class="flex-grow overflow-y-auto no-scrollbar px-5 pt-6 pb-24">
-            <div id="plans-container" class="grid grid-cols-2 gap-4">
-                <div class="col-span-2 material-card p-10 flex flex-col items-center justify-center text-text-secondary">
-                    <span class="material-symbols-outlined text-[48px] mb-3 opacity-20">storefront</span>
-                    <p class="text-[14px] font-medium">Store currently offline.</p>
-                </div>
-            </div>
+    <!-- 2. MAIN VIP DASHBOARD SECTION -->
+    <section id="main-content-section">
+        
+        <div class="welcome-banner">
+            <h2>VIP DASHBOARD</h2>
+            <p id="userWelcomeText">Exclusive Relaxation Awaits You</p>
         </div>
-    </main>
 
-    <!-- =========== PROFILE PAGE =========== -->
-    <main id="profile-page" class="page-content hidden h-full">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white shadow-sm sticky top-0">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Google Account</h1>
-            <div class="size-10"></div>
-        </header>
-
-        <div class="flex-grow overflow-y-auto no-scrollbar pt-6 px-4 pb-24">
-            <div id="profile-view-mode" class="hidden">
-                <div class="flex flex-col items-center mb-8">
-                    <div class="size-24 rounded-full border border-slate-200 shadow-google-sm overflow-hidden mb-4 relative">
-                        <img id="view-profile-img" src="" class="w-full h-full object-cover">
-                    </div>
-                    <h2 id="display-name" class="text-[22px] font-bold text-text-main">--</h2>
-                    <div class="bg-slate-100 px-3 py-1 rounded-full mt-2 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[14px] text-text-secondary">mail</span>
-                        <p id="display-email" class="text-[12px] text-text-secondary font-medium">--</p>
-                    </div>
-                </div>
-
-                <div class="material-card p-0 mb-6">
-                    <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-                        <div>
-                            <p class="text-[11px] text-text-secondary uppercase tracking-wider font-medium mb-1">Phone Number</p>
-                            <h3 id="display-phone" class="text-[15px] font-medium text-text-main">--</h3>
-                        </div>
-                        <span class="material-symbols-outlined text-text-secondary opacity-50">call</span>
-                    </div>
-                    <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-                        <div>
-                            <p class="text-[11px] text-text-secondary uppercase tracking-wider font-medium mb-1">Address</p>
-                            <h3 id="display-address" class="text-[15px] font-medium text-text-main">--</h3>
-                        </div>
-                        <span class="material-symbols-outlined text-text-secondary opacity-50">home</span>
-                    </div>
-                    <div class="p-4 flex items-center justify-between bg-primary-light/30">
-                        <div>
-                            <p class="text-[11px] text-primary uppercase tracking-wider font-medium mb-1">UPI / Payment ID</p>
-                            <h3 id="display-payment" class="text-[15px] font-bold text-primary tracking-wide">--</h3>
-                        </div>
-                        <span class="material-symbols-outlined text-primary">account_balance</span>
-                    </div>
-                </div>
-
-                <div class="flex gap-3 mb-8">
-                    <button id="edit-profile-btn" class="flex-1 secondary-btn py-3 flex items-center justify-center gap-2 shadow-sm"><span class="material-symbols-outlined text-[18px]">edit</span> Manage</button>
-                    <button id="delete-profile-btn" class="flex-1 bg-white border border-red-200 text-google-red py-3 rounded-[100px] font-medium text-[14px] flex items-center justify-center gap-2 hover:bg-red-50 transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span> Reset Data</button>
-                </div>
-
-                <div class="space-y-3 px-2">
-                    <h3 class="text-[13px] font-bold text-text-secondary uppercase tracking-wider mb-2">Google Policies</h3>
-                    <button class="w-full flex items-center justify-between text-[14px] text-text-main py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">Terms of Service <span class="material-symbols-outlined text-[20px] text-text-secondary">open_in_new</span></button>
-                    <button class="w-full flex items-center justify-between text-[14px] text-text-main py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">Privacy Policy <span class="material-symbols-outlined text-[20px] text-text-secondary">open_in_new</span></button>
-                    <button class="w-full flex items-center justify-between text-[14px] text-text-main py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">Help & Support <span class="material-symbols-outlined text-[20px] text-text-secondary">help_outline</span></button>
-                </div>
-            </div>
-
-            <div id="profile-edit-mode" class="block animate-on-show">
-                <div class="text-center mb-6">
-                    <h2 class="text-[22px] font-bold text-text-main">Complete Setup</h2>
-                    <p class="text-[13px] text-text-secondary mt-1">Provide details to unlock all Google Wallet features.</p>
-                </div>
-                <form id="profile-form" class="space-y-5 material-card p-5">
-                    <div class="flex flex-col items-center gap-2 mb-2 pb-5 border-b border-slate-100">
-                        <label for="profile-img-upload" class="relative cursor-pointer group">
-                            <div id="img-preview-container" class="size-20 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center overflow-hidden shadow-sm">
-                                <span class="material-symbols-outlined text-[28px] text-primary">add_a_photo</span>
-                            </div>
-                            <div class="absolute inset-0 bg-black/40 rounded-full hidden group-hover:flex items-center justify-center transition-all"><span class="material-symbols-outlined text-white text-[20px]">edit</span></div>
-                        </label>
-                        <input type="file" id="profile-img-upload" class="hidden" accept="image/*">
-                        <span id="upload-status" class="text-[12px] text-primary font-medium bg-primary-light px-3 py-1 rounded-full">Tap to select photo</span>
-                    </div>
-
-                    <div class="space-y-1.5"><label class="text-[12px] font-medium text-text-secondary ml-1">Legal Name</label><input type="text" id="input-name" class="google-input w-full bg-white text-[15px] text-text-main px-4 py-3" required placeholder="John Doe"></div>
-                    <div class="space-y-1.5"><label class="text-[12px] font-medium text-text-secondary ml-1">Phone Number</label><input type="tel" id="input-phone" class="google-input w-full bg-white text-[15px] text-text-main px-4 py-3" required placeholder="+1 234 567 8900"></div>
-                    <div class="space-y-1.5"><label class="text-[12px] font-medium text-text-secondary ml-1">Google Email</label><input type="email" id="input-email" class="google-input w-full bg-white text-[15px] text-text-main px-4 py-3" required placeholder="user@gmail.com"></div>
-                    <div class="space-y-1.5"><label class="text-[12px] font-medium text-text-secondary ml-1">Billing Address</label><input type="text" id="input-address" class="google-input w-full bg-white text-[15px] text-text-main px-4 py-3" required placeholder="123 Google St, City"></div>
-                    <div class="space-y-1.5"><label class="text-[12px] font-medium text-text-secondary ml-1">UPI / Payment ID</label><input type="text" id="input-payment" class="google-input w-full bg-white text-[15px] text-text-main px-4 py-3 font-mono" required placeholder="user@upi"></div>
-                    
-                    <button type="submit" id="save-profile-btn" class="action-btn w-full py-3.5 text-[15px] mt-2">Save Information</button>
-                </form>
-            </div>
-        </div>
-    </main>
-
-    <!-- =========== TASKS PAGE CONTENT =========== -->
-    <main id="tasks-page" class="page-content hidden h-full">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white shadow-sm sticky top-0">
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">All Tasks</h1>
-        </header>
-        <div class="flex-grow overflow-y-auto no-scrollbar pt-6 px-4 pb-24">
-            <div id="all-tasks-container" class="space-y-3">
-                <!-- Tasks dynamically inserted here -->
-            </div>
-        </div>
-    </main>
-
-    <!-- =========== TASK DETAIL PAGE =========== -->
-    <main id="task-detail-page" class="page-content hidden h-full bg-white">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white sticky top-0 border-b border-slate-100">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">close</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Task Details</h1>
-            <div class="size-10"></div>
-        </header>
-        <div class="overflow-y-auto no-scrollbar px-6 pb-24"><div class="space-y-8 animate-on-show mt-8">
+        <div class="providers-section">
+            <h3 class="section-title"><i class="fa-solid fa-star" style="font-size:16px;"></i> OUR ELITE THERAPISTS <i class="fa-solid fa-star" style="font-size:16px;"></i></h3>
             
-            <div class="text-center flex flex-col items-center">
-                <div id="td-icon-container" class="size-24 mx-auto rounded-full bg-primary-light flex items-center justify-center text-primary mb-4 shadow-sm border border-primary/10">
-                    <span id="td-icon" class="material-symbols-outlined text-[40px]">task</span>
-                </div>
-                <h2 id="td-title" class="text-[22px] font-bold text-text-main mb-1">Task Name</h2>
-                <div class="bg-[#FFF8E1] text-google-yellow font-bold text-[14px] px-4 py-1.5 rounded-full border border-[#FBE9E7] inline-flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[18px] font-fill">monetization_on</span>
-                    <span id="td-coins">+0 Coins</span>
-                </div>
-            </div>
-
-            <div class="space-y-4 pt-4 border-t border-slate-100">
-                <button id="start-task-btn" class="action-btn w-full py-4 text-[16px]">Proceed to Target</button>
-                <button id="next-btn" class="hidden secondary-btn w-full py-4 text-[16px] flex items-center justify-center gap-2">Verify Completion <span class="material-symbols-outlined text-[20px]">arrow_forward</span></button>
-            </div>
-            
-            <div class="material-card bg-[#FCE8E6] border-none shadow-none p-5 rounded-2xl">
-                <div class="flex items-start gap-3">
-                    <span class="material-symbols-outlined text-google-red text-[24px]">gpp_maybe</span>
-                    <div>
-                        <h3 class="font-bold text-[#C5221F] text-[14px]">Security Policy</h3>
-                        <ul class="text-[13px] text-[#C5221F]/80 mt-2 list-disc list-inside space-y-2">
-                            <li>Mandatory screenshot required for verification.</li>
-                            <li>Fraudulent activity will result in a permanent ban.</li>
-                            <li>Reversing actions penalizes wallet balance.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div></div>
-    </main>
-
-    <!-- =========== VIDEO TASK PAGE (NEW FEATURE) =========== -->
-    <main id="video-task-page" class="page-content hidden h-full bg-white">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white sticky top-0 border-b border-slate-100">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Watch & Earn</h1>
-            <div class="size-10"></div>
-        </header>
-        <div class="flex-grow flex flex-col pt-6 px-4 pb-24 items-center">
-            <div class="w-full aspect-video bg-black rounded-xl overflow-hidden mb-6 relative shadow-google-md" id="video-container">
-                <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            
-            <div class="material-card w-full p-6 text-center shadow-google-sm border border-slate-100">
-                <h3 class="font-bold text-[18px] text-text-main mb-2 tracking-tight">Complete Watch Time</h3>
-                <div id="video-timer-display" class="text-[40px] font-black text-primary mb-2 font-mono">00:00</div>
-                <p class="text-[13px] text-text-secondary mb-6 px-2">Do not close this page or skip the video. Watch until the timer ends to unlock your coins.</p>
-                
-                <div class="flex justify-center gap-2 mb-6">
-                    <div class="bg-[#FFF8E1] text-google-yellow font-bold text-[16px] px-5 py-2.5 rounded-full border border-[#FBE9E7] inline-flex items-center gap-1.5 shadow-sm">
-                        <span class="material-symbols-outlined text-[22px] font-fill">monetization_on</span>
-                        <span id="video-reward-coins">+0 Coins</span>
-                    </div>
-                </div>
-                
-                <button id="claim-video-reward-btn" class="action-btn w-full py-4 text-[16px]" disabled>Watch to Claim...</button>
+            <div class="providers-grid" id="userProvidersGrid">
+                <!-- Fetching from Firebase -->
             </div>
         </div>
-    </main>
 
-    <!-- =========== TASK SUBMISSION PAGE =========== -->
-    <main id="task-submission-page" class="page-content hidden h-full bg-white">
-        <header class="flex items-center px-4 pt-6 pb-4 flex-shrink-0 z-10 bg-white sticky top-0 border-b border-slate-100">
-            <button class="back-btn size-10 rounded-full flex items-center justify-center text-text-secondary hover:bg-slate-100 transition-colors"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
-            <h1 class="text-[18px] font-medium text-text-main text-center flex-grow">Upload Proof</h1>
-            <div class="size-10"></div>
-        </header>
-        <div class="overflow-y-auto no-scrollbar px-5 pb-24 pt-6">
-            <div class="space-y-6 animate-on-show">
-                <div class="rounded-2xl overflow-hidden shadow-google-sm border border-slate-200 aspect-video bg-slate-50 relative" id="ss-preview-container">
-                    <img src="https://i.ibb.co/zhVtmFFk/file-00000000d214720bb7f8bcc209bea6c7.png" id="ss-preview-img" alt="Task Submission Banner" class="w-full h-full object-cover">
-                </div>
-                
-                <div>
-                    <label for="screenshot-upload" class="w-full py-8 rounded-2xl border-2 border-dashed border-primary bg-primary-light/30 flex flex-col items-center justify-center cursor-pointer hover:bg-primary-light/50 transition-colors">
-                        <div class="bg-white size-12 rounded-full shadow-sm flex items-center justify-center mb-3">
-                            <span class="material-symbols-outlined text-[24px] text-primary">cloud_upload</span>
-                        </div>
-                        <span id="upload-text" class="text-[15px] font-medium text-primary">Select image from gallery</span>
-                        <span id="file-name" class="text-[12px] text-google-green mt-2 font-medium px-4 text-center"></span>
-                    </label>
-                    <input type="file" id="screenshot-upload" class="hidden" accept="image/*"/>
-                </div>
-                
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
-                    <label for="account-username" class="text-[13px] font-bold text-text-main mb-2 block">Associated Account ID</label>
-                    <input type="text" id="account-username" placeholder="e.g. @your_username" class="google-input w-full bg-white text-[15px] px-4 py-3" required>
-                    <p class="text-[11px] text-text-secondary mt-2">Enter the username used to complete the task for verification.</p>
-                </div>
-                
-                <button id="submit-proof-btn" class="action-btn w-full py-4 text-[16px] mt-4" disabled>Submit to Review System</button>
-            </div>
-        </div>
-    </main>
+    </section>
 
-    <!-- =========== BOTTOM NAVIGATION (Google Material 3 Style) =========== -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 pb-safe pt-2 px-2 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.02)]">
-        <div class="flex justify-around items-center max-w-lg mx-auto pb-2">
-            <a href="#" data-page="home" class="nav-link flex flex-col items-center gap-1 min-w-[64px]">
-                <div class="icon-container flex items-center justify-center h-[32px] w-[64px]">
-                    <span class="material-symbols-outlined text-[24px]">home</span>
-                </div>
-                <span class="text-[11px] font-medium label-text">Home</span>
-            </a>
-            <a href="#" data-page="tasks" class="nav-link flex flex-col items-center gap-1 min-w-[64px]">
-                <div class="icon-container flex items-center justify-center h-[32px] w-[64px]">
-                    <span class="material-symbols-outlined text-[24px]">assignment</span>
-                </div>
-                <span class="text-[11px] font-medium label-text">Tasks</span>
-            </a>
-            <a href="#" data-page="wallet" class="nav-link flex flex-col items-center gap-1 min-w-[64px]">
-                <div class="icon-container flex items-center justify-center h-[32px] w-[64px]">
-                    <span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
-                </div>
-                <span class="text-[11px] font-medium label-text">Wallet</span>
-            </a>
-            <a href="#" data-page="promote" class="nav-link flex flex-col items-center gap-1 min-w-[64px]">
-                <div class="icon-container flex items-center justify-center h-[32px] w-[64px]">
-                    <span class="material-symbols-outlined text-[24px]">trending_up</span>
-                </div>
-                <span class="text-[11px] font-medium label-text">Promote</span>
-            </a>
-            <a href="#" data-page="profile" class="nav-link flex flex-col items-center gap-1 min-w-[64px]">
-                <div class="icon-container flex items-center justify-center h-[32px] w-[64px]">
-                    <span class="material-symbols-outlined text-[24px]">person</span>
-                </div>
-                <span class="text-[11px] font-medium label-text">Profile</span>
-            </a>
-        </div>
-    </nav>
-
-    <!-- LOGIC SCRIPT (100% Intact Functionality) -->
+    <!-- Firebase v9 SDK Connection Script -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-        import { getDatabase, ref, set, get, child, onValue, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        // Uncompressed Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
+        // Your Exact Configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyB4jDUkGOAtZDzWfQ-KKTPGlLu05NdMQMU",
-          authDomain: "flipmed-9abe8.firebaseapp.com",
-          databaseURL: "https://flipmed-9abe8-default-rtdb.firebaseio.com",
-          projectId: "flipmed-9abe8",
-          storageBucket: "flipmed-9abe8.firebasestorage.app",
-          messagingSenderId: "115049987394",
-          appId: "1:115049987394:web:c8140220615408486f9cdb",
-          measurementId: "G-SKFVC60VHX"
+            apiKey: "AIzaSyC0oD7NKFbUweD58i1x6bheEBWfK7Yme9Q",
+            authDomain: "mediverse-1088d.firebaseapp.com",
+            projectId: "mediverse-1088d",
+            storageBucket: "mediverse-1088d.firebasestorage.app",
+            messagingSenderId: "691637264735",
+            appId: "1:691637264735:web:56e8eba25de2f64378d6ea",
+            measurementId: "G-DK3B7PGBXH"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
         const db = getDatabase(app);
+        const bookingsRef = ref(db, 'Client_Bookings');
+        const providersRef = ref(db, 'Service_Providers');
 
-        let userId = localStorage.getItem('userId');
-        if (!userId) {
-            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('userId', userId);
-        }
+        // ==========================================
+        // FEATURE: LOCAL STORAGE ("Remember Me")
+        // Check if user is already verified on page load
+        // ==========================================
+        window.onload = function() {
+            const isVIP = localStorage.getItem('luxeSpa_isVIP');
+            const savedName = localStorage.getItem('luxeSpa_UserName');
 
-        window.videoTimerInterval = null; // Global access for video timer
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const pages = document.querySelectorAll('.page-content');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const backBtns = document.querySelectorAll('.back-btn');
-            const pageHistory = ['home'];
-
-            let currentActiveTask = null;
-            let currentTaskScreenshot = "";
-            let currentUserCoins = 0;
-
-            function updateNav(activePageId) {
-                navLinks.forEach(link => {
-                    const icon = link.querySelector('.material-symbols-outlined');
-                    const text = link.querySelector('.label-text');
-                    
-                    if (link.dataset.page === activePageId) {
-                        link.classList.add('active-nav');
-                        link.classList.remove('text-text-secondary');
-                        link.classList.add('text-text-main');
-                        text.classList.add('font-bold'); 
-                        text.classList.remove('font-medium');
-                        icon.classList.add('font-fill');
-                    } else {
-                        link.classList.remove('active-nav');
-                        link.classList.add('text-text-secondary'); 
-                        link.classList.remove('text-text-main');
-                        text.classList.remove('font-bold'); 
-                        text.classList.add('font-medium');
-                        icon.classList.remove('font-fill');
-                    }
-                });
+            if (isVIP === 'true' && savedName) {
+                // Instantly hide gateway and show dashboard
+                document.getElementById('gateway-section').style.display = 'none';
+                document.getElementById('main-content-section').style.display = 'block';
+                document.getElementById('userWelcomeText').innerText = `Welcome back, ${savedName}.`;
+                loadProvidersData(); // Fetch the grid data
             }
+        };
 
-            function showPage(pageId) {
-                // Video cleanup security if leaving video page
-                if (pageId !== 'video-task') {
-                    const iframe = document.getElementById('video-iframe');
-                    if(iframe) iframe.src = "";
-                    if(window.videoTimerInterval) clearInterval(window.videoTimerInterval);
-                }
-
-                pages.forEach(page => page.classList.add('hidden'));
-                const targetPage = document.getElementById(pageId + '-page');
-                if (targetPage) targetPage.classList.remove('hidden');
-                
-                if (['home','tasks','wallet','promote','profile'].includes(pageId)) {
-                    updateNav(pageId);
-                }
-
-                if (pageHistory[pageHistory.length - 1] !== pageId) {
-                    pageHistory.push(pageId);
-                }
-                
-                window.scrollTo(0,0);
-            }
+        // ==========================================
+        // FORM SUBMIT: Save to Firebase & LocalStorage
+        // ==========================================
+        document.getElementById('unlockForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
             
-            function goBack() {
-                if (pageHistory.length > 1) {
-                    pageHistory.pop();
-                    const previousPageId = pageHistory[pageHistory.length - 1];
-                    showPage(previousPageId);
-                    pageHistory.pop(); 
-                }
-            }
+            const btn = document.getElementById('unlockBtn');
+            btn.innerHTML = 'VERIFYING... <i class="fa-solid fa-spinner fa-spin"></i>';
 
-            backBtns.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); goBack(); }));
-            navLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); showPage(link.dataset.page); }));
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const address = document.getElementById('userAddress').value;
 
-            document.getElementById('btn-earn-wallet').addEventListener('click', () => showPage('wallet'));
-            document.getElementById('btn-home-promote').addEventListener('click', () => showPage('promote'));
-            document.getElementById('btn-home-buy').addEventListener('click', () => showPage('buy-coins'));
-            document.getElementById('wallet-icon-btn').addEventListener('click', () => showPage('wallet'));
-            document.getElementById('home-wallet-btn').addEventListener('click', () => showPage('wallet'));
-            document.getElementById('header-profile-btn').addEventListener('click', () => showPage('profile'));
-            if(document.getElementById('see-all-tasks-btn')) document.getElementById('see-all-tasks-btn').addEventListener('click', () => showPage('tasks'));
+            // Save to Firebase
+            const newBookingRef = push(bookingsRef);
+            set(newBookingRef, {
+                FullName: name,
+                MobileNumber: phone,
+                Address: address,
+                Timestamp: new Date().toLocaleString()
+            })
+            .then(() => {
+                // SUCCESS: Save in LocalStorage so user doesn't have to fill form again
+                localStorage.setItem('luxeSpa_isVIP', 'true');
+                localStorage.setItem('luxeSpa_UserName', name);
 
-            // --- PROFILE & COIN LOGIC ---
-            const profileForm = document.getElementById('profile-form');
-            const profileViewMode = document.getElementById('profile-view-mode');
-            const profileEditMode = document.getElementById('profile-edit-mode');
-            
-            const inputName = document.getElementById('input-name');
-            const inputPhone = document.getElementById('input-phone');
-            const inputEmail = document.getElementById('input-email');
-            const inputAddress = document.getElementById('input-address');
-            const inputPayment = document.getElementById('input-payment');
-            const imgInput = document.getElementById('profile-img-upload');
-            const uploadStatus = document.getElementById('upload-status');
-            
-            const dispName = document.getElementById('display-name');
-            const dispEmail = document.getElementById('display-email');
-            const dispPhone = document.getElementById('display-phone');
-            const dispAddress = document.getElementById('display-address');
-            const dispPayment = document.getElementById('display-payment');
-            const viewProfileImg = document.getElementById('view-profile-img');
-            const headerProfileImg = document.getElementById('header-profile-img');
-            const headerUsername = document.getElementById('header-username');
-
-            let tempImgUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuB7zc-sLFaBCayayyLQFv3gninyPIW8vn5clHeaIVctq8M4tYZHa-1nvx7FFdN1_LePhCSmIqw1_6eeruJA_51VNy_i3JAvfgnGjZlBmHt-X2la9GsAQxglQ2F-A1364VS0NZP4S7_GSwVaamOSZnGQf3xUfLBq08SRS__OrucK2lm7vFTcUhlKQd3Qk_LKNzmD-quEs0GwP0rshwtUDeQyAlYILAO49FgwwDNaoBmRE7Gyt7wvz5Buk82QbtJIPu-PSLizWdTqE2qC";
-            let currentUserData = null;
-
-            async function loadProfile() {
-                try {
-                    const dbRef = ref(db);
-                    onValue(child(dbRef, `users/${userId}`), (snapshot) => {
-                        if (snapshot.exists()) {
-                            const data = snapshot.val();
-                            currentUserData = data;
-                            currentUserCoins = data.coins || 0; 
-                            
-                            dispName.textContent = data.name;
-                            dispEmail.textContent = data.email;
-                            dispPhone.textContent = data.phone;
-                            dispAddress.textContent = data.address;
-                            dispPayment.textContent = data.payment;
-                            viewProfileImg.src = data.image;
-                            
-                            headerProfileImg.src = data.image;
-                            headerUsername.textContent = data.name + " 👋";
-
-                            inputName.value = data.name;
-                            inputEmail.value = data.email;
-                            inputPhone.value = data.phone;
-                            inputAddress.value = data.address;
-                            inputPayment.value = data.payment;
-                            tempImgUrl = data.image;
-
-                            document.getElementById('home-total-balance').textContent = currentUserCoins;
-                            document.getElementById('home-ready-balance').textContent = currentUserCoins;
-                            document.getElementById('wallet-available-balance').textContent = currentUserCoins;
-
-                            profileViewMode.classList.remove('hidden');
-                            profileEditMode.classList.add('hidden');
-                        } else {
-                            profileViewMode.classList.add('hidden');
-                            profileEditMode.classList.remove('hidden');
-                        }
-                    });
-                } catch (error) {
-                    console.error("Error getting data: ", error);
-                }
-            }
-
-            function hasProfile() { return currentUserData !== null; }
-
-            async function uploadToImgbb(file, callbackMsgElem, successCallback) {
-                callbackMsgElem.innerHTML = '<div class="spinner !size-4 !border-2 inline-block align-middle mr-1"></div> Syncing...';
-                callbackMsgElem.classList.remove('text-google-red', 'text-google-green', 'bg-red-50', 'bg-green-50');
-                callbackMsgElem.classList.add('text-primary', 'bg-primary-light');
+                // Play Slide Out Animation on Gateway
+                const gateway = document.getElementById('gateway-section');
+                gateway.style.animation = 'slideOutUp 1s ease forwards';
                 
-                const formData = new FormData();
-                formData.append("image", file);
-
-                try {
-                    const response = await fetch("https://api.imgbb.com/1/upload?key=7ea229f30d98aebf6b1302b6d3576f9a", {
-                        method: "POST", body: formData
-                    });
-                    const result = await response.json();
+                setTimeout(() => {
+                    gateway.style.display = 'none';
+                    const mainContent = document.getElementById('main-content-section');
+                    mainContent.style.display = 'block';
+                    mainContent.style.animation = 'slideUpFade 1s ease forwards';
                     
-                    if (result.success) {
-                        callbackMsgElem.textContent = "Upload Complete";
-                        callbackMsgElem.classList.remove('text-primary', 'bg-primary-light');
-                        callbackMsgElem.classList.add('text-google-green', 'bg-green-50');
-                        successCallback(result.data.url);
-                    } else {
-                        throw new Error("Upload failed");
-                    }
-                } catch (error) {
-                    callbackMsgElem.textContent = "Upload Error. Retry.";
-                    callbackMsgElem.classList.remove('text-primary', 'bg-primary-light');
-                    callbackMsgElem.classList.add('text-google-red', 'bg-red-50');
-                }
-            }
-
-            imgInput.addEventListener('change', function() {
-                if(this.files[0]) uploadToImgbb(this.files[0], uploadStatus, (url) => {
-                    tempImgUrl = url;
-                    document.getElementById('img-preview-container').innerHTML = `<img src="${url}" class="w-full h-full object-cover">`;
-                });
-            });
-
-            profileForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const saveBtn = document.getElementById('save-profile-btn');
-                saveBtn.innerText = "Saving to Google Servers..."; saveBtn.disabled = true;
-
-                const data = {
-                    name: inputName.value, email: inputEmail.value, phone: inputPhone.value,
-                    address: inputAddress.value, payment: inputPayment.value, image: tempImgUrl,
-                    coins: currentUserCoins, 
-                    updatedAt: Date.now()
-                };
-
-                try {
-                    await set(ref(db, 'users/' + userId), data);
-                    alert('Profile Data Synchronized Successfully!');
-                } catch (error) {
-                    alert('Network error. Failed to save.');
-                } finally {
-                    saveBtn.innerText = "Save Information"; saveBtn.disabled = false;
-                }
-            });
-
-            document.getElementById('edit-profile-btn').addEventListener('click', () => {
-                profileViewMode.classList.add('hidden'); profileEditMode.classList.remove('hidden');
-            });
-            document.getElementById('delete-profile-btn').addEventListener('click', async () => {
-                if(confirm('Warning: This action will permanently delete all your data and wallet balance from our servers. Proceed?')) {
-                    await set(ref(db, 'users/' + userId), null);
-                    profileForm.reset();
-                    tempImgUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuB7zc-sLFaBCayayyLQFv3gninyPIW8vn5clHeaIVctq8M4tYZHa-1nvx7FFdN1_LePhCSmIqw1_6eeruJA_51VNy_i3JAvfgnGjZlBmHt-X2la9GsAQxglQ2F-A1364VS0NZP4S7_GSwVaamOSZnGQf3xUfLBq08SRS__OrucK2lm7vFTcUhlKQd3Qk_LKNzmD-quEs0GwP0rshwtUDeQyAlYILAO49FgwwDNaoBmRE7Gyt7wvz5Buk82QbtJIPu-PSLizWdTqE2qC";
-                    currentUserData = null; currentUserCoins = 0;
-                }
-            });
-
-            // --- ADMIN DYNAMIC BANNERS ---
-            let bannersArray = [];
-            let bannerInterval = null;
-            let currentBannerIdx = 0;
-            
-            onValue(ref(db, 'banners'), (snapshot) => {
-                bannersArray = [];
-                if(snapshot.exists()) {
-                    snapshot.forEach(snap => bannersArray.push(snap.val().imageUrl));
-                }
-                
-                if(bannersArray.length > 0) {
-                    const imgElem = document.getElementById('promo-banner-img');
-                    imgElem.src = bannersArray[0];
-                    clearInterval(bannerInterval);
-                    bannerInterval = setInterval(() => {
-                        currentBannerIdx = (currentBannerIdx + 1) % bannersArray.length;
-                        imgElem.src = bannersArray[currentBannerIdx];
-                    }, 4000);
-                }
-            });
-
-            // --- VIDEO TASK TIMER LOGIC ---
-            let videoTimeLeft = 60; // Set default video timer to 60 seconds
-            
-            function setupVideoTask(link, coins) {
-                const iframe = document.getElementById('video-iframe');
-                // Convert YouTube links to embed automatically
-                let embedLink = link;
-                if(link.includes('youtube.com/watch?v=')) {
-                    embedLink = link.replace('youtube.com/watch?v=', 'youtube.com/embed/') + "?autoplay=1&mute=0";
-                } else if(link.includes('youtu.be/')) {
-                    embedLink = link.replace('youtu.be/', 'youtube.com/embed/') + "?autoplay=1&mute=0";
-                }
-                iframe.src = embedLink;
-                
-                document.getElementById('video-reward-coins').textContent = '+' + coins + ' Coins';
-                
-                videoTimeLeft = 60; // Restart timer each time
-                updateVideoTimerUI();
-                
-                const claimBtn = document.getElementById('claim-video-reward-btn');
-                claimBtn.disabled = true;
-                claimBtn.textContent = "Watch to Claim...";
-                
-                if(window.videoTimerInterval) clearInterval(window.videoTimerInterval);
-                window.videoTimerInterval = setInterval(() => {
-                    videoTimeLeft--;
-                    updateVideoTimerUI();
-                    if(videoTimeLeft <= 0) {
-                        clearInterval(window.videoTimerInterval);
-                        claimBtn.disabled = false;
-                        claimBtn.textContent = "Claim Reward Now";
-                        claimBtn.classList.remove('bg-E8EAED');
-                        claimBtn.classList.add('bg-primary');
-                    }
-                }, 1000);
-            }
-            
-            function updateVideoTimerUI() {
-                const mins = Math.floor(videoTimeLeft / 60);
-                const secs = videoTimeLeft % 60;
-                document.getElementById('video-timer-display').textContent = 
-                    (mins < 10 ? "0"+mins : mins) + ":" + (secs < 10 ? "0"+secs : secs);
-            }
-            
-            // Video Task Submit Action
-            document.getElementById('claim-video-reward-btn').addEventListener('click', async function() {
-                this.disabled = true;
-                this.textContent = "Crediting Coins...";
-                
-                const updatedCoins = currentUserCoins + currentActiveTask.coins;
-                
-                try {
-                    // Update user's coin securely in Firebase
-                    await set(ref(db, 'users/' + userId + '/coins'), updatedCoins);
-                    alert("Congratulations! " + currentActiveTask.coins + " coins have been securely added to your wallet.");
+                    document.getElementById('userWelcomeText').innerText = `Welcome, ${name}. Your Relaxation Awaits.`;
                     
-                    document.getElementById('video-iframe').src = ""; // Stop video immediately
-                    goBack(); // Redirect back to task list securely
-                } catch(error) {
-                    alert("Error saving reward to server. Check your connection.");
-                    this.disabled = false;
-                    this.textContent = "Claim Reward Now";
-                }
+                    loadProvidersData(); // Load the 3x3 Grid
+                    window.scrollTo(0, 0);
+                }, 900); // wait for animation to almost finish
+            })
+            .catch((error) => {
+                alert("Database Error: " + error);
+                btn.innerHTML = 'UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>';
             });
-
-            // --- ADMIN DYNAMIC TASKS ---
-            window.handleStartTaskBtn = function(taskId, title, link, coins, icon) {
-                if (!hasProfile()) { alert("Authentication Required. Please complete your profile setup first."); showPage('profile'); return; }
-                currentActiveTask = { id: taskId, title, link, coins, icon };
-                
-                // --- INTEGRATED NEW VIDEO ROUTE HERE ---
-                if (icon === "play_circle") {
-                    setupVideoTask(link, coins);
-                    showPage('video-task');
-                } else {
-                    // Normal external task route
-                    document.getElementById('td-title').textContent = title;
-                    document.getElementById('td-coins').textContent = '+' + coins + ' Coins';
-                    document.getElementById('td-icon').textContent = icon;
-                    
-                    const startBtn = document.getElementById('start-task-btn');
-                    startBtn.disabled = false;
-                    startBtn.textContent = 'Proceed to Target';
-                    document.getElementById('next-btn').classList.add('hidden');
-                    
-                    showPage('task-detail');
-                }
-            };
-
-            onValue(ref(db, 'tasks'), (snapshot) => {
-                const homeContainer = document.getElementById('home-tasks-container');
-                const allContainer = document.getElementById('all-tasks-container');
-                homeContainer.innerHTML = ''; allContainer.innerHTML = '';
-                
-                if(!snapshot.exists()) {
-                    homeContainer.innerHTML = '<div class="material-card p-4 text-center text-text-secondary"><p class="text-[13px]">No pending tasks.</p></div>';
-                    allContainer.innerHTML = '<div class="flex flex-col items-center pt-10 text-text-secondary"><span class="material-symbols-outlined text-[48px] opacity-20 mb-3">inbox</span><p class="text-[15px]">You are all caught up!</p></div>';
-                    return;
-                }
-
-                let count = 0;
-                snapshot.forEach(snap => {
-                    const task = snap.val();
-                    const taskId = snap.key;
-                    
-                    let bgIconColor = "bg-primary-light text-primary"; 
-                    if(task.icon === "photo_camera") bgIconColor = "bg-[#FCE8E6] text-[#C5221F]"; // Red
-                    if(task.icon === "play_circle") bgIconColor = "bg-[#CEEAD6] text-[#0D652D]"; // Green
-                    if(task.icon === "thumb_up") bgIconColor = "bg-[#FEF7E0] text-[#E37400]"; // Yellow
-                    if(task.icon === "send") bgIconColor = "bg-[#E8EAF6] text-[#3F51B5]"; // Indigo
-                    
-                    const taskHTML = `
-                    <div class="material-card p-4 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer border-none shadow-google-sm" onclick="handleStartTaskBtn('${taskId}', '${task.title}', '${task.link}', ${task.coins}, '${task.icon}')">
-                        <div class="flex items-center gap-4">
-                            <div class="size-12 rounded-full ${bgIconColor} flex items-center justify-center flex-shrink-0 border border-black/5">
-                                <span class="material-symbols-outlined text-[24px]">${task.icon}</span>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[15px] text-text-main mb-0.5">${task.title}</h4>
-                                <div class="flex items-center gap-1 text-google-yellow font-bold text-[12px]">
-                                    <span class="material-symbols-outlined text-[14px] font-fill">stars</span> +${task.coins} Coins
-                                </div>
-                            </div>
-                        </div>
-                        <span class="material-symbols-outlined text-text-secondary opacity-50">chevron_right</span>
-                    </div>`;
-
-                    allContainer.innerHTML += taskHTML;
-                    if(count < 3) homeContainer.innerHTML += taskHTML;
-                    count++;
-                });
-            });
-
-            // --- TASK DETAIL & SUBMISSION (For non-video tasks) ---
-            document.getElementById('start-task-btn').addEventListener('click', function() {
-                if(!currentActiveTask) return;
-                this.disabled = true; this.textContent = 'Redirecting securely...';
-                window.open(currentActiveTask.link, '_blank');
-                document.getElementById('next-btn').classList.remove('hidden');
-            });
-            
-            document.getElementById('next-btn').addEventListener('click', () => {
-                document.getElementById('account-username').value = '';
-                document.getElementById('screenshot-upload').value = '';
-                document.getElementById('file-name').textContent = '';
-                document.getElementById('ss-preview-img').src = "https://i.ibb.co/zhVtmFFk/file-00000000d214720bb7f8bcc209bea6c7.png"; 
-                currentTaskScreenshot = "";
-                
-                const btn = document.getElementById('submit-proof-btn');
-                btn.disabled = true;
-                btn.classList.add('opacity-50', 'cursor-not-allowed');
-                
-                showPage('task-submission');
-            });
-
-            document.getElementById('screenshot-upload').addEventListener('change', function() {
-                if(this.files[0]) {
-                    const statusText = document.getElementById('file-name');
-                    uploadToImgbb(this.files[0], statusText, (url) => {
-                        currentTaskScreenshot = url;
-                        document.getElementById('ss-preview-img').src = url;
-                        
-                        const btn = document.getElementById('submit-proof-btn');
-                        btn.disabled = false;
-                        btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    });
-                }
-            });
-
-            document.getElementById('submit-proof-btn').addEventListener('click', async function() {
-                const socialId = document.getElementById('account-username').value.trim();
-                if(!socialId) { alert("Input Required: Please enter the associated account username."); return; }
-                if(!currentTaskScreenshot) { alert("Processing: Please wait for the image upload to complete."); return; }
-                
-                const originalText = this.innerText;
-                this.innerText = "Encrypting & Submitting..."; this.disabled = true;
-
-                const submissionData = {
-                    userId: userId,
-                    userName: currentUserData.name,
-                    socialUsername: socialId,
-                    taskTitle: currentActiveTask.title,
-                    rewardCoins: currentActiveTask.coins,
-                    screenshotUrl: currentTaskScreenshot,
-                    status: "pending",
-                    timestamp: Date.now()
-                };
-
-                try {
-                    await push(ref(db, 'submissions'), submissionData);
-                    alert("Submission Successful. Your data has been securely forwarded for review.");
-                    showPage('home');
-                } catch(e) {
-                    alert("Network Protocol Error. Please try again.");
-                    this.innerText = originalText; this.disabled = false;
-                }
-            });
-
-
-            // --- WALLET WITHDRAWAL LOGIC ---
-            document.getElementById('withdraw-btn-wallet').addEventListener('click', () => {
-                document.getElementById('home-withdraw-btn').click(); 
-            });
-
-            document.getElementById('home-withdraw-btn').addEventListener('click', () => {
-                if (!hasProfile()) { alert('Authentication Required: Please complete your profile first.'); showPage('profile'); return; }
-                const message = `*Withdrawal Request*\n\nName: ${currentUserData.name}\nPhone: ${currentUserData.phone}\nUPI/ID: ${currentUserData.payment}\n*Total Balance to Withdraw: ${currentUserCoins} Coins*`;
-                window.open(`https://wa.me/919104945554?text=${encodeURIComponent(message)}`, '_blank');
-            });
-
-            // --- PROMOTE PAGE (9:16 SLIDER) LOGIC ---
-            window.buyPromotePlan = function(planName, planPrice) {
-                if (!hasProfile()) { 
-                    alert('Authentication Required: Please complete your profile to access billing.'); 
-                    showPage('profile'); 
-                    return; 
-                }
-                const message = `*New Promotion Purchase Request*\n\n*Plan Details:*\n- Plan Name: ${planName}\n- Price: ${planPrice}\n\n*My Details:*\n- Name: ${currentUserData.name}\n- Phone: ${currentUserData.phone}\n- Email: ${currentUserData.email}\n- UPI/ID: ${currentUserData.payment}\n- Current Coins: ${currentUserCoins}`;
-                window.open(`https://wa.me/919104945554?text=${encodeURIComponent(message)}`, '_blank');
-            };
-
-            onValue(ref(db, 'promote_plans'), (snapshot) => {
-                const container = document.getElementById('promote-cards-container');
-                if(!container) return;
-                
-                container.innerHTML = '';
-                
-                if(!snapshot.exists()) {
-                     container.innerHTML = '<div class="material-card p-10 w-full text-center border-2 border-dashed border-slate-200 shadow-none"><p class="text-[13px] text-text-secondary font-medium">No plans active on the server.</p></div>';
-                     return;
-                }
-                
-                snapshot.forEach(snap => {
-                    const plan = snap.val();
-                    container.innerHTML += `
-                    <div class="snap-center shrink-0 w-[75vw] max-w-[300px] aspect-[9/16] material-card relative overflow-hidden group flex flex-col p-0 border border-slate-200 shadow-google-md rounded-[32px]">
-                        <img src="${plan.imageUrl || plan.image || plan.imgUrl || 'https://i.ibb.co/LDYsqgxr/file-000000009e44720ba0bdf58aa644ed5d.png'}" onerror="this.src='https://i.ibb.co/LDYsqgxr/file-000000009e44720ba0bdf58aa644ed5d.png'" class="absolute inset-0 w-full h-full object-cover z-0">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#202124] via-[#202124]/60 to-transparent z-10"></div>
-                        <div class="relative z-20 mt-auto p-6 w-full flex flex-col gap-3">
-                            <h3 class="font-bold text-[22px] text-white leading-tight tracking-wide">${plan.name || plan.planName || plan.title || 'Google Ads Plan'}</h3>
-                            <div class="inline-flex items-center gap-1.5 bg-white px-4 py-2 rounded-full w-fit shadow-lg">
-                                <span class="material-symbols-outlined text-google-yellow font-fill text-[18px]">workspace_premium</span>
-                                <span class="text-[14px] font-bold text-text-main">${plan.price || 'Free'}</span>
-                            </div>
-                            <button onclick="window.buyPromotePlan('${plan.name || plan.planName || plan.title}', '${plan.price || '0'}')" class="w-full bg-primary text-white font-bold py-4 rounded-[100px] text-[15px] hover:bg-primary-dark transition-colors shadow-google-md mt-2 flex justify-center items-center gap-2">
-                                Checkout <span class="material-symbols-outlined text-[18px]">shopping_cart_checkout</span>
-                            </button>
-                        </div>
-                    </div>`;
-                });
-            });
-
-            // Init
-            loadProfile();
-            showPage('home');
-            pageHistory.pop();
         });
+
+        // ==========================================
+        // FETCH DATA: Create 3x3 Grid with Staggered Animations
+        // ==========================================
+        function loadProvidersData() {
+            onValue(providersRef, (snapshot) => {
+                const gridContainer = document.getElementById('userProvidersGrid');
+                gridContainer.innerHTML = ''; 
+
+                if (snapshot.exists()) {
+                    const providersData = snapshot.val();
+                    let index = 0; // for staggered animation delay
+                    
+                    for (const key in providersData) {
+                        const provider = providersData[key];
+                        
+                        // WhatsApp Link with pre-filled message
+                        const cleanPhone = provider.WhatsAppNumber.replace(/\D/g,'');
+                        const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
+                        const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
+
+                        // Creating Card HTML with inline animation delay based on index
+                        const cardHTML = `
+                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.15}s;">
+                                <div class="image-container">
+                                    <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
+                                </div>
+                                <h3>${provider.ProviderName}</h3>
+                                <p class="address"><i class="fa-solid fa-location-arrow" style="color:var(--primary-gold)"></i> ${provider.Address}</p>
+                                
+                                <a href="${waLink}" target="_blank" class="btn-whatsapp">
+                                    <i class="fa-brands fa-whatsapp fa-xl"></i> BOOK SESSION
+                                </a>
+                            </div>
+                        `;
+                        
+                        gridContainer.innerHTML += cardHTML;
+                        index++;
+                    }
+                } else {
+                    gridContainer.innerHTML = `<p style="grid-column: span 3; text-align:center; color:#888; font-family:'Cinzel', serif;">VIP Therapists are currently unavailable. Check back soon.</p>`;
+                }
+            });
+        }
     </script>
 </body>
 </html>
