@@ -15,9 +15,10 @@
             --primary-gold: #D4AF37;
             --light-gold: #F3E5AB;
             --dark-bg: #050404;
-            --panel-bg: rgba(15, 12, 10, 0.85);
+            --panel-bg: rgba(20, 16, 14, 0.9);
             --text-light: #ffffff;
             --whatsapp-green: #25D366;
+            --danger-red: #ff4d4d;
         }
 
         * {
@@ -34,50 +35,38 @@
             overflow-x: hidden;
         }
 
-        /* =========================================
-           ANIMATION 1: Background Pan & Fade
-           ANIMATION 2: Floating Glow on Icon
-           ANIMATION 3: Glowing Pulse Button
-           ANIMATION 4: Staggered Card Reveal
-           ANIMATION 5: Glassmorphism Slide Up Transition
-        ========================================== */
-
+        /* === ANIMATIONS === */
         @keyframes bgZoom {
             0% { background-size: 100%; }
             100% { background-size: 110%; }
         }
-
         @keyframes floatGlow {
             0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
             50% { transform: translateY(-10px); text-shadow: 0 0 25px rgba(212, 175, 55, 0.8); }
             100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
         }
-
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
             70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-
         @keyframes slideUpFade {
             0% { opacity: 0; transform: translateY(50px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes slideOutUp {
             0% { opacity: 1; transform: translateY(0); }
             100% { opacity: 0; transform: translateY(-100vh); display: none; }
         }
 
-        /* === GATEWAY SECTION (Form) === */
+        /* === 1. GATEWAY SECTION (Form) === */
         #gateway-section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* Background animation applied here */
-            background: linear-gradient(rgba(5, 4, 4, 0.8), rgba(5, 4, 4, 0.9)), 
+            background: linear-gradient(rgba(5, 4, 4, 0.85), rgba(5, 4, 4, 0.95)), 
                         url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop') center center fixed;
             background-size: cover;
             animation: bgZoom 20s infinite alternate linear;
@@ -86,260 +75,166 @@
             z-index: 10;
         }
 
-        .gateway-header {
-            text-align: center;
-            margin-bottom: 30px;
-            animation: slideUpFade 1s ease forwards;
-        }
+        .gateway-header { text-align: center; margin-bottom: 30px; animation: slideUpFade 1s ease forwards; }
+        .gateway-header i.fa-spa { font-size: 55px; color: var(--primary-gold); margin-bottom: 10px; animation: floatGlow 4s infinite ease-in-out; }
+        .gateway-header h1 { font-family: 'Cinzel', serif; font-size: 45px; color: var(--primary-gold); letter-spacing: 6px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        .gateway-header i.fa-spa {
-            font-size: 55px;
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-            /* Floating animation applied here */
-            animation: floatGlow 4s infinite ease-in-out;
-        }
-
-        .gateway-header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 45px;
-            color: var(--primary-gold);
-            letter-spacing: 6px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-
-        /* Glassmorphism Premium Form */
         .gateway-form-container {
-            background: rgba(15, 12, 10, 0.5);
-            backdrop-filter: blur(15px); /* Frosted Glass Effect */
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            padding: 50px 40px;
-            width: 100%;
-            max-width: 480px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+            background: rgba(15, 12, 10, 0.55); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.4); padding: 50px 40px; width: 100%; max-width: 480px;
+            border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
             animation: slideUpFade 1.2s ease forwards;
         }
-
-        .gateway-form-container h2 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 20px;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
+        .gateway-form-container h2 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 15px; letter-spacing: 3px; }
+        .gateway-form-container p { font-size: 13px; color: #d1d1d1; margin-bottom: 35px; line-height: 1.6; }
+        .input-group { margin-bottom: 25px; text-align: left; }
+        .input-group label { display: block; font-size: 11px; color: var(--light-gold); margin-bottom: 8px; letter-spacing: 2px; font-weight: 600; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 16px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(212, 175, 55, 0.3);
+            color: white; font-family: 'Montserrat', sans-serif; outline: none; border-radius: 8px; transition: all 0.4s ease; font-size: 14px;
         }
-
-        .gateway-form-container p {
-            font-size: 13px;
-            color: #d1d1d1;
-            margin-bottom: 35px;
-            line-height: 1.6;
-        }
-
-        .input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 11px;
-            color: var(--light-gold);
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .input-group input, 
-        .input-group textarea {
-            width: 100%;
-            padding: 16px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            outline: none;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            font-size: 14px;
-        }
-
-        .input-group input:focus, 
-        .input-group textarea:focus {
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-            background: rgba(0, 0, 0, 0.9);
-        }
-
+        .input-group input:focus, .input-group textarea:focus { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); background: rgba(0, 0, 0, 0.9); }
         .btn-unlock {
+            width: 100%; background: linear-gradient(135deg, #D4AF37, #AA771C); color: var(--dark-bg); border: none;
+            padding: 18px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 8px; font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; animation: pulseGlow 2s infinite;
+        }
+        .btn-unlock:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5); }
+
+
+        /* === 2. MAIN DASHBOARD WRAPPER === */
+        #main-dashboard-wrapper { display: none; min-height: 100vh; }
+
+        /* Welcome Banner */
+        .welcome-banner { text-align: center; padding: 60px 20px 40px; background: linear-gradient(to bottom, #14100E, var(--dark-bg)); border-bottom: 1px solid rgba(212, 175, 55, 0.1); animation: slideUpFade 1s ease forwards; }
+        .welcome-banner h2 { font-family: 'Cinzel', serif; font-size: 38px; color: var(--primary-gold); margin-bottom: 10px; letter-spacing: 4px; }
+        .welcome-banner p { font-family: 'Great Vibes', cursive; font-size: 35px; color: var(--light-gold); margin-top: -10px; }
+
+
+        /* === SECTION A: HORIZONTAL CAROUSEL (Left to Right) === */
+        .dashboard-section { padding: 40px 10%; animation: slideUpFade 1.2s ease forwards; }
+        .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+        .section-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--primary-gold); letter-spacing: 3px; text-transform: uppercase; }
+        
+        .btn-view-all {
+            background: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold);
+            padding: 10px 20px; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 5px;
+            letter-spacing: 2px; transition: all 0.3s;
+        }
+        .btn-view-all:hover { background: var(--primary-gold); color: var(--dark-bg); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+
+        /* Scroll Container */
+        .carousel-container {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding-bottom: 20px;
+            /* Scrollbar styling */
+            scrollbar-width: thin; scrollbar-color: var(--primary-gold) var(--panel-bg);
+        }
+        .carousel-container::-webkit-scrollbar { height: 8px; }
+        .carousel-container::-webkit-scrollbar-track { background: var(--panel-bg); border-radius: 10px; }
+        .carousel-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+
+        /* Provider Card Styling (Used in both Carousel and Grid) */
+        .provider-card {
+            background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px;
+            padding: 20px; text-align: center; transition: all 0.4s ease;
+        }
+        .carousel-container .provider-card {
+            flex: 0 0 calc(33.333% - 20px); /* Exactly 3 cards on desktop */
+            scroll-snap-align: start;
+        }
+        .provider-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); border-color: var(--primary-gold); }
+        
+        /* EXACT 16:9 RATIO AS REQUESTED */
+        .image-container-16-9 {
             width: 100%;
-            background: linear-gradient(135deg, #D4AF37, #AA771C);
-            color: var(--dark-bg);
-            border: none;
-            padding: 18px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            /* Pulsing button animation */
-            animation: pulseGlow 2s infinite;
+            aspect-ratio: 16 / 9; 
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
         }
+        .provider-card:hover .image-container-16-9 { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        .image-container-16-9 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .provider-card:hover .image-container-16-9 img { transform: scale(1.1); }
+        
+        .provider-card h3 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 8px; }
+        .provider-card p.address { font-size: 12px; color: #b3b3b3; margin-bottom: 20px; line-height: 1.5; }
+        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: rgba(37, 211, 102, 0.1); color: var(--whatsapp-green); border: 1px solid var(--whatsapp-green); padding: 12px 15px; text-decoration: none; border-radius: 5px; font-weight: 600; width: 100%; transition: all 0.3s; font-size: 14px; }
+        .btn-whatsapp:hover { background-color: var(--whatsapp-green); color: white; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); transform: scale(1.02); }
 
-        .btn-unlock:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+
+        /* === SECTION B: PROMO BANNERS (Content based on user images) === */
+        .promo-wrapper { padding: 20px 10% 80px; }
+        
+        .promo-box {
+            display: flex; align-items: center; gap: 40px; margin-bottom: 60px;
+            background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease; animation: slideUpFade 1.5s ease forwards;
         }
+        .promo-box:hover { border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1); }
+        .promo-box.reverse { flex-direction: row-reverse; }
 
-        /* === MAIN VIP DASHBOARD SECTION (Hidden initially) === */
-        #main-content-section {
-            display: none; 
-            min-height: 100vh;
+        .promo-img-container { flex: 1; border-radius: 15px; overflow: hidden; border: 2px solid var(--primary-gold); }
+        .promo-img-container img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+        .promo-box:hover .promo-img-container img { transform: scale(1.05); }
+
+        .promo-content { flex: 1; }
+        .promo-content h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--primary-gold); margin-bottom: 5px; }
+        .promo-content h4 { font-family: 'Great Vibes', cursive; font-size: 28px; color: var(--light-gold); font-weight: normal; margin-bottom: 20px; }
+        
+        .promo-list { list-style: none; margin-bottom: 25px; }
+        .promo-list li { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #ddd; }
+        .promo-list li i { color: var(--primary-gold); font-size: 14px; }
+        
+        .offer-text { font-weight: 600; color: #fff; margin-bottom: 20px; font-size: 16px; border-left: 3px solid var(--primary-gold); padding-left: 15px; }
+        .tagline-text { font-style: italic; color: var(--primary-gold); font-size: 13px; margin-top: 20px; text-align: center; display: block; letter-spacing: 1px; }
+
+        /* Specific Grid for Before & After */
+        .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 10px; }
+        .before-after-grid h5 { font-family: 'Cinzel', serif; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .before-after-grid .before-box h5 { color: var(--danger-red); }
+        .before-after-grid .after-box h5 { color: var(--whatsapp-green); }
+        .before-after-grid ul { list-style: none; }
+        .before-after-grid ul li { font-size: 13px; margin-bottom: 8px; color: #ccc; }
+        
+        .btn-promo-cta {
+            display: inline-block; background: var(--primary-gold); color: var(--dark-bg);
+            padding: 15px 30px; font-weight: 700; border-radius: 5px; text-decoration: none;
+            letter-spacing: 1px; transition: 0.3s; font-family: 'Montserrat', sans-serif;
         }
+        .btn-promo-cta:hover { background: #e6c555; box-shadow: 0 0 20px rgba(212,175,55,0.5); transform: translateY(-2px); }
 
-        .welcome-banner {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: linear-gradient(to bottom, #14100E, var(--dark-bg));
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            animation: slideUpFade 1s ease forwards;
+
+        /* === 3. VIEW ALL PAGE (3x3 Grid Overlay) === */
+        #view-all-page {
+            display: none; min-height: 100vh; background-color: var(--dark-bg); padding: 40px 10%; animation: slideUpFade 0.5s ease forwards;
         }
-
-        .welcome-banner h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 38px;
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-            letter-spacing: 4px;
-        }
-
-        .welcome-banner p {
-            font-family: 'Great Vibes', cursive;
-            font-size: 35px;
-            color: var(--light-gold);
-            margin-top: -10px;
-        }
-
-        .providers-section {
-            padding: 60px 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Cinzel', serif;
-            font-size: 24px;
-            color: var(--primary-gold);
-            margin-bottom: 50px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        /* === 3x3 GRID SYSTEM === */
-        .providers-grid {
+        .view-all-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        
+        /* Exact 3-3 Grid Format */
+        .grid-3x3 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 Columns exactly */
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
         }
+        /* Reuse .provider-card from above for grid items */
 
-        .provider-card {
-            background: var(--panel-bg);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0; /* Hidden for staggered animation */
-        }
 
-        .provider-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-            border-color: var(--primary-gold);
-        }
-
-        /* 1:1 Image Ratio */
-        .image-container {
-            width: 100%;
-            aspect-ratio: 1 / 1; 
-            overflow: hidden;
-            border-radius: 50%; /* Made circular for ultra-premium look */
-            border: 3px solid rgba(212, 175, 55, 0.5);
-            margin-bottom: 25px;
-            transition: all 0.5s ease;
-        }
-
-        .provider-card:hover .image-container {
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .provider-card:hover .image-container img {
-            transform: scale(1.15); /* Smooth zoom inside image */
-        }
-
-        .provider-card h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            font-size: 22px;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .provider-card p.address {
-            font-size: 13px;
-            color: #b3b3b3;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: rgba(37, 211, 102, 0.1);
-            color: var(--whatsapp-green);
-            border: 1px solid var(--whatsapp-green);
-            padding: 14px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.4s ease;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: var(--whatsapp-green);
-            color: white;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-            transform: scale(1.05);
-        }
-
-        /* Responsive Design */
+        /* === RESPONSIVE QUERIES === */
         @media (max-width: 1024px) {
-            .providers-grid { grid-template-columns: repeat(2, 1fr); }
+            .carousel-container .provider-card { flex: 0 0 calc(50% - 15px); }
+            .grid-3x3 { grid-template-columns: repeat(2, 1fr); }
+            .promo-box { flex-direction: column; padding: 30px; }
+            .promo-box.reverse { flex-direction: column; }
         }
         @media (max-width: 768px) {
-            .providers-grid { grid-template-columns: 1fr; }
+            .carousel-container .provider-card { flex: 0 0 85%; }
+            .grid-3x3 { grid-template-columns: 1fr; }
             .gateway-header h1 { font-size: 35px; }
-            .gateway-form-container { padding: 40px 25px; }
+            .section-header-row { flex-direction: column; align-items: flex-start; }
+            .before-after-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -347,7 +242,6 @@
 
     <!-- 1. VIP GATEWAY SECTION -->
     <section id="gateway-section">
-        
         <div class="gateway-header">
             <i class="fa-solid fa-spa"></i>
             <h1>LUXE SPA</h1>
@@ -371,40 +265,150 @@
                     <label>COMPLETE ADDRESS</label>
                     <textarea id="userAddress" rows="2" placeholder="Enter your service address" required></textarea>
                 </div>
-                
                 <button type="submit" class="btn-unlock" id="unlockBtn">
                     UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>
                 </button>
             </form>
         </div>
-
     </section>
 
-    <!-- 2. MAIN VIP DASHBOARD SECTION -->
-    <section id="main-content-section">
+    <!-- 2. MAIN DASHBOARD WRAPPER -->
+    <div id="main-dashboard-wrapper">
         
         <div class="welcome-banner">
             <h2>VIP DASHBOARD</h2>
             <p id="userWelcomeText">Exclusive Relaxation Awaits You</p>
         </div>
 
-        <div class="providers-section">
-            <h3 class="section-title"><i class="fa-solid fa-star" style="font-size:16px;"></i> OUR ELITE THERAPISTS <i class="fa-solid fa-star" style="font-size:16px;"></i></h3>
-            
-            <div class="providers-grid" id="userProvidersGrid">
-                <!-- Fetching from Firebase -->
+        <!-- Section A: Top Carousel (Left-Right Scroll) -->
+        <section class="dashboard-section">
+            <div class="section-header-row">
+                <h3 class="section-title"><i class="fa-solid fa-crown" style="font-size:18px;"></i> OUR ELITE THERAPISTS</h3>
+                <button class="btn-view-all" onclick="openViewAllPage()">VIEW ALL THERAPISTS <i class="fa-solid fa-arrow-right"></i></button>
             </div>
+            
+            <!-- Horizontal Scroll Container -->
+            <div class="carousel-container" id="carouselProviders">
+                <!-- Dynamically populated by Firebase -->
+            </div>
+        </section>
+
+        <!-- Section B: The Promo Banners (Content integrated precisely) -->
+        <section class="promo-wrapper">
+            
+            <!-- Promo 1: Couple Spa -->
+            <div class="promo-box">
+                <div class="promo-img-container">
+                    <img src="https://i.ibb.co/27DrvN7J/file-0000000006807208855cf489c8a65162.png" alt="Couple Spa">
+                </div>
+                <div class="promo-content">
+                    <h2>✨ Relax Together, Feel Better ✨</h2>
+                    <h4>Luxury Spa Experience for Men & Women</h4>
+                    <ul class="promo-list">
+                        <li><i class="fa-solid fa-check"></i> Full Body Massage</li>
+                        <li><i class="fa-solid fa-check"></i> Stress Relief Therapy</li>
+                        <li><i class="fa-solid fa-check"></i> Couple Spa Packages</li>
+                        <li><i class="fa-solid fa-check"></i> Premium Aroma Oils</li>
+                        <li><i class="fa-solid fa-check"></i> Clean & Safe Environment</li>
+                        <li><i class="fa-solid fa-check"></i> Expert Therapists</li>
+                    </ul>
+                    <div class="offer-text">
+                        💖 Special Couple Discount Available<br>
+                        💆‍♂️💆‍♀️ Book Your Session Today!
+                    </div>
+                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-phone"></i> Call / WhatsApp Now</a>
+                    <span class="tagline-text">🌟 Feel Fresh • Feel Relaxed • Feel Loved <br> Because You Both Deserve Relaxation.</span>
+                </div>
+            </div>
+
+            <!-- Promo 2: Facial Spa (Reverse Layout) -->
+            <div class="promo-box reverse">
+                <div class="promo-img-container">
+                    <img src="https://i.ibb.co/9H4N615R/file-000000004dc07208a0a1e54e048d542a.png" alt="Facial Spa Glow">
+                </div>
+                <div class="promo-content">
+                    <h2>✨ Instant Glow, Instant Confidence</h2>
+                    <h4>Premium Facial Spa Experience for Radiant Skin</h4>
+                    
+                    <!-- Before/After Grid -->
+                    <div class="before-after-grid">
+                        <div class="before-box">
+                            <h5>❌ Before</h5>
+                            <ul>
+                                <li>Dull Skin</li>
+                                <li>Acne Marks</li>
+                                <li>Uneven Tone</li>
+                                <li>Tired Look</li>
+                            </ul>
+                        </div>
+                        <div class="after-box">
+                            <h5>✅ After</h5>
+                            <ul>
+                                <li>Bright & Glowing Skin</li>
+                                <li>Clear & Healthy Face</li>
+                                <li>Even Skin Tone</li>
+                                <li>Fresh & Youthful Look</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <ul class="promo-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Deep Cleansing</li>
+                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Skin Hydration</li>
+                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Tan Removal</li>
+                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Glow Boost</li>
+                    </ul>
+
+                    <div class="offer-text">💖 Beautiful Skin Isn’t Luck, It’s Self Care</div>
+                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-calendar-check"></i> Book Your Glow Today!</a>
+                    <span class="tagline-text">LUXE SPA | Premium Care | Hygienic Environment | Expert Therapists</span>
+                </div>
+            </div>
+
+            <!-- Promo 3: Stress Relief -->
+            <div class="promo-box">
+                <div class="promo-img-container">
+                    <img src="https://i.ibb.co/Pv66qSTy/file-00000000a124720888feaa5fd4e04e61.png" alt="Stress Relief Life">
+                </div>
+                <div class="promo-content">
+                    <h2>✨ Stress Free Life Starts Here</h2>
+                    <h4>Relax. Rejuvenate. Refresh.</h4>
+                    <p style="color:#ccc; font-size:14px; margin-bottom:15px;">Experience the ultimate mind, body & soul care with our premium services.</p>
+                    <ul class="promo-list">
+                        <li><i class="fa-solid fa-spa"></i> Expert Therapists & Premium Services</li>
+                        <li><i class="fa-solid fa-spa"></i> Luxury Experience in Safe Environment</li>
+                        <li>💆 Full Body Relaxation</li>
+                        <li>🌿 Stress Relief Therapy</li>
+                        <li>🕯 Peaceful Ambience</li>
+                        <li>💖 Deep Muscle Recovery & Energy Boost</li>
+                    </ul>
+                    <div class="offer-text">You Deserve The Best. We Deliver Relaxation.</div>
+                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-brands fa-whatsapp"></i> Contact Our Experts</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- 3. VIEW ALL PAGE (Opens on click) -->
+    <div id="view-all-page">
+        <div class="view-all-header">
+            <h2 class="section-title" style="margin: 0;">ALL THERAPISTS</h2>
+            <button class="btn-view-all" onclick="closeViewAllPage()"><i class="fa-solid fa-arrow-left"></i> BACK TO HOME</button>
         </div>
+        
+        <!-- Exact 3-3 Grid Line Container -->
+        <div class="grid-3x3" id="gridProviders">
+            <!-- Dynamically populated by Firebase -->
+        </div>
+    </div>
 
-    </section>
 
-    <!-- Firebase v9 SDK Connection Script -->
+    <!-- Firebase v9 SDK Connection Script (100% UNTOUCHED CONFIG) -->
     <script type="module">
-        // Uncompressed Firebase Imports
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
-        // Your Exact Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyC0oD7NKFbUweD58i1x6bheEBWfK7Yme9Q",
             authDomain: "mediverse-1088d.firebaseapp.com",
@@ -415,35 +419,31 @@
             measurementId: "G-DK3B7PGBXH"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const bookingsRef = ref(db, 'Client_Bookings');
         const providersRef = ref(db, 'Service_Providers');
 
         // ==========================================
-        // FEATURE: LOCAL STORAGE ("Remember Me")
-        // Check if user is already verified on page load
+        // LOCAL STORAGE - "Remember Me"
         // ==========================================
         window.onload = function() {
             const isVIP = localStorage.getItem('luxeSpa_isVIP');
             const savedName = localStorage.getItem('luxeSpa_UserName');
 
             if (isVIP === 'true' && savedName) {
-                // Instantly hide gateway and show dashboard
                 document.getElementById('gateway-section').style.display = 'none';
-                document.getElementById('main-content-section').style.display = 'block';
+                document.getElementById('main-dashboard-wrapper').style.display = 'block';
                 document.getElementById('userWelcomeText').innerText = `Welcome back, ${savedName}.`;
-                loadProvidersData(); // Fetch the grid data
+                loadProvidersData(); 
             }
         };
 
         // ==========================================
-        // FORM SUBMIT: Save to Firebase & LocalStorage
+        // GATEWAY FORM SUBMISSION
         // ==========================================
         document.getElementById('unlockForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
-            
             const btn = document.getElementById('unlockBtn');
             btn.innerHTML = 'VERIFYING... <i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -451,7 +451,6 @@
             const phone = document.getElementById('userPhone').value;
             const address = document.getElementById('userAddress').value;
 
-            // Save to Firebase
             const newBookingRef = push(bookingsRef);
             set(newBookingRef, {
                 FullName: name,
@@ -460,25 +459,22 @@
                 Timestamp: new Date().toLocaleString()
             })
             .then(() => {
-                // SUCCESS: Save in LocalStorage so user doesn't have to fill form again
                 localStorage.setItem('luxeSpa_isVIP', 'true');
                 localStorage.setItem('luxeSpa_UserName', name);
 
-                // Play Slide Out Animation on Gateway
                 const gateway = document.getElementById('gateway-section');
                 gateway.style.animation = 'slideOutUp 1s ease forwards';
                 
                 setTimeout(() => {
                     gateway.style.display = 'none';
-                    const mainContent = document.getElementById('main-content-section');
+                    const mainContent = document.getElementById('main-dashboard-wrapper');
                     mainContent.style.display = 'block';
                     mainContent.style.animation = 'slideUpFade 1s ease forwards';
-                    
                     document.getElementById('userWelcomeText').innerText = `Welcome, ${name}. Your Relaxation Awaits.`;
                     
-                    loadProvidersData(); // Load the 3x3 Grid
+                    loadProvidersData(); 
                     window.scrollTo(0, 0);
-                }, 900); // wait for animation to almost finish
+                }, 900);
             })
             .catch((error) => {
                 alert("Database Error: " + error);
@@ -487,29 +483,31 @@
         });
 
         // ==========================================
-        // FETCH DATA: Create 3x3 Grid with Staggered Animations
+        // FETCH DATA & POPULATE BOTH CAROUSEL & GRID (16:9 Ratio)
         // ==========================================
         function loadProvidersData() {
             onValue(providersRef, (snapshot) => {
-                const gridContainer = document.getElementById('userProvidersGrid');
+                const carouselContainer = document.getElementById('carouselProviders');
+                const gridContainer = document.getElementById('gridProviders');
+                
+                carouselContainer.innerHTML = ''; 
                 gridContainer.innerHTML = ''; 
 
                 if (snapshot.exists()) {
                     const providersData = snapshot.val();
-                    let index = 0; // for staggered animation delay
+                    let index = 0;
                     
                     for (const key in providersData) {
                         const provider = providersData[key];
                         
-                        // WhatsApp Link with pre-filled message
                         const cleanPhone = provider.WhatsAppNumber.replace(/\D/g,'');
                         const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
                         const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
 
-                        // Creating Card HTML with inline animation delay based on index
+                        // HTML Structure with 16:9 aspect ratio applied to image container
                         const cardHTML = `
-                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.15}s;">
-                                <div class="image-container">
+                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1s};">
+                                <div class="image-container-16-9">
                                     <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
                                 </div>
                                 <h3>${provider.ProviderName}</h3>
@@ -521,13 +519,32 @@
                             </div>
                         `;
                         
+                        // Add card to BOTH views
+                        carouselContainer.innerHTML += cardHTML;
                         gridContainer.innerHTML += cardHTML;
                         index++;
                     }
                 } else {
-                    gridContainer.innerHTML = `<p style="grid-column: span 3; text-align:center; color:#888; font-family:'Cinzel', serif;">VIP Therapists are currently unavailable. Check back soon.</p>`;
+                    const noDataMsg = `<p style="text-align:center; color:#888; font-family:'Cinzel', serif; width:100%;">VIP Therapists are currently unavailable. Check back soon.</p>`;
+                    carouselContainer.innerHTML = noDataMsg;
+                    gridContainer.innerHTML = `<div style="grid-column: span 3;">${noDataMsg}</div>`;
                 }
             });
+        }
+    </script>
+
+    <!-- Simple JS to handle View All page switching without reload -->
+    <script>
+        function openViewAllPage() {
+            document.getElementById('main-dashboard-wrapper').style.display = 'none';
+            document.getElementById('view-all-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function closeViewAllPage() {
+            document.getElementById('view-all-page').style.display = 'none';
+            document.getElementById('main-dashboard-wrapper').style.display = 'block';
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
