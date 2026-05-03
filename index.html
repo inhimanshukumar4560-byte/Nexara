@@ -36,43 +36,17 @@
         }
 
         /* === ANIMATIONS === */
-        @keyframes bgZoom {
-            0% { background-size: 100%; }
-            100% { background-size: 110%; }
-        }
-        @keyframes floatGlow {
-            0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-            50% { transform: translateY(-10px); text-shadow: 0 0 25px rgba(212, 175, 55, 0.8); }
-            100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-        }
-        @keyframes slideUpFade {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideOutUp {
-            0% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-100vh); display: none; }
-        }
+        @keyframes bgZoom { 0% { background-size: 100%; } 100% { background-size: 110%; } }
+        @keyframes floatGlow { 0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); } 50% { transform: translateY(-10px); text-shadow: 0 0 25px rgba(212, 175, 55, 0.8); } 100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); } }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        @keyframes slideUpFade { 0% { opacity: 0; transform: translateY(50px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes slideOutUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-100vh); display: none; } }
 
         /* === 1. GATEWAY SECTION (Form) === */
         #gateway-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(5, 4, 4, 0.85), rgba(5, 4, 4, 0.95)), 
-                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop') center center fixed;
-            background-size: cover;
-            animation: bgZoom 20s infinite alternate linear;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 10;
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(5, 4, 4, 0.85), rgba(5, 4, 4, 0.95)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop') center center fixed;
+            background-size: cover; animation: bgZoom 20s infinite alternate linear; padding: 40px 20px; position: relative; z-index: 10;
         }
 
         .gateway-header { text-align: center; margin-bottom: 30px; animation: slideUpFade 1s ease forwards; }
@@ -82,79 +56,59 @@
         .gateway-form-container {
             background: rgba(15, 12, 10, 0.55); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(212, 175, 55, 0.4); padding: 50px 40px; width: 100%; max-width: 480px;
-            border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-            animation: slideUpFade 1.2s ease forwards;
+            border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9); animation: slideUpFade 1.2s ease forwards;
         }
         .gateway-form-container h2 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 15px; letter-spacing: 3px; }
         .gateway-form-container p { font-size: 13px; color: #d1d1d1; margin-bottom: 35px; line-height: 1.6; }
         
         .input-group { margin-bottom: 25px; text-align: left; }
         .input-group label { display: block; font-size: 11px; color: var(--light-gold); margin-bottom: 8px; letter-spacing: 2px; font-weight: 600; }
-        .input-group input, .input-group textarea {
-            width: 100%; padding: 16px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(212, 175, 55, 0.3);
-            color: white; font-family: 'Montserrat', sans-serif; outline: none; border-radius: 8px; transition: all 0.4s ease; font-size: 14px;
-        }
+        .input-group input, .input-group textarea { width: 100%; padding: 16px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(212, 175, 55, 0.3); color: white; font-family: 'Montserrat', sans-serif; outline: none; border-radius: 8px; transition: all 0.4s ease; font-size: 14px; }
         .input-group input:focus, .input-group textarea:focus { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); background: rgba(0, 0, 0, 0.9); }
         
-        .btn-unlock {
-            width: 100%; background: linear-gradient(135deg, #D4AF37, #AA771C); color: var(--dark-bg); border: none;
-            padding: 18px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 8px; font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; animation: pulseGlow 2s infinite;
-        }
+        .btn-unlock { width: 100%; background: linear-gradient(135deg, #D4AF37, #AA771C); color: var(--dark-bg); border: none; padding: 18px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 8px; font-family: 'Montserrat', sans-serif; letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; animation: pulseGlow 2s infinite; }
         .btn-unlock:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5); }
 
 
         /* === 2. MAIN DASHBOARD WRAPPER === */
         #main-dashboard-wrapper { display: none; min-height: 100vh; }
 
-        /* Welcome Banner */
         .welcome-banner { text-align: center; padding: 60px 20px 40px; background: linear-gradient(to bottom, #14100E, var(--dark-bg)); border-bottom: 1px solid rgba(212, 175, 55, 0.1); animation: slideUpFade 1s ease forwards; }
         .welcome-banner h2 { font-family: 'Cinzel', serif; font-size: 38px; color: var(--primary-gold); margin-bottom: 10px; letter-spacing: 4px; }
         .welcome-banner p { font-family: 'Great Vibes', cursive; font-size: 35px; color: var(--light-gold); margin-top: -10px; }
 
-
-        /* === SECTION A: HORIZONTAL CAROUSEL (Left to Right) === */
+        /* === SECTION A: HORIZONTAL CAROUSEL === */
         .dashboard-section { padding: 40px 10%; animation: slideUpFade 1.2s ease forwards; }
         .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
         .section-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--primary-gold); letter-spacing: 3px; text-transform: uppercase; }
         
-        .btn-view-all {
-            background: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold);
-            padding: 10px 20px; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 5px;
-            letter-spacing: 2px; transition: all 0.3s;
-        }
+        .btn-view-all { background: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold); padding: 10px 20px; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 5px; letter-spacing: 2px; transition: all 0.3s; }
         .btn-view-all:hover { background: var(--primary-gold); color: var(--dark-bg); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
 
-        /* Scroll Container */
         .carousel-container {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding-bottom: 20px;
             scrollbar-width: thin; scrollbar-color: var(--primary-gold) var(--panel-bg);
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         .carousel-container::-webkit-scrollbar { height: 8px; }
         .carousel-container::-webkit-scrollbar-track { background: var(--panel-bg); border-radius: 10px; }
         .carousel-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
 
         /* Provider Card Styling */
-        .provider-card {
-            background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px;
-            padding: 20px; text-align: center; transition: all 0.4s ease;
-        }
-        .carousel-container .provider-card {
-            flex: 0 0 calc(33.333% - 20px);
-            scroll-snap-align: start;
-        }
+        .provider-card { position: relative; background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 20px; text-align: center; transition: all 0.4s ease; }
+        .carousel-container .provider-card { flex: 0 0 calc(33.333% - 20px); scroll-snap-align: start; }
         .provider-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); border-color: var(--primary-gold); }
         
-        /* 16:9 RATIO FOR IMAGES */
-        .image-container-16-9 {
-            width: 100%;
-            aspect-ratio: 16 / 9; 
-            overflow: hidden;
-            border-radius: 10px;
-            border: 2px solid rgba(212, 175, 55, 0.5);
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
+        /* MATCHED ADDRESS BADGE */
+        .badge-near-you {
+            position: absolute; top: 10px; left: 10px; background: linear-gradient(135deg, var(--whatsapp-green), #14803b);
+            color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px;
+            z-index: 5; box-shadow: 0 4px 15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.4);
+            animation: pulseGlow 2s infinite; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
         }
+
+        /* 16:9 RATIO FOR IMAGES */
+        .image-container-16-9 { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 10px; border: 2px solid rgba(212, 175, 55, 0.5); margin-bottom: 20px; transition: all 0.4s ease; position: relative; }
         .provider-card:hover .image-container-16-9 { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
         .image-container-16-9 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
         .provider-card:hover .image-container-16-9 img { transform: scale(1.1); }
@@ -167,28 +121,18 @@
 
         /* === SECTION B: PROMO BANNERS === */
         .promo-wrapper { padding: 20px 10% 80px; }
-        
-        .promo-box {
-            display: flex; align-items: center; gap: 40px; margin-bottom: 60px;
-            background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.4s ease; animation: slideUpFade 1.5s ease forwards;
-        }
+        .promo-box { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease; animation: slideUpFade 1.5s ease forwards; }
         .promo-box:hover { border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1); }
         .promo-box.reverse { flex-direction: row-reverse; }
-
         .promo-img-container { flex: 1; border-radius: 15px; overflow: hidden; border: 2px solid var(--primary-gold); }
         .promo-img-container img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
         .promo-box:hover .promo-img-container img { transform: scale(1.05); }
-
         .promo-content { flex: 1; }
         .promo-content h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--primary-gold); margin-bottom: 5px; }
         .promo-content h4 { font-family: 'Great Vibes', cursive; font-size: 28px; color: var(--light-gold); font-weight: normal; margin-bottom: 20px; }
-        
         .promo-list { list-style: none; margin-bottom: 25px; }
         .promo-list li { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #ddd; }
         .promo-list li i { color: var(--primary-gold); font-size: 14px; }
-        
         .offer-text { font-weight: 600; color: #fff; margin-bottom: 20px; font-size: 16px; border-left: 3px solid var(--primary-gold); padding-left: 15px; }
         .tagline-text { font-style: italic; color: var(--primary-gold); font-size: 13px; margin-top: 20px; text-align: center; display: block; letter-spacing: 1px; }
 
@@ -199,28 +143,17 @@
         .before-after-grid ul { list-style: none; }
         .before-after-grid ul li { font-size: 13px; margin-bottom: 8px; color: #ccc; }
         
-        .btn-promo-cta {
-            display: inline-block; background: var(--primary-gold); color: var(--dark-bg);
-            padding: 15px 30px; font-weight: 700; border-radius: 5px; text-decoration: none;
-            letter-spacing: 1px; transition: 0.3s; font-family: 'Montserrat', sans-serif;
-        }
+        .btn-promo-cta { display: inline-block; background: var(--primary-gold); color: var(--dark-bg); padding: 15px 30px; font-weight: 700; border-radius: 5px; text-decoration: none; letter-spacing: 1px; transition: 0.3s; font-family: 'Montserrat', sans-serif; }
         .btn-promo-cta:hover { background: #e6c555; box-shadow: 0 0 20px rgba(212,175,55,0.5); transform: translateY(-2px); }
 
 
         /* === 3. VIEW ALL PAGE (3x3 Grid) === */
-        #view-all-page {
-            display: none; min-height: 100vh; background-color: var(--dark-bg); padding: 40px 10%; animation: slideUpFade 0.5s ease forwards;
-        }
+        #view-all-page { display: none; min-height: 100vh; background-color: var(--dark-bg); padding: 40px 10%; animation: slideUpFade 0.5s ease forwards; }
         .view-all-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-        
-        .grid-3x3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
+        .grid-3x3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
 
-        /* === RESPONSIVE QUERIES === */
+        /* === SUPER RESPONSIVE QUERIES === */
         @media (max-width: 1024px) {
             .carousel-container .provider-card { flex: 0 0 calc(50% - 15px); }
             .grid-3x3 { grid-template-columns: repeat(2, 1fr); }
@@ -228,11 +161,16 @@
             .promo-box.reverse { flex-direction: column; }
         }
         @media (max-width: 768px) {
-            .carousel-container .provider-card { flex: 0 0 85%; }
+            /* MOBILE SPECIFIC: 1 Full Card + Half of next card visible (75% Width) */
+            .carousel-container { padding-left: 15px; padding-right: 15px; scroll-padding-left: 15px; gap: 15px; }
+            .carousel-container .provider-card { flex: 0 0 75%; } 
+            
+            .dashboard-section { padding: 40px 5%; }
             .grid-3x3 { grid-template-columns: 1fr; }
             .gateway-header h1 { font-size: 35px; }
             .section-header-row { flex-direction: column; align-items: flex-start; }
             .before-after-grid { grid-template-columns: 1fr; }
+            .promo-wrapper { padding: 20px 5% 60px; }
         }
     </style>
 </head>
@@ -260,8 +198,8 @@
                     <input type="tel" id="userPhone" placeholder="Enter 10-digit number" required>
                 </div>
                 <div class="input-group">
-                    <label>COMPLETE ADDRESS</label>
-                    <textarea id="userAddress" rows="2" placeholder="Enter your service address" required></textarea>
+                    <label>COMPLETE ADDRESS (Area/City)</label>
+                    <textarea id="userAddress" rows="2" placeholder="e.g. Andheri West, Mumbai" required></textarea>
                 </div>
                 <button type="submit" class="btn-unlock" id="unlockBtn">
                     UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>
@@ -272,7 +210,6 @@
 
     <!-- 2. MAIN DASHBOARD WRAPPER -->
     <div id="main-dashboard-wrapper">
-        
         <div class="welcome-banner">
             <h2>VIP DASHBOARD</h2>
             <p id="userWelcomeText">Exclusive Relaxation Awaits You</p>
@@ -285,6 +222,7 @@
                 <button class="btn-view-all" onclick="openViewAllPage()">VIEW ALL THERAPISTS <i class="fa-solid fa-arrow-right"></i></button>
             </div>
             
+            <!-- Mobile: Shows 1.5 Cards. Laptop: Shows 3 Cards -->
             <div class="carousel-container" id="carouselProviders">
                 <!-- Dynamically populated by Firebase -->
             </div>
@@ -292,7 +230,6 @@
 
         <!-- Section B: Promo Banners -->
         <section class="promo-wrapper">
-            
             <!-- Promo 1 -->
             <div class="promo-box">
                 <div class="promo-img-container">
@@ -302,12 +239,7 @@
                     <h2>✨ Relax Together, Feel Better ✨</h2>
                     <h4>Luxury Spa Experience for Men & Women</h4>
                     <ul class="promo-list">
-                        <li><i class="fa-solid fa-check"></i> Full Body Massage</li>
-                        <li><i class="fa-solid fa-check"></i> Stress Relief Therapy</li>
-                        <li><i class="fa-solid fa-check"></i> Couple Spa Packages</li>
-                        <li><i class="fa-solid fa-check"></i> Premium Aroma Oils</li>
-                        <li><i class="fa-solid fa-check"></i> Clean & Safe Environment</li>
-                        <li><i class="fa-solid fa-check"></i> Expert Therapists</li>
+                        <li><i class="fa-solid fa-check"></i> Full Body Massage</li><li><i class="fa-solid fa-check"></i> Stress Relief Therapy</li><li><i class="fa-solid fa-check"></i> Couple Spa Packages</li><li><i class="fa-solid fa-check"></i> Premium Aroma Oils</li><li><i class="fa-solid fa-check"></i> Clean & Safe Environment</li><li><i class="fa-solid fa-check"></i> Expert Therapists</li>
                     </ul>
                     <div class="offer-text">💖 Special Couple Discount Available<br>💆‍♂️💆‍♀️ Book Your Session Today!</div>
                     <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-phone"></i> Call / WhatsApp Now</a>
@@ -324,20 +256,11 @@
                     <h2>✨ Instant Glow, Instant Confidence</h2>
                     <h4>Premium Facial Spa Experience for Radiant Skin</h4>
                     <div class="before-after-grid">
-                        <div class="before-box">
-                            <h5>❌ Before</h5>
-                            <ul><li>Dull Skin</li><li>Acne Marks</li><li>Uneven Tone</li><li>Tired Look</li></ul>
-                        </div>
-                        <div class="after-box">
-                            <h5>✅ After</h5>
-                            <ul><li>Bright & Glowing Skin</li><li>Clear & Healthy Face</li><li>Even Skin Tone</li><li>Fresh & Youthful Look</li></ul>
-                        </div>
+                        <div class="before-box"><h5>❌ Before</h5><ul><li>Dull Skin</li><li>Acne Marks</li><li>Uneven Tone</li><li>Tired Look</li></ul></div>
+                        <div class="after-box"><h5>✅ After</h5><ul><li>Bright & Glowing Skin</li><li>Clear & Healthy Face</li><li>Even Skin Tone</li><li>Fresh & Youthful Look</li></ul></div>
                     </div>
                     <ul class="promo-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Deep Cleansing</li>
-                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Skin Hydration</li>
-                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Tan Removal</li>
-                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Glow Boost</li>
+                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Deep Cleansing</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Skin Hydration</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Tan Removal</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Glow Boost</li>
                     </ul>
                     <div class="offer-text">💖 Beautiful Skin Isn’t Luck, It’s Self Care</div>
                     <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-calendar-check"></i> Book Your Glow Today!</a>
@@ -355,18 +278,12 @@
                     <h4>Relax. Rejuvenate. Refresh.</h4>
                     <p style="color:#ccc; font-size:14px; margin-bottom:15px;">Experience the ultimate mind, body & soul care with our premium services.</p>
                     <ul class="promo-list">
-                        <li><i class="fa-solid fa-spa"></i> Expert Therapists & Premium Services</li>
-                        <li><i class="fa-solid fa-spa"></i> Luxury Experience in Safe Environment</li>
-                        <li>💆 Full Body Relaxation</li>
-                        <li>🌿 Stress Relief Therapy</li>
-                        <li>🕯 Peaceful Ambience</li>
-                        <li>💖 Deep Muscle Recovery & Energy Boost</li>
+                        <li><i class="fa-solid fa-spa"></i> Expert Therapists & Premium Services</li><li><i class="fa-solid fa-spa"></i> Luxury Experience in Safe Environment</li><li>💆 Full Body Relaxation</li><li>🌿 Stress Relief Therapy</li><li>🕯 Peaceful Ambience</li><li>💖 Deep Muscle Recovery & Energy Boost</li>
                     </ul>
                     <div class="offer-text">You Deserve The Best. We Deliver Relaxation.</div>
                     <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-brands fa-whatsapp"></i> Contact Our Experts</a>
                 </div>
             </div>
-
         </section>
     </div>
 
@@ -376,7 +293,6 @@
             <h2 class="section-title" style="margin: 0;">ALL THERAPISTS</h2>
             <button class="btn-view-all" onclick="closeViewAllPage()"><i class="fa-solid fa-arrow-left"></i> BACK TO HOME</button>
         </div>
-        
         <div class="grid-3x3" id="gridProviders">
             <!-- Dynamically populated by Firebase -->
         </div>
@@ -405,14 +321,13 @@
         const providersRef = ref(db, 'Service_Providers');
 
         // ==========================================
-        // 1. Remember Me Logic (Checks on Page Load)
+        // 1. Remember Me & Load Address Logic
         // ==========================================
         window.onload = function() {
             const isVIP = localStorage.getItem('luxeSpa_isVIP');
             const savedName = localStorage.getItem('luxeSpa_UserName');
 
             if (isVIP === 'true' && savedName) {
-                // If verified previously, hide form, show dashboard immediately
                 document.getElementById('gateway-section').style.display = 'none';
                 document.getElementById('main-dashboard-wrapper').style.display = 'block';
                 document.getElementById('userWelcomeText').innerText = `Welcome back, ${savedName}.`;
@@ -421,7 +336,7 @@
         };
 
         // ==========================================
-        // 2. Gateway Form Submission
+        // 2. Gateway Form Submission (Saves Address for matching)
         // ==========================================
         document.getElementById('unlockForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
@@ -442,11 +357,11 @@
                 Timestamp: new Date().toLocaleString()
             })
             .then(() => {
-                // SUCCESS: Save info in browser so it won't ask again
+                // SUCCESS: Save Name & ADDRESS in local storage for Smart Matching
                 localStorage.setItem('luxeSpa_isVIP', 'true');
                 localStorage.setItem('luxeSpa_UserName', name);
+                localStorage.setItem('luxeSpa_UserAddress', address); // SAVED FOR MATCHING
 
-                // Transition to Dashboard
                 const gateway = document.getElementById('gateway-section');
                 gateway.style.animation = 'slideOutUp 1s ease forwards';
                 
@@ -468,7 +383,7 @@
         });
 
         // ==========================================
-        // 3. Fetch Data from Admin Panel (16:9 Ratio Setup)
+        // 3. Smart Fetch Data (Sorting by Matched Address)
         // ==========================================
         function loadProvidersData() {
             onValue(providersRef, (snapshot) => {
@@ -480,18 +395,50 @@
 
                 if (snapshot.exists()) {
                     const providersData = snapshot.val();
-                    let index = 0;
                     
+                    // SMART ADDRESS MATCHING ALGORITHM
+                    const savedUserAddress = (localStorage.getItem('luxeSpa_UserAddress') || '').toLowerCase();
+                    let providersArray = [];
+
+                    // Convert Firebase object to Array
                     for (const key in providersData) {
-                        const provider = providersData[key];
+                        providersArray.push({ id: key, ...providersData[key], matchScore: 0 });
+                    }
+
+                    // Sort Array based on Address Match
+                    if(savedUserAddress) {
+                        const userWords = savedUserAddress.split(/[\s,]+/); // Split user address by space/comma
                         
+                        providersArray.forEach(provider => {
+                            const providerAddr = (provider.Address || '').toLowerCase();
+                            
+                            // Check if provider area matches user area words
+                            userWords.forEach(word => {
+                                if(word.length > 3 && providerAddr.includes(word)) {
+                                    provider.matchScore += 1; // Increase score if word matches (e.g. "Mumbai")
+                                }
+                            });
+                        });
+
+                        // Sort: Highest match score comes first
+                        providersArray.sort((a, b) => b.matchScore - a.matchScore);
+                    }
+
+                    // Loop through sorted array and create HTML
+                    providersArray.forEach((provider, index) => {
                         const cleanPhone = provider.WhatsAppNumber.replace(/\D/g,'');
                         const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
                         const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
 
-                        // (BUG FIXED HERE: Corrected Javascript Template Literal Syntax)
+                        // If matchScore > 0, show the "NEAR YOU" Premium Badge
+                        let badgeHTML = '';
+                        if(provider.matchScore > 0) {
+                            badgeHTML = `<div class="badge-near-you"><i class="fa-solid fa-location-dot"></i> Near You</div>`;
+                        }
+
                         const cardHTML = `
                             <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1}s;">
+                                ${badgeHTML} <!-- Display Badge Here if Matched -->
                                 <div class="image-container-16-9">
                                     <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
                                 </div>
@@ -504,11 +451,10 @@
                             </div>
                         `;
                         
-                        // Push same card to both top slider and view-all grid
                         carouselContainer.innerHTML += cardHTML;
                         gridContainer.innerHTML += cardHTML;
-                        index++;
-                    }
+                    });
+
                 } else {
                     const noDataMsg = `<p style="text-align:center; color:#888; font-family:'Cinzel', serif; width:100%;">VIP Therapists are currently unavailable. Check back soon.</p>`;
                     carouselContainer.innerHTML = noDataMsg;
