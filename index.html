@@ -77,22 +77,35 @@
         .welcome-banner h2 { font-family: 'Cinzel', serif; font-size: 38px; color: var(--primary-gold); margin-bottom: 10px; letter-spacing: 4px; }
         .welcome-banner p { font-family: 'Great Vibes', cursive; font-size: 35px; color: var(--light-gold); margin-top: -10px; }
 
-        /* === SECTION A: HORIZONTAL CAROUSEL === */
-        .dashboard-section { padding: 40px 10%; animation: slideUpFade 1.2s ease forwards; }
-        .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+
+        /* === SECTION A: HORIZONTAL CAROUSEL (Now with Edge Fade & Auto Scroll) === */
+        .dashboard-section { padding: 40px 0; animation: slideUpFade 1.2s ease forwards; overflow: hidden; }
+        
+        .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; padding: 0 10%; }
         .section-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--primary-gold); letter-spacing: 3px; text-transform: uppercase; }
         
         .btn-view-all { background: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold); padding: 10px 20px; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 5px; letter-spacing: 2px; transition: all 0.3s; }
         .btn-view-all:hover { background: var(--primary-gold); color: var(--dark-bg); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
 
-        .carousel-container {
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding-bottom: 20px;
-            scrollbar-width: thin; scrollbar-color: var(--primary-gold) var(--panel-bg);
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        /* Premium Edge Fade Wrapper */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
         }
-        .carousel-container::-webkit-scrollbar { height: 8px; }
-        .carousel-container::-webkit-scrollbar-track { background: var(--panel-bg); border-radius: 10px; }
-        .carousel-container::-webkit-scrollbar-thumb { background: var(--primary-gold); border-radius: 10px; }
+        /* Left and Right Fade Shadow for Premium Look */
+        .carousel-wrapper::before, .carousel-wrapper::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 5; pointer-events: none;
+        }
+        .carousel-wrapper::before { left: 0; background: linear-gradient(to right, var(--dark-bg), transparent); }
+        .carousel-wrapper::after { right: 0; background: linear-gradient(to left, var(--dark-bg), transparent); }
+
+        .carousel-container {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding: 10px 10% 30px;
+            -webkit-overflow-scrolling: touch; 
+            /* Hide scrollbar for sleek automated look */
+            -ms-overflow-style: none; scrollbar-width: none; 
+        }
+        .carousel-container::-webkit-scrollbar { display: none; }
 
         /* Provider Card Styling */
         .provider-card { position: relative; background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 20px; text-align: center; transition: all 0.4s ease; }
@@ -161,14 +174,14 @@
             .promo-box.reverse { flex-direction: column; }
         }
         @media (max-width: 768px) {
-            /* MOBILE SPECIFIC: 1 Full Card + Half of next card visible (75% Width) */
-            .carousel-container { padding-left: 15px; padding-right: 15px; scroll-padding-left: 15px; gap: 15px; }
+            /* Mobile view: 1 card + 75% of next card with Edge Fade Magic */
+            .carousel-wrapper::before, .carousel-wrapper::after { width: 30px; }
+            .carousel-container { padding-left: 5%; padding-right: 5%; scroll-padding-left: 5%; gap: 15px; }
             .carousel-container .provider-card { flex: 0 0 75%; } 
             
-            .dashboard-section { padding: 40px 5%; }
+            .section-header-row { padding: 0 5%; flex-direction: column; align-items: flex-start; }
             .grid-3x3 { grid-template-columns: 1fr; }
             .gateway-header h1 { font-size: 35px; }
-            .section-header-row { flex-direction: column; align-items: flex-start; }
             .before-after-grid { grid-template-columns: 1fr; }
             .promo-wrapper { padding: 20px 5% 60px; }
         }
@@ -215,16 +228,17 @@
             <p id="userWelcomeText">Exclusive Relaxation Awaits You</p>
         </div>
 
-        <!-- Section A: Top Carousel (Left-Right Scroll) -->
+        <!-- Section A: Top Carousel (Edge Fade & Auto Scroll) -->
         <section class="dashboard-section">
             <div class="section-header-row">
                 <h3 class="section-title"><i class="fa-solid fa-crown" style="font-size:18px;"></i> OUR ELITE THERAPISTS</h3>
                 <button class="btn-view-all" onclick="openViewAllPage()">VIEW ALL THERAPISTS <i class="fa-solid fa-arrow-right"></i></button>
             </div>
             
-            <!-- Mobile: Shows 1.5 Cards. Laptop: Shows 3 Cards -->
-            <div class="carousel-container" id="carouselProviders">
-                <!-- Dynamically populated by Firebase -->
+            <div class="carousel-wrapper">
+                <div class="carousel-container" id="carouselProviders">
+                    <!-- Dynamically populated by Firebase -->
+                </div>
             </div>
         </section>
 
@@ -321,7 +335,47 @@
         const providersRef = ref(db, 'Service_Providers');
 
         // ==========================================
-        // 1. Remember Me & Load Address Logic
+        // SMART AUTO-SCROLL LOGIC (Infinite Loop + Pause on Hover)
+        // ==========================================
+        let carouselAutoScrollInterval = null;
+
+        function startAutoScroll() {
+            const slider = document.getElementById('carouselProviders');
+            if(!slider) return;
+            
+            // Clear existing interval to prevent speeding up
+            if(carouselAutoScrollInterval) clearInterval(carouselAutoScrollInterval);
+            
+            carouselAutoScrollInterval = setInterval(() => {
+                const card = slider.querySelector('.provider-card');
+                if(!card) return;
+                
+                // Calculate width to slide (Card width + Gap)
+                const scrollStep = card.offsetWidth + 30; 
+                
+                // If reached the end, rewind smoothly to the beginning
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Otherwise, slide next
+                    slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                }
+            }, 3000); // 3 Seconds exactly
+        }
+
+        function setupAutoScrollEvents() {
+            const slider = document.getElementById('carouselProviders');
+            if(!slider) return;
+            
+            // Pause when user touches or hovers over the slider
+            slider.addEventListener('mouseenter', () => clearInterval(carouselAutoScrollInterval));
+            slider.addEventListener('mouseleave', startAutoScroll);
+            slider.addEventListener('touchstart', () => clearInterval(carouselAutoScrollInterval));
+            slider.addEventListener('touchend', startAutoScroll);
+        }
+
+        // ==========================================
+        // Remember Me & Load Address Logic
         // ==========================================
         window.onload = function() {
             const isVIP = localStorage.getItem('luxeSpa_isVIP');
@@ -336,11 +390,10 @@
         };
 
         // ==========================================
-        // 2. Gateway Form Submission (Saves Address for matching)
+        // Gateway Form Submission
         // ==========================================
         document.getElementById('unlockForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
-            
             const btn = document.getElementById('unlockBtn');
             btn.innerHTML = 'VERIFYING... <i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -348,7 +401,6 @@
             const phone = document.getElementById('userPhone').value;
             const address = document.getElementById('userAddress').value;
 
-            // Submit to Firebase
             const newBookingRef = push(bookingsRef);
             set(newBookingRef, {
                 FullName: name,
@@ -357,10 +409,9 @@
                 Timestamp: new Date().toLocaleString()
             })
             .then(() => {
-                // SUCCESS: Save Name & ADDRESS in local storage for Smart Matching
                 localStorage.setItem('luxeSpa_isVIP', 'true');
                 localStorage.setItem('luxeSpa_UserName', name);
-                localStorage.setItem('luxeSpa_UserAddress', address); // SAVED FOR MATCHING
+                localStorage.setItem('luxeSpa_UserAddress', address); 
 
                 const gateway = document.getElementById('gateway-section');
                 gateway.style.animation = 'slideOutUp 1s ease forwards';
@@ -383,7 +434,7 @@
         });
 
         // ==========================================
-        // 3. Smart Fetch Data (Sorting by Matched Address)
+        // Fetch Data & Start Carousel Engine
         // ==========================================
         function loadProvidersData() {
             onValue(providersRef, (snapshot) => {
@@ -395,42 +446,31 @@
 
                 if (snapshot.exists()) {
                     const providersData = snapshot.val();
-                    
-                    // SMART ADDRESS MATCHING ALGORITHM
                     const savedUserAddress = (localStorage.getItem('luxeSpa_UserAddress') || '').toLowerCase();
                     let providersArray = [];
 
-                    // Convert Firebase object to Array
                     for (const key in providersData) {
                         providersArray.push({ id: key, ...providersData[key], matchScore: 0 });
                     }
 
-                    // Sort Array based on Address Match
                     if(savedUserAddress) {
-                        const userWords = savedUserAddress.split(/[\s,]+/); // Split user address by space/comma
-                        
+                        const userWords = savedUserAddress.split(/[\s,]+/); 
                         providersArray.forEach(provider => {
                             const providerAddr = (provider.Address || '').toLowerCase();
-                            
-                            // Check if provider area matches user area words
                             userWords.forEach(word => {
                                 if(word.length > 3 && providerAddr.includes(word)) {
-                                    provider.matchScore += 1; // Increase score if word matches (e.g. "Mumbai")
+                                    provider.matchScore += 1; 
                                 }
                             });
                         });
-
-                        // Sort: Highest match score comes first
                         providersArray.sort((a, b) => b.matchScore - a.matchScore);
                     }
 
-                    // Loop through sorted array and create HTML
                     providersArray.forEach((provider, index) => {
                         const cleanPhone = provider.WhatsAppNumber.replace(/\D/g,'');
                         const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
                         const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
 
-                        // If matchScore > 0, show the "NEAR YOU" Premium Badge
                         let badgeHTML = '';
                         if(provider.matchScore > 0) {
                             badgeHTML = `<div class="badge-near-you"><i class="fa-solid fa-location-dot"></i> Near You</div>`;
@@ -438,7 +478,7 @@
 
                         const cardHTML = `
                             <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1}s;">
-                                ${badgeHTML} <!-- Display Badge Here if Matched -->
+                                ${badgeHTML}
                                 <div class="image-container-16-9">
                                     <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
                                 </div>
@@ -454,6 +494,12 @@
                         carouselContainer.innerHTML += cardHTML;
                         gridContainer.innerHTML += cardHTML;
                     });
+
+                    // Start the Auto-Scroll feature after data is loaded
+                    setTimeout(() => {
+                        startAutoScroll();
+                        setupAutoScrollEvents();
+                    }, 1000); // Wait 1 sec for animations to finish before scrolling
 
                 } else {
                     const noDataMsg = `<p style="text-align:center; color:#888; font-family:'Cinzel', serif; width:100%;">VIP Therapists are currently unavailable. Check back soon.</p>`;
