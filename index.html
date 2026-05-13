@@ -1,528 +1,1407 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Spa - VIP Exclusive Access</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* === VARIABLES === */
-        :root {
-            --primary-gold: #D4AF37;
-            --light-gold: #F3E5AB;
-            --dark-bg: #050404;
-            --panel-bg: rgba(20, 16, 14, 0.9);
-            --text-light: #ffffff;
-            --whatsapp-green: #25D366;
-            --danger-red: #ff4d4d;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<!-- ===== START OF LANDING PAGE CODE (File 1) ===== -->
 
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sunny Astrology | Your Cosmic Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#c6c6cc",
+                    "surface": "#111415",
+                    "surface-tint": "#c0c6d9",
+                    "on-tertiary-fixed": "#101b30",
+                    "on-secondary-container": "#342800",
+                    "tertiary-fixed-dim": "#bbc6e2",
+                    "surface-container-low": "#191c1d",
+                    "on-tertiary-container": "#6f7a93",
+                    "on-secondary-fixed": "#241a00",
+                    "secondary-container": "#af8d11",
+                    "on-tertiary": "#263046",
+                    "inverse-primary": "#585e6e",
+                    "secondary": "#e9c349",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary": "#bbc6e2",
+                    "surface-variant": "#323536",
+                    "on-tertiary-fixed-variant": "#3c475d",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#404756",
+                    "primary-fixed": "#dce2f5",
+                    "background": "#111415",
+                    "surface-container-high": "#282a2b",
+                    "outline": "#909096",
+                    "surface-container-highest": "#323536",
+                    "on-primary": "#2a303f",
+                    "surface-dim": "#111415",
+                    "inverse-on-surface": "#2e3132",
+                    "surface-container-highest": "#323536",
+                    "on-background": "#e1e3e4",
+                    "inverse-surface": "#e1e3e4",
+                    "primary-fixed-dim": "#c0c6d9",
+                    "tertiary-fixed": "#d7e2ff",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#c0c6d9",
+                    "outline-variant": "#45474c",
+                    "on-surface": "#e1e3e4",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary-container": "#050b18",
+                    "on-primary-container": "#737a8b",
+                    "tertiary-container": "#010b1f",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#151c29",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container": "#1d2021",
+                    "on-secondary": "#3c2f00",
+                    "error-container": "#93000a",
+                    "surface-bright": "#373a3b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-color: #111415;
+    color: #e1e3e4;
+    scroll-behavior: smooth
+    }
+.celestial-bg {
+    background: radial-gradient(circle at 50% 50%, #1B263B 0%, #111415 100%);
+    position: relative;
+    overflow: hidden
+    }
+.celestial-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuD6vdX-aCBbJk8K7se6_FTqq_uXx5d8hcL9WjgDzuhihCUW_dVANlbg9usHFq6jt3tnz9eMRdfUwukI0k1WehMV5a0qfnnkmsLZ7heAS63piup_jNoxsO-WQ91I-SzkXvXM5pklfubkMvd_BNd3-YPNo3m1la99APyVi85CpdfXCTbb31t-vUMfzRMSr_DJfkVqA3tqc7XQWylu7c8oNqRVViMkzKtIlekf9gNtf6YTHiBEMksiLWf8ef27GfsLz357-4bFP0tkZ6E);
+    opacity: 0.3;
+    pointer-events: none
+    }
+.glass-card {
+    background: rgba(27, 38, 59, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(233, 195, 73, 0.15)
+    }</style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32_rgba(212,175,55,0.15)]">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-12 h-20">
+<a class="font-headline-md text-headline-md font-bold text-secondary tracking-wide" href="#">Sunny Astrology</a>
+<div class="hidden md:flex items-center space-y-0 space-x-8">
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Horoscopes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary-container px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/90 transition-all active:scale-95">
+                Book Reading
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="celestial-bg min-h-[921px] flex items-center relative py-20">
+<div class="max-w-[1200px] mx-auto px-12 grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 border border-secondary/30 rounded-full bg-secondary/5">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em]">Written in the Stars</span>
+</div>
+<h1 class="font-display-lg text-display-lg leading-tight">
+                        Unlock Your Destiny with <span class="text-secondary">Sunny Astrology</span>
+</h1>
+<p class="text-on-surface-variant text-body-lg max-w-md">
+                        Navigate the cosmic tides with precision. Professional readings that bridge ancient wisdom and modern clarity.
+                    </p>
+<div class="flex items-center gap-6">
+<button class="bg-secondary text-on-secondary-container px-8 py-4 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(233,195,73,0.4)] transition-all">
+                            Book a Reading
+                        </button>
+<button class="border border-secondary/50 text-secondary px-8 py-4 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/5 transition-all">
+                            Explore Services
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-secondary/10 blur-3xl rounded-full"></div>
+<div class="relative glass-card rounded-3xl overflow-hidden aspect-[4/5] border-2 border-secondary/20">
+<img alt="Astrologer Sunny" class="w-full h-full object-cover grayscale-[20%] sepia-[10%]" data-alt="A professional and serene portrait of a modern astrologer with warm lighting. The background is a soft, deep midnight indigo with subtle celestial motifs and glowing gold star dust. The astrologer is wearing elegant professional attire, reflecting a blend of intellectual authority and mystical wisdom. High-end editorial photography style with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMLGYxfAfUek3rSyoRF_iILCHqpGlLvLS5QOu5_H2sfRG-kX-NnwgrHjgq63flvW1CUAvmNZAQ2nuSxJcilgf18Y0KhsI0kagHmLswrgHBGxaB42iQp1LRuF21TQW3-Cx9fI9t7REAsXQUQIMQSYMoh6eKUgOKA4pliolBI9Ecy2EXKLh2pd6HV57_gQP8-4Od2WPRepLxoB3oF_UPsRv7SaHu9eye3EkCBSCiH-dKbAlFizjdBLMnnr7cn33Ghh1rSMi0pxSB5H4"/>
+<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-surface to-transparent">
+<h3 class="font-headline-md text-headline-md text-secondary">Astrologer Sunny</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Master of Celestial Insights</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Daily Horoscope Quick View -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-[1200px] mx-auto px-12">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Daily Cosmic Forecast</h2>
+<p class="text-on-tertiary-container font-body-md">Select your sign to reveal today's alignment.</p>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-12 gap-4">
+<!-- Signs Loop (Simulated for UI) -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Aries</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="brightness_7">brightness_7</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Taurus</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all border-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-secondary">Gemini</span>
+</div>
+<!-- Simplified signs for briefness -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="nights_stay">nights_stay</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Cancer</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="flare">flare</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Leo</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="filter_vintage">filter_vintage</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Virgo</span>
+</div>
+<!-- 6 more signs... -->
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="balance">balance</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Libra</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="water_drop">water_drop</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Scorpio</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="architecture">architecture</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Sagittarius</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="terrain">terrain</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Capricorn</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="waves">waves</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Aquarius</span>
+</div>
+<div class="group flex flex-col items-center gap-3 cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="sailing">sailing</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Pisces</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Highlights -->
+<section class="py-24 bg-surface">
+<div class="max-w-[1200px] mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl space-y-4">
+<h2 class="font-headline-lg text-headline-lg">Sacred Services</h2>
+<p class="text-on-tertiary-container">From birth charts to hand readings, discover the pathways to your inner self through our specialized cosmic consultations.</p>
+</div>
+<button class="text-secondary border-b border-secondary/30 pb-1 font-label-sm text-label-sm uppercase tracking-widest hover:border-secondary transition-all">View All Services</button>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Horoscope Card -->
+<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined" data-icon="brightness_7">brightness_7</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Horoscopes</h3>
+<p class="text-on-surface-variant mb-8 line-clamp-3">Deep dive into planetary movements and their direct influence on your life's trajectory, relationships, and career.</p>
+<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
+                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Kundli Card -->
+<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Kundli</h3>
+<p class="text-on-surface-variant mb-8 line-clamp-3">Comprehensive birth chart analysis using Vedic principles to understand your innate strengths and life's primary challenges.</p>
+<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
+                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Palmistry Card -->
+<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined" data-icon="front_hand">front_hand</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Palmistry</h3>
+<p class="text-on-surface-variant mb-8 line-clamp-3">Unlock the secrets written in your hands. A physical manifestation of your journey, potential, and spiritual path.</p>
+<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
+                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Sunny -->
+<section class="py-24 celestial-bg overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-12 grid md:grid-cols-12 gap-16 items-center">
+<div class="md:col-span-5 relative">
+<div class="aspect-square rounded-full overflow-hidden border-4 border-secondary/20 p-4">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img alt="About Sunny" class="w-full h-full object-cover" data-alt="A close-up artistic portrait of an astrologer looking thoughtfully into the distance. The lighting is low-key with golden highlights on the skin, suggesting a candlelit or starlight environment. The composition is circular, set against a background of faint, glowing constellations and a dark velvet texture. Sophisticated and evocative professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByryOBtF6Boxv7T_eMKaZHefRDUJltU7Az8Fws4OkqKP7h5T5PYrddd8DNw5cZaqBwqS-vDlNx1XsrjqsHYCjg42jCDmH4O06stnFxg8qgxgAU_ngOOoavwy1vS-AeTUUtsxazhiUYvvkO8cXvRRNB7KYhPKK-5OpiCr_wL3tvgyM8K6ZpTychSKCNFTvAqMrtSlhuUeDzWdR6nODUEq8REA2DBqJViIZTxp9_rKD9-ws4r5jbAZ05qp30SMprRPfxvL1do6rIjDo"/>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 glass-card p-6 rounded-2xl shadow-2xl">
+<p class="font-headline-md text-secondary">25+</p>
+<p class="font-label-sm text-label-sm uppercase tracking-widest">Years of Wisdom</p>
+</div>
+</div>
+<div class="md:col-span-7 space-y-8">
+<h2 class="font-headline-lg text-headline-lg">The Soul Behind the Stars</h2>
+<p class="text-on-surface-variant text-body-lg">
+                        I am Sunny, a lifelong seeker and interpreter of celestial languages. My journey began under the vast night skies of the East, where I learned that the stars do not just watch us—they guide us. 
+                        <br/><br/>
+                        Through decades of study in Vedic astrology, palmistry, and numerology, I have helped thousands of souls find their true north in an ever-shifting universe.
+                    </p>
+<button class="border-b-2 border-secondary pb-1 text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em] hover:opacity-80 transition-opacity">
+                        Read My Full Story
+                    </button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-[1200px] mx-auto px-12">
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">Voices of the Awakened</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-2xl relative">
+<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
+<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"Sunny's reading was a turning point in my career. The precision regarding my upcoming transit was uncanny and gave me the confidence to make the leap."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
+<div>
+<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Elena Vance</p>
+<p class="text-xs text-on-tertiary-container">Entrepreneur</p>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-2xl relative border-secondary/40">
+<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
+<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"The Kundli analysis provided me with a peace of mind I haven't felt in years. It explained so much about my internal struggles and how to navigate them."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
+<div>
+<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Marcus Chen</p>
+<p class="text-xs text-on-tertiary-container">Creative Director</p>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-2xl relative">
+<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
+<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"A truly spiritual experience. Sunny doesn't just predict; he interprets with deep empathy and intellectual rigor. Highly recommended."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
+<div>
+<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Sarah Jenkins</p>
+<p class="text-xs text-on-tertiary-container">Writer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-secondary/20">
+<div class="max-w-[1200px] mx-auto py-12 px-12 flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+<div class="space-y-2 text-center md:text-left">
+<p class="font-headline-md text-headline-md text-secondary">Sunny Astrology</p>
+<p class="text-on-tertiary-container text-body-md opacity-70">© 2024 Sunny Astrology. Crafted in the Stars.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Celestial Calendar</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Affiliates</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
+
+
+<!-- ===== END OF LANDING PAGE CODE (File 1) ===== -->
+
+
+
+
+<!-- ===== START OF SERVICES PAGE CODE (File 2) ===== -->
+
+
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface-variant": "#c6c6cc",
+                  "surface": "#111415",
+                  "surface-tint": "#c0c6d9",
+                  "on-tertiary-fixed": "#101b30",
+                  "on-secondary-container": "#342800",
+                  "tertiary-fixed-dim": "#bbc6e2",
+                  "surface-container-low": "#191c1d",
+                  "on-tertiary-container": "#6f7a93",
+                  "on-secondary-fixed": "#241a00",
+                  "secondary-container": "#af8d11",
+                  "on-tertiary": "#263046",
+                  "inverse-primary": "#585e6e",
+                  "secondary": "#e9c349",
+                  "on-secondary-fixed-variant": "#574500",
+                  "tertiary": "#bbc6e2",
+                  "surface-variant": "#323536",
+                  "on-tertiary-fixed-variant": "#3c475d",
+                  "error": "#ffb4ab",
+                  "on-primary-fixed-variant": "#404756",
+                  "primary-fixed": "#dce2f5",
+                  "background": "#111415",
+                  "surface-container-high": "#282a2b",
+                  "outline": "#909096",
+                  "surface-container-lowest": "#0c0f10",
+                  "on-primary": "#2a303f",
+                  "surface-dim": "#111415",
+                  "inverse-on-surface": "#2e3132",
+                  "surface-container-highest": "#323536",
+                  "on-background": "#e1e3e4",
+                  "inverse-surface": "#e1e3e4",
+                  "primary-fixed-dim": "#c0c6d9",
+                  "tertiary-fixed": "#d7e2ff",
+                  "on-error-container": "#ffdad6",
+                  "primary": "#c0c6d9",
+                  "outline-variant": "#45474c",
+                  "on-surface": "#e1e3e4",
+                  "secondary-fixed-dim": "#e9c349",
+                  "primary-container": "#050b18",
+                  "on-primary-container": "#737a8b",
+                  "tertiary-container": "#010b1f",
+                  "on-error": "#690005",
+                  "on-primary-fixed": "#151c29",
+                  "secondary-fixed": "#ffe088",
+                  "surface-container": "#1d2021",
+                  "on-secondary": "#3c2f00",
+                  "error-container": "#93000a",
+                  "surface-bright": "#373a3b"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "unit": "8px",
+                  "container-max": "1200px",
+                  "margin-mobile": "16px",
+                  "margin-desktop": "48px",
+                  "gutter": "24px"
+          },
+          "fontFamily": {
+                  "headline-md": ["EB Garamond"],
+                  "display-lg": ["EB Garamond"],
+                  "body-lg": ["Manrope"],
+                  "headline-lg": ["EB Garamond"],
+                  "body-md": ["Manrope"],
+                  "label-sm": ["Manrope"],
+                  "display-lg-mobile": ["EB Garamond"]
+          },
+          "fontSize": {
+                  "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                  "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #111415;
+      background-image: radial-gradient(circle at 50% 50%, #1b263b 0%, #111415 100%);
+      background-attachment: fixed;
+    }
+    .glass-card {
+      background: rgba(27, 38, 59, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(233, 195, 73, 0.1);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-secondary/30">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">Horoscopes</a>
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1 transition-colors" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-secondary text-on-secondary-container px-6 py-2.5 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 active:scale-90 transition-transform">Book Reading</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<header class="mb-20 text-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-secondary mb-4">Celestial Services</h1>
+<p class="font-body-lg text-body-lg text-on-tertiary-container max-w-2xl mx-auto">
+        Unlock the secrets of the cosmos with personalized consultations rooted in ancient wisdom and astrological precision.
+      </p>
+</header>
+<!-- Bento Grid Services -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Kundli Matching (Featured) -->
+<section class="md:col-span-8 glass-card rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
+<div class="flex-1 space-y-4 z-10">
+<span class="inline-block px-3 py-1 bg-secondary/10 text-secondary font-label-sm text-label-sm rounded-full">MOST POPULAR</span>
+<h2 class="font-headline-lg text-headline-lg text-secondary">Kundli Matching</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Ensure celestial harmony for your lifelong union. Our detailed Guna Milan analysis goes beyond basic numbers to examine planetary alignments, Manglik Dosha, and emotional compatibility.
+          </p>
+<div class="flex items-center gap-4 pt-4">
+<span class="text-2xl font-bold text-on-surface">$49.00</span>
+<button class="bg-secondary text-on-secondary-container px-8 py-3 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 active:scale-90 transition-transform">Generate Now</button>
+</div>
+</div>
+<div class="w-full md:w-1/3 aspect-square relative">
+<img class="w-full h-full object-cover rounded-xl border border-secondary/20 shadow-2xl" data-alt="A detailed Vedic astrological chart on parchment paper, illuminated by soft golden candlelight in a dark, atmospheric study. The scene is filled with mystical symbols and a focused, serene energy. The color palette features deep indigo backgrounds with shimmering gold leaf accents, reflecting a high-end celestial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyPX8v5J9oYqA6-syKAtNGbiQ4pE9D9UAwk7hAEuqqQsnUEXLwVH5LDJDiaxn9nMoWiIVwFI4HrSo3lQRiE8hOp3G2lhML4v4iCU0MEft86kx1xh6SQssINMgneD0kXYJWZDSyjCHhWHCSSvUmqLcAATYrvmpwoelFO77uswhJlQ8QAAZ3p5Qz2DXVmnMSTd7HjQJqUcamcMuQLPS40vydIg-gcZZoJQsaW0cVrGDeieA-jtXSW0L3vL0yt43AT3T0PAE_E-4LZRU"/>
+</div>
+</section>
+<!-- Palmistry -->
+<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="front_hand">front_hand</span>
+<h2 class="font-headline-md text-headline-md text-secondary mb-2">Palmistry</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Your life's blueprint is written in your palms. Discover deep insights into your character, health, and future paths.
+          </p>
+</div>
+<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$35.00</span>
+<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Book Now</button>
+</div>
+</section>
+<!-- Numerology -->
+<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="numbers">numbers</span>
+<h2 class="font-headline-md text-headline-md text-secondary mb-2">Numerology</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Discover the vibrational influence of your birth number and name. Align your life with the mathematical rhythm of the universe.
+          </p>
+</div>
+<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$29.00</span>
+<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Analyze</button>
+</div>
+</section>
+<!-- Vastu Consultation -->
+<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="z-10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="home">home</span>
+<h2 class="font-headline-md text-headline-md text-secondary mb-2">Vastu Consultation</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Balance the cosmic energy of your living and workspace. Enhance prosperity, health, and peace through spatial alignment.
+          </p>
+</div>
+<div class="z-10 mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$120.00</span>
+<button class="bg-secondary text-on-secondary-container px-6 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 transition-transform">Consult</button>
+</div>
+<!-- Decorative subtle watermark -->
+<span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[180px] text-secondary/5 group-hover:text-secondary/10 transition-colors" data-icon="architecture">architecture</span>
+</section>
+<!-- Gemstone Recommendation -->
+<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="diamond">diamond</span>
+<h2 class="font-headline-md text-headline-md text-secondary mb-2">Gemstone Guide</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Harness the power of planetary stones. Get an expert recommendation for the lucky stone that strengthens your weak planets.
+          </p>
+</div>
+<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
+<span class="text-xl font-bold text-on-surface">$15.00</span>
+<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Find Stone</button>
+</div>
+</section>
+</div>
+<!-- Specialized UI Element: Progress Cycles -->
+<section class="mt-24 text-center">
+<h3 class="font-headline-md text-headline-md text-secondary mb-12">Cosmic Cycle Alignment</h3>
+<div class="flex flex-wrap justify-center gap-12">
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 mb-4">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="69" stroke-width="2"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">75%</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Mercury Phase</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 mb-4">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="138" stroke-width="2"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">50%</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Lunar Cycle</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="relative w-24 h-24 mb-4">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="200" stroke-width="2"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">28%</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Solar Tide</span>
+</div>
+</div>
+</section>
+</main>
+<!-- SideNavBar Navigation Shell (Hidden on Mobile) -->
+<aside class="hidden xl:flex h-full w-64 fixed left-0 top-0 z-40 flex-col p-6 space-y-4 bg-surface-container-low/95 backdrop-blur-2xl border-r border-secondary/10 shadow-2xl">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full border border-secondary/30 overflow-hidden">
+<img alt="Astrologer Sunny Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR2CzBvBStLv2S9Oa1BkGrlTDpsGY6ZU-PmnzhvhSc524ohODgBR1MBXqzLgAz0bnvvSs-Od5XRo3kSYwFf2oZu__8RT8nTAZl_3FG6cvw-iXZ-rMbL7ZHgZJTyWl5DApvrL34NAcBzSfsqpfarUKCa_GPuoLBcmVVlPA0gIWLazXPE6FFMUTVzuqoVn3tkBLAGXIHlFS7k0k6bjhtY6TY0Cm6GRh6ZXyaihgr_S-x3CX-UDQU4v0s51WyqzyP6ARxpxryAo9kBwc"/>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-secondary">Celestial Insights</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Your Cosmic Guide</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="brightness_7">brightness_7</span> Daily Horoscope
+      </a>
+<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span> Kundli
+      </a>
+<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="front_hand">front_hand</span> Palmistry
+      </a>
+<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="numbers">numbers</span> Numerology
+      </a>
+<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg mt-auto" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="settings">settings</span> Settings
+      </a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-secondary/10 text-secondary border border-secondary/30 py-4 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/20 transition-all duration-300">
+        Premium Access
+      </button>
+</div>
+</aside>
+<!-- Footer Shell -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-secondary/20">
+<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+<div class="space-y-4 text-center md:text-left">
+<div class="font-headline-md text-headline-md text-secondary">Sunny Astrology</div>
+<p class="font-body-md text-body-md text-on-tertiary-container max-w-xs">© 2024 Sunny Astrology. Crafted in the Stars.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Celestial Calendar</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Affiliates</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full flex items-center justify-center border border-secondary/20 hover:bg-secondary/10 text-secondary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="w-10 h-10 rounded-full flex items-center justify-center border border-secondary/20 hover:bg-secondary/10 text-secondary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
+
+
+<!-- ===== END OF SERVICES PAGE CODE (File 2) ===== -->
+
+
+
+
+<!-- ===== START OF HOROSCOPES PAGE CODE (File 3) ===== -->
+
+
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Horoscopes | Sunny Astrology</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        /* === ANIMATIONS === */
-        @keyframes bgZoom { 0% { background-size: 100%; } 100% { background-size: 110%; } }
-        @keyframes floatGlow { 0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); } 50% { transform: translateY(-10px); text-shadow: 0 0 25px rgba(212, 175, 55, 0.8); } 100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); } }
-        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
-        @keyframes slideUpFade { 0% { opacity: 0; transform: translateY(50px); } 100% { opacity: 1; transform: translateY(0); } }
-        @keyframes slideOutUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-100vh); display: none; } }
-
-        /* === 1. GATEWAY SECTION (Form) === */
-        #gateway-section {
-            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(5, 4, 4, 0.85), rgba(5, 4, 4, 0.95)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop') center center fixed;
-            background-size: cover; animation: bgZoom 20s infinite alternate linear; padding: 40px 20px; position: relative; z-index: 10;
-        }
-
-        .gateway-header { text-align: center; margin-bottom: 30px; animation: slideUpFade 1s ease forwards; }
-        .gateway-header i.fa-spa { font-size: 55px; color: var(--primary-gold); margin-bottom: 10px; animation: floatGlow 4s infinite ease-in-out; }
-        .gateway-header h1 { font-family: 'Cinzel', serif; font-size: 45px; color: var(--primary-gold); letter-spacing: 6px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-
-        .gateway-form-container {
-            background: rgba(15, 12, 10, 0.55); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.4); padding: 50px 40px; width: 100%; max-width: 480px;
-            border-radius: 15px; text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9); animation: slideUpFade 1.2s ease forwards;
-        }
-        .gateway-form-container h2 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 15px; letter-spacing: 3px; }
-        .gateway-form-container p { font-size: 13px; color: #d1d1d1; margin-bottom: 35px; line-height: 1.6; }
-        
-        .input-group { margin-bottom: 25px; text-align: left; }
-        .input-group label { display: block; font-size: 11px; color: var(--light-gold); margin-bottom: 8px; letter-spacing: 2px; font-weight: 600; }
-        .input-group input, .input-group textarea { width: 100%; padding: 16px; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(212, 175, 55, 0.3); color: white; font-family: 'Montserrat', sans-serif; outline: none; border-radius: 8px; transition: all 0.4s ease; font-size: 14px; }
-        .input-group input:focus, .input-group textarea:focus { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); background: rgba(0, 0, 0, 0.9); }
-        
-        .btn-unlock { width: 100%; background: linear-gradient(135deg, #D4AF37, #AA771C); color: var(--dark-bg); border: none; padding: 18px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 8px; font-family: 'Montserrat', sans-serif; letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; animation: pulseGlow 2s infinite; }
-        .btn-unlock:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5); }
-
-
-        /* === 2. MAIN DASHBOARD WRAPPER === */
-        #main-dashboard-wrapper { display: none; min-height: 100vh; }
-
-        .welcome-banner { text-align: center; padding: 60px 20px 40px; background: linear-gradient(to bottom, #14100E, var(--dark-bg)); border-bottom: 1px solid rgba(212, 175, 55, 0.1); animation: slideUpFade 1s ease forwards; }
-        .welcome-banner h2 { font-family: 'Cinzel', serif; font-size: 38px; color: var(--primary-gold); margin-bottom: 10px; letter-spacing: 4px; }
-        .welcome-banner p { font-family: 'Great Vibes', cursive; font-size: 35px; color: var(--light-gold); margin-top: -10px; }
-
-
-        /* === SECTION A: HORIZONTAL CAROUSEL (Now with Edge Fade & Auto Scroll) === */
-        .dashboard-section { padding: 40px 0; animation: slideUpFade 1.2s ease forwards; overflow: hidden; }
-        
-        .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; padding: 0 10%; }
-        .section-title { font-family: 'Cinzel', serif; font-size: 22px; color: var(--primary-gold); letter-spacing: 3px; text-transform: uppercase; }
-        
-        .btn-view-all { background: transparent; color: var(--primary-gold); border: 1px solid var(--primary-gold); padding: 10px 20px; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 5px; letter-spacing: 2px; transition: all 0.3s; }
-        .btn-view-all:hover { background: var(--primary-gold); color: var(--dark-bg); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
-
-        /* Premium Edge Fade Wrapper */
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
-        }
-        /* Left and Right Fade Shadow for Premium Look */
-        .carousel-wrapper::before, .carousel-wrapper::after {
-            content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 5; pointer-events: none;
-        }
-        .carousel-wrapper::before { left: 0; background: linear-gradient(to right, var(--dark-bg), transparent); }
-        .carousel-wrapper::after { right: 0; background: linear-gradient(to left, var(--dark-bg), transparent); }
-
-        .carousel-container {
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding: 10px 10% 30px;
-            -webkit-overflow-scrolling: touch; 
-            /* Hide scrollbar for sleek automated look */
-            -ms-overflow-style: none; scrollbar-width: none; 
-        }
-        .carousel-container::-webkit-scrollbar { display: none; }
-
-        /* Provider Card Styling */
-        .provider-card { position: relative; background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 15px; padding: 20px; text-align: center; transition: all 0.4s ease; }
-        .carousel-container .provider-card { flex: 0 0 calc(33.333% - 20px); scroll-snap-align: start; }
-        .provider-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15); border-color: var(--primary-gold); }
-        
-        /* MATCHED ADDRESS BADGE */
-        .badge-near-you {
-            position: absolute; top: 10px; left: 10px; background: linear-gradient(135deg, var(--whatsapp-green), #14803b);
-            color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px;
-            z-index: 5; box-shadow: 0 4px 15px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.4);
-            animation: pulseGlow 2s infinite; font-family: 'Montserrat', sans-serif; text-transform: uppercase;
-        }
-
-        /* 16:9 RATIO FOR IMAGES */
-        .image-container-16-9 { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 10px; border: 2px solid rgba(212, 175, 55, 0.5); margin-bottom: 20px; transition: all 0.4s ease; position: relative; }
-        .provider-card:hover .image-container-16-9 { border-color: var(--primary-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-        .image-container-16-9 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-        .provider-card:hover .image-container-16-9 img { transform: scale(1.1); }
-        
-        .provider-card h3 { font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 8px; }
-        .provider-card p.address { font-size: 12px; color: #b3b3b3; margin-bottom: 20px; line-height: 1.5; }
-        .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: rgba(37, 211, 102, 0.1); color: var(--whatsapp-green); border: 1px solid var(--whatsapp-green); padding: 12px 15px; text-decoration: none; border-radius: 5px; font-weight: 600; width: 100%; transition: all 0.3s; font-size: 14px; }
-        .btn-whatsapp:hover { background-color: var(--whatsapp-green); color: white; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); transform: scale(1.02); }
-
-
-        /* === SECTION B: PROMO BANNERS === */
-        .promo-wrapper { padding: 20px 10% 80px; }
-        .promo-box { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; background: var(--panel-bg); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s ease; animation: slideUpFade 1.5s ease forwards; }
-        .promo-box:hover { border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1); }
-        .promo-box.reverse { flex-direction: row-reverse; }
-        .promo-img-container { flex: 1; border-radius: 15px; overflow: hidden; border: 2px solid var(--primary-gold); }
-        .promo-img-container img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
-        .promo-box:hover .promo-img-container img { transform: scale(1.05); }
-        .promo-content { flex: 1; }
-        .promo-content h2 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--primary-gold); margin-bottom: 5px; }
-        .promo-content h4 { font-family: 'Great Vibes', cursive; font-size: 28px; color: var(--light-gold); font-weight: normal; margin-bottom: 20px; }
-        .promo-list { list-style: none; margin-bottom: 25px; }
-        .promo-list li { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #ddd; }
-        .promo-list li i { color: var(--primary-gold); font-size: 14px; }
-        .offer-text { font-weight: 600; color: #fff; margin-bottom: 20px; font-size: 16px; border-left: 3px solid var(--primary-gold); padding-left: 15px; }
-        .tagline-text { font-style: italic; color: var(--primary-gold); font-size: 13px; margin-top: 20px; text-align: center; display: block; letter-spacing: 1px; }
-
-        .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px; background: rgba(0,0,0,0.4); padding: 20px; border-radius: 10px; }
-        .before-after-grid h5 { font-family: 'Cinzel', serif; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .before-after-grid .before-box h5 { color: var(--danger-red); }
-        .before-after-grid .after-box h5 { color: var(--whatsapp-green); }
-        .before-after-grid ul { list-style: none; }
-        .before-after-grid ul li { font-size: 13px; margin-bottom: 8px; color: #ccc; }
-        
-        .btn-promo-cta { display: inline-block; background: var(--primary-gold); color: var(--dark-bg); padding: 15px 30px; font-weight: 700; border-radius: 5px; text-decoration: none; letter-spacing: 1px; transition: 0.3s; font-family: 'Montserrat', sans-serif; }
-        .btn-promo-cta:hover { background: #e6c555; box-shadow: 0 0 20px rgba(212,175,55,0.5); transform: translateY(-2px); }
-
-
-        /* === 3. VIEW ALL PAGE (3x3 Grid) === */
-        #view-all-page { display: none; min-height: 100vh; background-color: var(--dark-bg); padding: 40px 10%; animation: slideUpFade 0.5s ease forwards; }
-        .view-all-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-        .grid-3x3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-
-
-        /* === SUPER RESPONSIVE QUERIES === */
-        @media (max-width: 1024px) {
-            .carousel-container .provider-card { flex: 0 0 calc(50% - 15px); }
-            .grid-3x3 { grid-template-columns: repeat(2, 1fr); }
-            .promo-box { flex-direction: column; padding: 30px; }
-            .promo-box.reverse { flex-direction: column; }
-        }
-        @media (max-width: 768px) {
-            /* Mobile view: 1 card + 75% of next card with Edge Fade Magic */
-            .carousel-wrapper::before, .carousel-wrapper::after { width: 30px; }
-            .carousel-container { padding-left: 5%; padding-right: 5%; scroll-padding-left: 5%; gap: 15px; }
-            .carousel-container .provider-card { flex: 0 0 75%; } 
-            
-            .section-header-row { padding: 0 5%; flex-direction: column; align-items: flex-start; }
-            .grid-3x3 { grid-template-columns: 1fr; }
-            .gateway-header h1 { font-size: 35px; }
-            .before-after-grid { grid-template-columns: 1fr; }
-            .promo-wrapper { padding: 20px 5% 60px; }
+            background-color: #111415;
+            background-image: radial-gradient(circle at 50% 50%, #1a1d2e 0%, #111415 100%);
+            background-attachment: fixed;
         }
     </style>
-</head>
-<body>
-
-    <!-- 1. VIP GATEWAY SECTION -->
-    <section id="gateway-section">
-        <div class="gateway-header">
-            <i class="fa-solid fa-spa"></i>
-            <h1>LUXE SPA</h1>
-            <div style="font-family: 'Great Vibes', cursive; font-size: 40px; color: var(--light-gold);">VIP Experience</div>
-        </div>
-
-        <div class="gateway-form-container">
-            <h2><i class="fa-solid fa-gem" style="margin-right: 8px;"></i> VIP VERIFICATION</h2>
-            <p>Enter your credentials once to permanently unlock the VIP Dashboard on this device.</p>
-            
-            <form id="unlockForm">
-                <div class="input-group">
-                    <label>FULL NAME</label>
-                    <input type="text" id="userName" placeholder="Enter your full name" required>
-                </div>
-                <div class="input-group">
-                    <label>MOBILE / WHATSAPP NUMBER</label>
-                    <input type="tel" id="userPhone" placeholder="Enter 10-digit number" required>
-                </div>
-                <div class="input-group">
-                    <label>COMPLETE ADDRESS (Area/City)</label>
-                    <textarea id="userAddress" rows="2" placeholder="e.g. Andheri West, Mumbai" required></textarea>
-                </div>
-                <button type="submit" class="btn-unlock" id="unlockBtn">
-                    UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- 2. MAIN DASHBOARD WRAPPER -->
-    <div id="main-dashboard-wrapper">
-        <div class="welcome-banner">
-            <h2>VIP DASHBOARD</h2>
-            <p id="userWelcomeText">Exclusive Relaxation Awaits You</p>
-        </div>
-
-        <!-- Section A: Top Carousel (Edge Fade & Auto Scroll) -->
-        <section class="dashboard-section">
-            <div class="section-header-row">
-                <h3 class="section-title"><i class="fa-solid fa-crown" style="font-size:18px;"></i> OUR ELITE THERAPISTS</h3>
-                <button class="btn-view-all" onclick="openViewAllPage()">VIEW ALL THERAPISTS <i class="fa-solid fa-arrow-right"></i></button>
-            </div>
-            
-            <div class="carousel-wrapper">
-                <div class="carousel-container" id="carouselProviders">
-                    <!-- Dynamically populated by Firebase -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Section B: Promo Banners -->
-        <section class="promo-wrapper">
-            <!-- Promo 1 -->
-            <div class="promo-box">
-                <div class="promo-img-container">
-                    <img src="https://i.ibb.co/27DrvN7J/file-0000000006807208855cf489c8a65162.png" alt="Couple Spa">
-                </div>
-                <div class="promo-content">
-                    <h2>✨ Relax Together, Feel Better ✨</h2>
-                    <h4>Luxury Spa Experience for Men & Women</h4>
-                    <ul class="promo-list">
-                        <li><i class="fa-solid fa-check"></i> Full Body Massage</li><li><i class="fa-solid fa-check"></i> Stress Relief Therapy</li><li><i class="fa-solid fa-check"></i> Couple Spa Packages</li><li><i class="fa-solid fa-check"></i> Premium Aroma Oils</li><li><i class="fa-solid fa-check"></i> Clean & Safe Environment</li><li><i class="fa-solid fa-check"></i> Expert Therapists</li>
-                    </ul>
-                    <div class="offer-text">💖 Special Couple Discount Available<br>💆‍♂️💆‍♀️ Book Your Session Today!</div>
-                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-phone"></i> Call / WhatsApp Now</a>
-                    <span class="tagline-text">🌟 Feel Fresh • Feel Relaxed • Feel Loved <br> Because You Both Deserve Relaxation.</span>
-                </div>
-            </div>
-
-            <!-- Promo 2 -->
-            <div class="promo-box reverse">
-                <div class="promo-img-container">
-                    <img src="https://i.ibb.co/9H4N615R/file-000000004dc07208a0a1e54e048d542a.png" alt="Facial Spa Glow">
-                </div>
-                <div class="promo-content">
-                    <h2>✨ Instant Glow, Instant Confidence</h2>
-                    <h4>Premium Facial Spa Experience for Radiant Skin</h4>
-                    <div class="before-after-grid">
-                        <div class="before-box"><h5>❌ Before</h5><ul><li>Dull Skin</li><li>Acne Marks</li><li>Uneven Tone</li><li>Tired Look</li></ul></div>
-                        <div class="after-box"><h5>✅ After</h5><ul><li>Bright & Glowing Skin</li><li>Clear & Healthy Face</li><li>Even Skin Tone</li><li>Fresh & Youthful Look</li></ul></div>
-                    </div>
-                    <ul class="promo-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Deep Cleansing</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Skin Hydration</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Tan Removal</li><li style="width: 45%;"><i class="fa-solid fa-leaf"></i> Glow Boost</li>
-                    </ul>
-                    <div class="offer-text">💖 Beautiful Skin Isn’t Luck, It’s Self Care</div>
-                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-solid fa-calendar-check"></i> Book Your Glow Today!</a>
-                    <span class="tagline-text">LUXE SPA | Premium Care | Hygienic Environment | Expert Therapists</span>
-                </div>
-            </div>
-
-            <!-- Promo 3 -->
-            <div class="promo-box">
-                <div class="promo-img-container">
-                    <img src="https://i.ibb.co/Pv66qSTy/file-00000000a124720888feaa5fd4e04e61.png" alt="Stress Relief Life">
-                </div>
-                <div class="promo-content">
-                    <h2>✨ Stress Free Life Starts Here</h2>
-                    <h4>Relax. Rejuvenate. Refresh.</h4>
-                    <p style="color:#ccc; font-size:14px; margin-bottom:15px;">Experience the ultimate mind, body & soul care with our premium services.</p>
-                    <ul class="promo-list">
-                        <li><i class="fa-solid fa-spa"></i> Expert Therapists & Premium Services</li><li><i class="fa-solid fa-spa"></i> Luxury Experience in Safe Environment</li><li>💆 Full Body Relaxation</li><li>🌿 Stress Relief Therapy</li><li>🕯 Peaceful Ambience</li><li>💖 Deep Muscle Recovery & Energy Boost</li>
-                    </ul>
-                    <div class="offer-text">You Deserve The Best. We Deliver Relaxation.</div>
-                    <a href="#carouselProviders" class="btn-promo-cta"><i class="fa-brands fa-whatsapp"></i> Contact Our Experts</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- 3. VIEW ALL PAGE -->
-    <div id="view-all-page">
-        <div class="view-all-header">
-            <h2 class="section-title" style="margin: 0;">ALL THERAPISTS</h2>
-            <button class="btn-view-all" onclick="closeViewAllPage()"><i class="fa-solid fa-arrow-left"></i> BACK TO HOME</button>
-        </div>
-        <div class="grid-3x3" id="gridProviders">
-            <!-- Dynamically populated by Firebase -->
-        </div>
-    </div>
-
-
-    <!-- Firebase v9 SDK Connection Script -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-
-        // Your Config 100% Exact Same
-        const firebaseConfig = {
-            apiKey: "AIzaSyC0oD7NKFbUweD58i1x6bheEBWfK7Yme9Q",
-            authDomain: "mediverse-1088d.firebaseapp.com",
-            projectId: "mediverse-1088d",
-            storageBucket: "mediverse-1088d.firebasestorage.app",
-            messagingSenderId: "691637264735",
-            appId: "1:691637264735:web:56e8eba25de2f64378d6ea",
-            measurementId: "G-DK3B7PGBXH"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-        const bookingsRef = ref(db, 'Client_Bookings');
-        const providersRef = ref(db, 'Service_Providers');
-
-        // ==========================================
-        // SMART AUTO-SCROLL LOGIC (Infinite Loop + Pause on Hover)
-        // ==========================================
-        let carouselAutoScrollInterval = null;
-
-        function startAutoScroll() {
-            const slider = document.getElementById('carouselProviders');
-            if(!slider) return;
-            
-            // Clear existing interval to prevent speeding up
-            if(carouselAutoScrollInterval) clearInterval(carouselAutoScrollInterval);
-            
-            carouselAutoScrollInterval = setInterval(() => {
-                const card = slider.querySelector('.provider-card');
-                if(!card) return;
-                
-                // Calculate width to slide (Card width + Gap)
-                const scrollStep = card.offsetWidth + 30; 
-                
-                // If reached the end, rewind smoothly to the beginning
-                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-                    slider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    // Otherwise, slide next
-                    slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
-                }
-            }, 3000); // 3 Seconds exactly
-        }
-
-        function setupAutoScrollEvents() {
-            const slider = document.getElementById('carouselProviders');
-            if(!slider) return;
-            
-            // Pause when user touches or hovers over the slider
-            slider.addEventListener('mouseenter', () => clearInterval(carouselAutoScrollInterval));
-            slider.addEventListener('mouseleave', startAutoScroll);
-            slider.addEventListener('touchstart', () => clearInterval(carouselAutoScrollInterval));
-            slider.addEventListener('touchend', startAutoScroll);
-        }
-
-        // ==========================================
-        // Remember Me & Load Address Logic
-        // ==========================================
-        window.onload = function() {
-            const isVIP = localStorage.getItem('luxeSpa_isVIP');
-            const savedName = localStorage.getItem('luxeSpa_UserName');
-
-            if (isVIP === 'true' && savedName) {
-                document.getElementById('gateway-section').style.display = 'none';
-                document.getElementById('main-dashboard-wrapper').style.display = 'block';
-                document.getElementById('userWelcomeText').innerText = `Welcome back, ${savedName}.`;
-                loadProvidersData(); 
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#c6c6cc",
+                    "surface": "#111415",
+                    "surface-tint": "#c0c6d9",
+                    "on-tertiary-fixed": "#101b30",
+                    "on-secondary-container": "#342800",
+                    "tertiary-fixed-dim": "#bbc6e2",
+                    "surface-container-low": "#191c1d",
+                    "on-tertiary-container": "#6f7a93",
+                    "on-secondary-fixed": "#241a00",
+                    "secondary-container": "#af8d11",
+                    "on-tertiary": "#263046",
+                    "inverse-primary": "#585e6e",
+                    "secondary": "#e9c349",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary": "#bbc6e2",
+                    "surface-variant": "#323536",
+                    "on-tertiary-fixed-variant": "#3c475d",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#404756",
+                    "primary-fixed": "#dce2f5",
+                    "background": "#111415",
+                    "surface-container-high": "#282a2b",
+                    "outline": "#909096",
+                    "surface-container-lowest": "#0c0f10",
+                    "on-primary": "#2a303f",
+                    "surface-dim": "#111415",
+                    "inverse-on-surface": "#2e3132",
+                    "surface-container-highest": "#323536",
+                    "on-background": "#e1e3e4",
+                    "inverse-surface": "#e1e3e4",
+                    "primary-fixed-dim": "#c0c6d9",
+                    "tertiary-fixed": "#d7e2ff",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#c0c6d9",
+                    "outline-variant": "#45474c",
+                    "on-surface": "#e1e3e4",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary-container": "#050b18",
+                    "on-primary-container": "#737a8b",
+                    "tertiary-container": "#010b1f",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#151c29",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container": "#1d2021",
+                    "on-secondary": "#3c2f00",
+                    "error-container": "#93000a",
+                    "surface-bright": "#373a3b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-max": "1200px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["EB Garamond"],
+                    "display-lg": ["EB Garamond"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["EB Garamond"],
+                    "body-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "display-lg-mobile": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
             }
-        };
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Horoscopes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-secondary scale-95 active:scale-90 transition-transform">search</button>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-sm uppercase tracking-widest scale-95 active:scale-90 transition-transform">Book Reading</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Hidden on this view but kept for system rules) -->
+<aside class="hidden lg:flex h-full w-64 fixed left-0 top-0 z-40 bg-surface-container-low/95 backdrop-blur-2xl border-r border-secondary/10 shadow-2xl flex-col p-6 space-y-4 pt-24">
+<div class="mb-8">
+<div class="font-headline-lg text-headline-lg text-secondary">Celestial Insights</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-tertiary-container">Your Cosmic Guide</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center space-x-3 p-3 text-secondary font-bold bg-secondary/10 rounded-lg ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="brightness_7">brightness_7</span>
+<span class="font-label-sm">Daily Horoscope</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm">Kundli</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="front_hand">front_hand</span>
+<span class="font-label-sm">Palmistry</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="numbers">numbers</span>
+<span class="font-label-sm">Numerology</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm">Settings</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary-container text-on-primary-container p-4 rounded-xl font-label-sm uppercase tracking-widest text-center border border-primary/20">Premium Access</button>
+</aside>
+<main class="lg:pl-64 pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Zodiac Selection -->
+<section class="mb-16">
+<div class="text-center mb-12">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Choose Your Sign</h1>
+<p class="font-body-lg text-body-lg text-on-tertiary-container max-w-2xl mx-auto italic">Tap into the celestial currents and discover what the stars have aligned for you today.</p>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Zodiac Card 1 (Active) -->
+<div class="relative group cursor-pointer">
+<div class="absolute inset-0 bg-secondary/20 blur-xl opacity-50 rounded-full"></div>
+<div class="relative flex flex-col items-center p-6 bg-surface-container-high border-2 border-secondary rounded-2xl shadow-[0_0_20px_rgba(233,195,73,0.3)] transition-all duration-300 transform group-hover:-translate-y-2">
+<span class="material-symbols-outlined text-secondary text-5xl mb-2" data-icon="brightness_7">brightness_7</span>
+<span class="font-label-sm uppercase tracking-widest text-secondary">Leo</span>
+<span class="text-[10px] text-on-tertiary-container">Jul 23 - Aug 22</span>
+</div>
+</div>
+<!-- Zodiac Card 2 -->
+<div class="group cursor-pointer">
+<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="waves">waves</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Aquarius</span>
+<span class="text-[10px] text-on-tertiary-container">Jan 20 - Feb 18</span>
+</div>
+</div>
+<!-- Zodiac Card 3 -->
+<div class="group cursor-pointer">
+<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="grass">grass</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Virgo</span>
+<span class="text-[10px] text-on-tertiary-container">Aug 23 - Sep 22</span>
+</div>
+</div>
+<!-- Zodiac Card 4 -->
+<div class="group cursor-pointer">
+<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="flare">flare</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Aries</span>
+<span class="text-[10px] text-on-tertiary-container">Mar 21 - Apr 19</span>
+</div>
+</div>
+<!-- Zodiac Card 5 -->
+<div class="group cursor-pointer">
+<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="agriculture">agriculture</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Taurus</span>
+<span class="text-[10px] text-on-tertiary-container">Apr 20 - May 20</span>
+</div>
+</div>
+<!-- Zodiac Card 6 -->
+<div class="group cursor-pointer">
+<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="groups">groups</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Gemini</span>
+<span class="text-[10px] text-on-tertiary-container">May 21 - Jun 20</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Horoscope Details Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Main Prediction -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Content Tabs -->
+<div class="flex border-b border-secondary/20">
+<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-secondary border-b-2 border-secondary">Daily</button>
+<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-on-tertiary-container hover:text-secondary transition-colors">Weekly</button>
+<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-on-tertiary-container hover:text-secondary transition-colors">Monthly</button>
+</div>
+<!-- Main Card -->
+<div class="relative bg-surface-container-low border border-secondary/10 p-10 rounded-3xl backdrop-blur-2xl overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="brightness_7">brightness_7</span>
+</div>
+<div class="relative">
+<div class="flex items-center space-x-4 mb-8">
+<div class="w-12 h-[1px] bg-secondary"></div>
+<span class="font-label-sm text-secondary uppercase tracking-[0.2em]">Leo • June 14, 2024</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">A Day for Bold Initiatives</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
+                            The cosmic alignment today favors your natural charisma, Leo. With the Moon transiting through your sector of personal growth, you'll find that your ideas carry more weight than usual in professional settings. It's a prime moment to pitch that ambitious project or have a heart-to-heart conversation you've been putting off. The golden threads of fate are weaving a pattern of success—all you need to do is step into the light. 
+                            <br/><br/>
+                            Be mindful of your energy levels mid-afternoon as Mars creates a subtle tension with Venus. Avoid impulsive expenditures and instead focus on the emotional wealth you've cultivated. Your magnetism is at an all-time high tonight, making it an excellent time for social gatherings or intimate dinners.
+                        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface/40 p-6 rounded-xl border border-secondary/5">
+<h4 class="font-label-sm text-secondary uppercase tracking-widest mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">stars</span> Love &amp; Relationships
+                                </h4>
+<p class="text-on-surface-variant text-sm">A surprise message from someone in your past could spark a new perspective on current connections.</p>
+</div>
+<div class="bg-surface/40 p-6 rounded-xl border border-secondary/5">
+<h4 class="font-label-sm text-secondary uppercase tracking-widest mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">payments</span> Career &amp; Finance
+                                </h4>
+<p class="text-on-surface-variant text-sm">Practical investments made today will yield long-term stability. Trust your intuition but verify the data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Contextual Insights -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Lucky Numbers Card -->
+<div class="bg-surface-container-high border border-secondary/10 p-8 rounded-3xl shadow-xl">
+<h3 class="font-headline-md text-headline-md text-secondary mb-6">Cosmic Sync</h3>
+<div class="space-y-6">
+<div>
+<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container block mb-3">Lucky Numbers</span>
+<div class="flex space-x-3">
+<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">07</div>
+<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">22</div>
+<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">49</div>
+<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">81</div>
+</div>
+</div>
+<div class="h-[1px] bg-secondary/10"></div>
+<div>
+<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container block mb-3">Compatible Signs</span>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2 bg-surface p-2 pr-4 rounded-full border border-secondary/20">
+<span class="material-symbols-outlined text-secondary" data-icon="flare">flare</span>
+<span class="font-label-sm">Aries</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface p-2 pr-4 rounded-full border border-secondary/20">
+<span class="material-symbols-outlined text-secondary" data-icon="groups">groups</span>
+<span class="font-label-sm">Gemini</span>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-secondary/10"></div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container">Mood Of The Day</span>
+<span class="text-secondary italic">Radiant &amp; Creative</span>
+</div>
+</div>
+</div>
+<!-- CTA Card -->
+<div class="relative group overflow-hidden rounded-3xl bg-primary-container border border-primary/20 p-8 text-center">
+<img alt="Cosmic Sky" class="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-110" data-alt="A mesmerizing view of a deep blue night sky filled with millions of twinkling stars and a swirling, ethereal purple and gold nebula. The atmosphere is mystical and vast, suggesting the infinite wonders of the universe. In the foreground, subtle silhouettes of ancient observatory towers add a sense of history and wisdom to the celestial scene. The lighting is soft and otherworldly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPFYlkNayb-72mTfn69EUe4R_gQLVJ-m3vrAz8Ji_Kc2UyhFeHrRn-9dVNEqR3rEmmXQOeAMZkUoD6nK2boxAalHEsN_JLsOk3UtcRr7NBJMX2BrM2hluKnxf6mV0AEnWu0tQTAkurS23RBu4wCRGTSips1RvxiBL0uymrTVnaO5Oe9WJRsacFECDt2y_iejXmAFY8JtZs6uudSAaLpuaDa2pfbRbYByvSGG2ne7iAfyY2VLgKXovQIQyXqzBbx_JAGBf1ZnmwmLE"/>
+<div class="relative">
+<h3 class="font-headline-md text-headline-md text-tertiary mb-4">Deeper Wisdom?</h3>
+<p class="text-on-tertiary-container font-body-md mb-6">Unlock your full 20-page natal chart analysis and 12-month transit forecast.</p>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-label-sm uppercase tracking-widest shadow-lg hover:shadow-secondary/20 transition-all">Get Personalized Report</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary CTA Section -->
+<section class="mt-24 text-center py-20 border-t border-secondary/10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-on-surface mb-8">Consult the Oracle</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-surface-container-high border border-secondary/40 px-10 py-5 rounded-full flex items-center space-x-3 group hover:bg-secondary transition-all">
+<span class="material-symbols-outlined text-secondary group-hover:text-on-secondary">chat_bubble</span>
+<span class="font-label-sm uppercase tracking-widest group-hover:text-on-secondary">Chat with an Astrologer</span>
+</button>
+<button class="bg-surface-container-high border border-secondary/40 px-10 py-5 rounded-full flex items-center space-x-3 group hover:bg-secondary transition-all">
+<span class="material-symbols-outlined text-secondary group-hover:text-on-secondary">schedule</span>
+<span class="font-label-sm uppercase tracking-widest group-hover:text-on-secondary">Book Video Session</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-secondary/20">
+<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+<div>
+<div class="font-headline-md text-headline-md text-secondary mb-2">Sunny Astrology</div>
+<p class="text-on-tertiary-container font-body-md">© 2024 Sunny Astrology. Crafted in the Stars.</p>
+</div>
+<div class="flex space-x-8">
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Celestial Calendar</a>
+<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Affiliates</a>
+</div>
+<div class="flex space-x-4">
+<button class="w-10 h-10 rounded-full border border-secondary/20 flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="public">public</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-secondary/20 flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>
 
-        // ==========================================
-        // Gateway Form Submission
-        // ==========================================
-        document.getElementById('unlockForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            const btn = document.getElementById('unlockBtn');
-            btn.innerHTML = 'VERIFYING... <i class="fa-solid fa-spinner fa-spin"></i>';
 
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const address = document.getElementById('userAddress').value;
+<!-- ===== END OF HOROSCOPES PAGE CODE (File 3) ===== -->
 
-            const newBookingRef = push(bookingsRef);
-            set(newBookingRef, {
-                FullName: name,
-                MobileNumber: phone,
-                Address: address,
-                Timestamp: new Date().toLocaleString()
-            })
-            .then(() => {
-                localStorage.setItem('luxeSpa_isVIP', 'true');
-                localStorage.setItem('luxeSpa_UserName', name);
-                localStorage.setItem('luxeSpa_UserAddress', address); 
 
-                const gateway = document.getElementById('gateway-section');
-                gateway.style.animation = 'slideOutUp 1s ease forwards';
-                
-                setTimeout(() => {
-                    gateway.style.display = 'none';
-                    const mainContent = document.getElementById('main-dashboard-wrapper');
-                    mainContent.style.display = 'block';
-                    mainContent.style.animation = 'slideUpFade 1s ease forwards';
-                    document.getElementById('userWelcomeText').innerText = `Welcome, ${name}. Your Relaxation Awaits.`;
-                    
-                    loadProvidersData(); 
-                    window.scrollTo(0, 0);
-                }, 900);
-            })
-            .catch((error) => {
-                alert("Database Error: " + error);
-                btn.innerHTML = 'UNLOCK ACCESS <i class="fa-solid fa-unlock-keyhole"></i>';
-            });
-        });
 
-        // ==========================================
-        // Fetch Data & Start Carousel Engine
-        // ==========================================
-        function loadProvidersData() {
-            onValue(providersRef, (snapshot) => {
-                const carouselContainer = document.getElementById('carouselProviders');
-                const gridContainer = document.getElementById('gridProviders');
-                
-                carouselContainer.innerHTML = ''; 
-                gridContainer.innerHTML = ''; 
 
-                if (snapshot.exists()) {
-                    const providersData = snapshot.val();
-                    const savedUserAddress = (localStorage.getItem('luxeSpa_UserAddress') || '').toLowerCase();
-                    let providersArray = [];
+<!-- ===== START OF BOOKING PAGE CODE (File 4) ===== -->
 
-                    for (const key in providersData) {
-                        providersArray.push({ id: key, ...providersData[key], matchScore: 0 });
+
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sunny Astrology | Book Your Celestial Reading</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #111415;
+            color: #e1e3e4;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .celestial-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(233, 195, 73, 0.05) 0%, transparent 70%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c6c6cc",
+                        "surface": "#111415",
+                        "surface-tint": "#c0c6d9",
+                        "on-tertiary-fixed": "#101b30",
+                        "on-secondary-container": "#342800",
+                        "tertiary-fixed-dim": "#bbc6e2",
+                        "surface-container-low": "#191c1d",
+                        "on-tertiary-container": "#6f7a93",
+                        "on-secondary-fixed": "#241a00",
+                        "secondary-container": "#af8d11",
+                        "on-tertiary": "#263046",
+                        "inverse-primary": "#585e6e",
+                        "secondary": "#e9c349",
+                        "on-secondary-fixed-variant": "#574500",
+                        "tertiary": "#bbc6e2",
+                        "surface-variant": "#323536",
+                        "on-tertiary-fixed-variant": "#3c475d",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#404756",
+                        "primary-fixed": "#dce2f5",
+                        "background": "#111415",
+                        "surface-container-high": "#282a2b",
+                        "outline": "#909096",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-primary": "#2a303f",
+                        "surface-dim": "#111415",
+                        "inverse-on-surface": "#2e3132",
+                        "surface-container-highest": "#323536",
+                        "on-background": "#e1e3e4",
+                        "inverse-surface": "#e1e3e4",
+                        "primary-fixed-dim": "#c0c6d9",
+                        "tertiary-fixed": "#d7e2ff",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#c0c6d9",
+                        "outline-variant": "#45474c",
+                        "on-surface": "#e1e3e4",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary-container": "#050b18",
+                        "on-primary-container": "#737a8b",
+                        "tertiary-container": "#010b1f",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#151c29",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container": "#1d2021",
+                        "on-secondary": "#3c2f00",
+                        "error-container": "#93000a",
+                        "surface-bright": "#373a3b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["EB Garamond"],
+                        "display-lg": ["EB Garamond"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["EB Garamond"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "display-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
                     }
-
-                    if(savedUserAddress) {
-                        const userWords = savedUserAddress.split(/[\s,]+/); 
-                        providersArray.forEach(provider => {
-                            const providerAddr = (provider.Address || '').toLowerCase();
-                            userWords.forEach(word => {
-                                if(word.length > 3 && providerAddr.includes(word)) {
-                                    provider.matchScore += 1; 
-                                }
-                            });
-                        });
-                        providersArray.sort((a, b) => b.matchScore - a.matchScore);
-                    }
-
-                    providersArray.forEach((provider, index) => {
-                        const cleanPhone = provider.WhatsAppNumber.replace(/\D/g,'');
-                        const message = encodeURIComponent(`Hi ${provider.ProviderName}, I accessed your VIP profile. I want to book a spa session.`);
-                        const waLink = `https://wa.me/91${cleanPhone}?text=${message}`;
-
-                        let badgeHTML = '';
-                        if(provider.matchScore > 0) {
-                            badgeHTML = `<div class="badge-near-you"><i class="fa-solid fa-location-dot"></i> Near You</div>`;
-                        }
-
-                        const cardHTML = `
-                            <div class="provider-card" style="animation: slideUpFade 0.8s ease forwards; animation-delay: ${index * 0.1}s;">
-                                ${badgeHTML}
-                                <div class="image-container-16-9">
-                                    <img src="${provider.PhotoUrl}" alt="${provider.ProviderName}">
-                                </div>
-                                <h3>${provider.ProviderName}</h3>
-                                <p class="address"><i class="fa-solid fa-location-arrow" style="color:var(--primary-gold)"></i> ${provider.Address}</p>
-                                
-                                <a href="${waLink}" target="_blank" class="btn-whatsapp">
-                                    <i class="fa-brands fa-whatsapp fa-xl"></i> BOOK SESSION
-                                </a>
-                            </div>
-                        `;
-                        
-                        carouselContainer.innerHTML += cardHTML;
-                        gridContainer.innerHTML += cardHTML;
-                    });
-
-                    // Start the Auto-Scroll feature after data is loaded
-                    setTimeout(() => {
-                        startAutoScroll();
-                        setupAutoScrollEvents();
-                    }, 1000); // Wait 1 sec for animations to finish before scrolling
-
-                } else {
-                    const noDataMsg = `<p style="text-align:center; color:#888; font-family:'Cinzel', serif; width:100%;">VIP Therapists are currently unavailable. Check back soon.</p>`;
-                    carouselContainer.innerHTML = noDataMsg;
-                    gridContainer.innerHTML = `<div style="grid-column: span 3;">${noDataMsg}</div>`;
-                }
-            });
+                },
+            },
         }
     </script>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Horoscopes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Contact</a>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95">Book Reading</button>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-secondary">menu</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 celestial-glow">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<!-- Header Section -->
+<div class="text-center mb-16">
+<h1 class="font-display-lg text-display-lg text-secondary mb-4">Consult the Cosmos</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Align your path with the stars. Book a personalized reading or reach out to our celestial sanctuary for guidance.
+                </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Booking Form Column -->
+<div class="lg:col-span-7 bg-surface-container-low/95 backdrop-blur-2xl p-8 rounded-xl border border-secondary/10 shadow-2xl">
+<h2 class="font-headline-md text-headline-md text-secondary mb-8">Personalized Reading Request</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Full Name</label>
+<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="Aria Starlight" type="text"/>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Email Address</label>
+<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="aria@cosmos.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Date</label>
+<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" type="date"/>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Time</label>
+<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" type="time"/>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Location</label>
+<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="London, UK" type="text"/>
+</div>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Service Type</label>
+<select class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all">
+<option>Natal Chart Reading (60 Min)</option>
+<option>Yearly Forecast (90 Min)</option>
+<option>Synastry &amp; Relationship (120 Min)</option>
+<option>Horary Astrology Question</option>
+</select>
+</div>
+<div class="flex flex-col space-y-2">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Specific Intentions or Questions</label>
+<textarea class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="What would you like to explore in your reading?" rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-bold py-4 rounded-lg shadow-[0_4px_16px_rgba(233,195,73,0.3)] hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Schedule My Celestial Session
+                        </button>
+</form>
+</div>
+<!-- Contact & Map Column -->
+<div class="lg:col-span-5 flex flex-col space-y-gutter">
+<!-- Contact Cards -->
+<div class="bg-surface-container-low/95 backdrop-blur-2xl p-8 rounded-xl border border-secondary/10 shadow-2xl flex flex-col space-y-6">
+<h2 class="font-headline-md text-headline-md text-secondary">Contact Us</h2>
+<div class="flex items-start space-x-4 group">
+<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Email Us</p>
+<p class="text-on-surface-variant">oracle@sunnyastrology.com</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 group">
+<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Call the Studio</p>
+<p class="text-on-surface-variant">+1 (555) CEL-ESTL</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 group">
+<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Our Sanctuary</p>
+<p class="text-on-surface-variant">42 Zodiac Lane, Astral Heights<br/>Sedona, AZ 86336</p>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="flex-grow rounded-xl overflow-hidden border border-secondary/20 relative min-h-[300px]">
+<div class="absolute inset-0 bg-surface-container-highest">
+<img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="A stylized, artistic map rendering with dark indigo and gold accents, showing a mystical landscape reminiscent of an ancient star chart or a premium location guide. The aesthetic is sophisticated and celestial, using golden lines and glowing points of light to mark key destinations within a dark, moody environment that matches the midnight blue and gold brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHs-QntitLUtnMtz47yieiPVVWcajDS0ohetwE_ws1R_DUXWKXLOAnwmSughlPv_YIyyxI8vcW7loZKGuOIX5Yw6AearhwJ--j8vveklZ3m-ikjQmGEfcDTrmq0owVQ_QYpwLbo4kxQvLO-opDYArOJwnzxyNuFllLvoEHHCYbB_CunNPXjXF7JbrIT79sk876cWWV17uy9eIJ2KHr3sXa8ditSVesPfnK3lGzBeeQ-XXiQmacfgp3AwHzA-DTn8Cf-WQnw2l8h9E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-surface/90 backdrop-blur-md p-4 rounded-lg border border-secondary text-center shadow-2xl">
+<span class="material-symbols-outlined text-secondary text-4xl mb-2">stars</span>
+<p class="font-headline-md text-secondary">Sunny Astrology HQ</p>
+<p class="text-label-sm text-on-surface-variant">Sedona, Arizona</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<section class="mt-24">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-secondary">Seek &amp; Find</h2>
+<p class="text-on-surface-variant font-body-md">Frequently asked questions about our celestial services</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+<!-- FAQ Item 1 -->
+<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-bold text-secondary">Why do I need my exact birth time?</h3>
+<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-on-surface-variant text-body-md">Precision is key in the stars. The birth time determines your Rising Sign (Ascendant) and the specific house placements of planets, ensuring your chart is unique to your specific location and moment of arrival.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-bold text-secondary">Can astrology predict the future?</h3>
+<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-on-surface-variant text-body-md">Astrology maps energetic potentials and cycles. While it doesn't dictate fate, it provides a cosmic weather report, helping you navigate life's seasons with intention and clarity.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-bold text-secondary">What if I don't know my birth time?</h3>
+<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-on-surface-variant text-body-md">We can perform a 'Rectification' reading where we work backward from major life events to estimate your birth time, or we can use a solar chart for general guidance.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-bold text-secondary">Are readings held in-person?</h3>
+<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
+</div>
+<p class="text-on-surface-variant text-body-md">We offer both virtual sessions via encrypted video link and intimate in-person readings at our Sedona sanctuary for a fully immersive experience.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-secondary/20 w-full mt-auto">
+<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+<div class="flex flex-col items-center md:items-start space-y-2">
+<span class="font-headline-md text-headline-md text-secondary">Sunny Astrology</span>
+<p class="text-on-tertiary-container text-body-md">© 2024 Sunny Astrology. Crafted in the Stars.</p>
+</div>
+<div class="flex space-x-8">
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Celestial Calendar</a>
+<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Affiliates</a>
+</div>
+</div>
+</footer>
 
-    <!-- View All Buttons Logic -->
-    <script>
-        function openViewAllPage() {
-            document.getElementById('main-dashboard-wrapper').style.display = 'none';
-            document.getElementById('view-all-page').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
+<!-- ===== WHATSAPP ICON CODE START (ADD THIS BEFORE </body> ON EVERY PAGE) ===== -->
+<div class="fixed bottom-8 right-8 z-50 group">
+    <!-- The two chat options, hidden by default, appear on hover -->
+    <div class="absolute bottom-20 right-0 flex flex-col items-end space-y-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2">
+        <!-- Link 1 -->
+        <a href="https://wa.me/919784880065" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg shadow-lg border border-secondary/20 hover:bg-surface-container-highest transition-colors">
+            <span class="font-label-sm text-on-surface-variant whitespace-nowrap">Chat on WhatsApp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.7-.8.9-.1.1-.3.1-.5.1-.2 0-.9-.3-1.6-1-.6-.5-1-1.1-1.2-1.3-.1-.2 0-.4.1-.5.1-.1.2-.2.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.5 2.3 3.7 3.2.5.2.9.4 1.2.5.5.2 1 .1 1.3-.1.4-.2 1.5-1.7 1.7-1.8.2-.2.2-.3.1-.4 0-.1-.1-.1-.2-.2zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+        </a>
+        <!-- Link 2 -->
+        <a href="https://wa.me/919996279278" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg shadow-lg border border-secondary/20 hover:bg-surface-container-highest transition-colors">
+            <span class="font-label-sm text-on-surface-variant whitespace-nowrap">Chat on WhatsApp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.7-.8.9-.1.1-.3.1-.5.1-.2 0-.9-.3-1.6-1-.6-.5-1-1.1-1.2-1.3-.1-.2 0-.4.1-.5.1-.1.2-.2.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.5 2.3 3.7 3.2.5.2.9.4 1.2.5.5.2 1 .1 1.3-.1.4-.2 1.5-1.7 1.7-1.8.2-.2.2-.3.1-.4 0-.1-.1-.1-.2-.2zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+        </a>
+    </div>
 
-        function closeViewAllPage() {
-            document.getElementById('view-all-page').style.display = 'none';
-            document.getElementById('main-dashboard-wrapper').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+    <!-- Main floating icon -->
+    <div class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center cursor-pointer shadow-xl hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.225.651 4.315 1.731 6.086l.001.004 4.971 4.971z"/>
+        </svg>
+    </div>
+</div>
+<!-- ===== WHATSAPP ICON CODE END ===== -->
+
+</body></html>
+
