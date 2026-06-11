@@ -1,1407 +1,543 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAROHANA | The Ultimate Luxury Spa & Wellness</title>
+    
+    <!-- Ultra-Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Premium Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<!-- ===== START OF LANDING PAGE CODE (File 1) ===== -->
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sunny Astrology | Your Cosmic Guide</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-surface-variant": "#c6c6cc",
-                    "surface": "#111415",
-                    "surface-tint": "#c0c6d9",
-                    "on-tertiary-fixed": "#101b30",
-                    "on-secondary-container": "#342800",
-                    "tertiary-fixed-dim": "#bbc6e2",
-                    "surface-container-low": "#191c1d",
-                    "on-tertiary-container": "#6f7a93",
-                    "on-secondary-fixed": "#241a00",
-                    "secondary-container": "#af8d11",
-                    "on-tertiary": "#263046",
-                    "inverse-primary": "#585e6e",
-                    "secondary": "#e9c349",
-                    "on-secondary-fixed-variant": "#574500",
-                    "tertiary": "#bbc6e2",
-                    "surface-variant": "#323536",
-                    "on-tertiary-fixed-variant": "#3c475d",
-                    "error": "#ffb4ab",
-                    "on-primary-fixed-variant": "#404756",
-                    "primary-fixed": "#dce2f5",
-                    "background": "#111415",
-                    "surface-container-high": "#282a2b",
-                    "outline": "#909096",
-                    "surface-container-highest": "#323536",
-                    "on-primary": "#2a303f",
-                    "surface-dim": "#111415",
-                    "inverse-on-surface": "#2e3132",
-                    "surface-container-highest": "#323536",
-                    "on-background": "#e1e3e4",
-                    "inverse-surface": "#e1e3e4",
-                    "primary-fixed-dim": "#c0c6d9",
-                    "tertiary-fixed": "#d7e2ff",
-                    "on-error-container": "#ffdad6",
-                    "primary": "#c0c6d9",
-                    "outline-variant": "#45474c",
-                    "on-surface": "#e1e3e4",
-                    "secondary-fixed-dim": "#e9c349",
-                    "primary-container": "#050b18",
-                    "on-primary-container": "#737a8b",
-                    "tertiary-container": "#010b1f",
-                    "on-error": "#690005",
-                    "on-primary-fixed": "#151c29",
-                    "secondary-fixed": "#ffe088",
-                    "surface-container": "#1d2021",
-                    "on-secondary": "#3c2f00",
-                    "error-container": "#93000a",
-                    "surface-bright": "#373a3b"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "container-max": "1200px",
-                    "margin-mobile": "16px",
-                    "margin-desktop": "48px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "headline-md": ["EB Garamond"],
-                    "display-lg": ["EB Garamond"],
-                    "body-lg": ["Manrope"],
-                    "headline-lg": ["EB Garamond"],
-                    "body-md": ["Manrope"],
-                    "label-sm": ["Manrope"],
-                    "display-lg-mobile": ["EB Garamond"]
-            },
-            "fontSize": {
-                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>body {
-    background-color: #111415;
-    color: #e1e3e4;
-    scroll-behavior: smooth
-    }
-.celestial-bg {
-    background: radial-gradient(circle at 50% 50%, #1B263B 0%, #111415 100%);
-    position: relative;
-    overflow: hidden
-    }
-.celestial-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuD6vdX-aCBbJk8K7se6_FTqq_uXx5d8hcL9WjgDzuhihCUW_dVANlbg9usHFq6jt3tnz9eMRdfUwukI0k1WehMV5a0qfnnkmsLZ7heAS63piup_jNoxsO-WQ91I-SzkXvXM5pklfubkMvd_BNd3-YPNo3m1la99APyVi85CpdfXCTbb31t-vUMfzRMSr_DJfkVqA3tqc7XQWylu7c8oNqRVViMkzKtIlekf9gNtf6YTHiBEMksiLWf8ef27GfsLz357-4bFP0tkZ6E);
-    opacity: 0.3;
-    pointer-events: none
-    }
-.glass-card {
-    background: rgba(27, 38, 59, 0.4);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(233, 195, 73, 0.15)
-    }</style>
-</head>
-<body class="font-body-md text-body-md">
-<!-- TopNavBar Shell -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32_rgba(212,175,55,0.15)]">
-<div class="flex justify-between items-center max-w-[1200px] mx-auto px-12 h-20">
-<a class="font-headline-md text-headline-md font-bold text-secondary tracking-wide" href="#">Sunny Astrology</a>
-<div class="hidden md:flex items-center space-y-0 space-x-8">
-<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Horoscopes</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">About</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
-</div>
-<button class="bg-secondary text-on-secondary-container px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/90 transition-all active:scale-95">
-                Book Reading
-            </button>
-</div>
-</nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="celestial-bg min-h-[921px] flex items-center relative py-20">
-<div class="max-w-[1200px] mx-auto px-12 grid md:grid-cols-2 gap-12 items-center relative z-10">
-<div class="space-y-8">
-<div class="inline-block px-4 py-1 border border-secondary/30 rounded-full bg-secondary/5">
-<span class="text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em]">Written in the Stars</span>
-</div>
-<h1 class="font-display-lg text-display-lg leading-tight">
-                        Unlock Your Destiny with <span class="text-secondary">Sunny Astrology</span>
-</h1>
-<p class="text-on-surface-variant text-body-lg max-w-md">
-                        Navigate the cosmic tides with precision. Professional readings that bridge ancient wisdom and modern clarity.
-                    </p>
-<div class="flex items-center gap-6">
-<button class="bg-secondary text-on-secondary-container px-8 py-4 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(233,195,73,0.4)] transition-all">
-                            Book a Reading
-                        </button>
-<button class="border border-secondary/50 text-secondary px-8 py-4 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/5 transition-all">
-                            Explore Services
-                        </button>
-</div>
-</div>
-<div class="relative">
-<div class="absolute -inset-4 bg-secondary/10 blur-3xl rounded-full"></div>
-<div class="relative glass-card rounded-3xl overflow-hidden aspect-[4/5] border-2 border-secondary/20">
-<img alt="Astrologer Sunny" class="w-full h-full object-cover grayscale-[20%] sepia-[10%]" data-alt="A professional and serene portrait of a modern astrologer with warm lighting. The background is a soft, deep midnight indigo with subtle celestial motifs and glowing gold star dust. The astrologer is wearing elegant professional attire, reflecting a blend of intellectual authority and mystical wisdom. High-end editorial photography style with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMLGYxfAfUek3rSyoRF_iILCHqpGlLvLS5QOu5_H2sfRG-kX-NnwgrHjgq63flvW1CUAvmNZAQ2nuSxJcilgf18Y0KhsI0kagHmLswrgHBGxaB42iQp1LRuF21TQW3-Cx9fI9t7REAsXQUQIMQSYMoh6eKUgOKA4pliolBI9Ecy2EXKLh2pd6HV57_gQP8-4Od2WPRepLxoB3oF_UPsRv7SaHu9eye3EkCBSCiH-dKbAlFizjdBLMnnr7cn33Ghh1rSMi0pxSB5H4"/>
-<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-surface to-transparent">
-<h3 class="font-headline-md text-headline-md text-secondary">Astrologer Sunny</h3>
-<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Master of Celestial Insights</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Daily Horoscope Quick View -->
-<section class="py-24 bg-surface-container-lowest">
-<div class="max-w-[1200px] mx-auto px-12">
-<div class="text-center mb-16 space-y-4">
-<h2 class="font-headline-lg text-headline-lg">Daily Cosmic Forecast</h2>
-<p class="text-on-tertiary-container font-body-md">Select your sign to reveal today's alignment.</p>
-</div>
-<div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-12 gap-4">
-<!-- Signs Loop (Simulated for UI) -->
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Aries</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="brightness_7">brightness_7</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Taurus</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all border-secondary">
-<span class="material-symbols-outlined text-3xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-secondary">Gemini</span>
-</div>
-<!-- Simplified signs for briefness -->
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="nights_stay">nights_stay</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Cancer</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="flare">flare</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Leo</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="filter_vintage">filter_vintage</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Virgo</span>
-</div>
-<!-- 6 more signs... -->
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="balance">balance</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Libra</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="water_drop">water_drop</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Scorpio</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="architecture">architecture</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Sagittarius</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="terrain">terrain</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Capricorn</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="waves">waves</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Aquarius</span>
-</div>
-<div class="group flex flex-col items-center gap-3 cursor-pointer">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-secondary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(233,195,73,0.3)] transition-all">
-<span class="material-symbols-outlined text-3xl" data-icon="sailing">sailing</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-tighter text-on-surface-variant group-hover:text-secondary">Pisces</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Service Highlights -->
-<section class="py-24 bg-surface">
-<div class="max-w-[1200px] mx-auto px-12">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-<div class="max-w-xl space-y-4">
-<h2 class="font-headline-lg text-headline-lg">Sacred Services</h2>
-<p class="text-on-tertiary-container">From birth charts to hand readings, discover the pathways to your inner self through our specialized cosmic consultations.</p>
-</div>
-<button class="text-secondary border-b border-secondary/30 pb-1 font-label-sm text-label-sm uppercase tracking-widest hover:border-secondary transition-all">View All Services</button>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<!-- Horoscope Card -->
-<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
-<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
-<span class="material-symbols-outlined" data-icon="brightness_7">brightness_7</span>
-</div>
-<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Horoscopes</h3>
-<p class="text-on-surface-variant mb-8 line-clamp-3">Deep dive into planetary movements and their direct influence on your life's trajectory, relationships, and career.</p>
-<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
-                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-<!-- Kundli Card -->
-<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
-<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
-<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
-</div>
-<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Kundli</h3>
-<p class="text-on-surface-variant mb-8 line-clamp-3">Comprehensive birth chart analysis using Vedic principles to understand your innate strengths and life's primary challenges.</p>
-<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
-                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-<!-- Palmistry Card -->
-<div class="glass-card p-10 rounded-2xl group hover:-translate-y-2 transition-transform duration-300">
-<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-8">
-<span class="material-symbols-outlined" data-icon="front_hand">front_hand</span>
-</div>
-<h3 class="font-headline-md text-headline-md mb-4 group-hover:text-secondary transition-colors">Palmistry</h3>
-<p class="text-on-surface-variant mb-8 line-clamp-3">Unlock the secrets written in your hands. A physical manifestation of your journey, potential, and spiritual path.</p>
-<a class="flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase tracking-widest" href="#">
-                            Explore <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- About Sunny -->
-<section class="py-24 celestial-bg overflow-hidden">
-<div class="max-w-[1200px] mx-auto px-12 grid md:grid-cols-12 gap-16 items-center">
-<div class="md:col-span-5 relative">
-<div class="aspect-square rounded-full overflow-hidden border-4 border-secondary/20 p-4">
-<div class="w-full h-full rounded-full overflow-hidden">
-<img alt="About Sunny" class="w-full h-full object-cover" data-alt="A close-up artistic portrait of an astrologer looking thoughtfully into the distance. The lighting is low-key with golden highlights on the skin, suggesting a candlelit or starlight environment. The composition is circular, set against a background of faint, glowing constellations and a dark velvet texture. Sophisticated and evocative professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByryOBtF6Boxv7T_eMKaZHefRDUJltU7Az8Fws4OkqKP7h5T5PYrddd8DNw5cZaqBwqS-vDlNx1XsrjqsHYCjg42jCDmH4O06stnFxg8qgxgAU_ngOOoavwy1vS-AeTUUtsxazhiUYvvkO8cXvRRNB7KYhPKK-5OpiCr_wL3tvgyM8K6ZpTychSKCNFTvAqMrtSlhuUeDzWdR6nODUEq8REA2DBqJViIZTxp9_rKD9-ws4r5jbAZ05qp30SMprRPfxvL1do6rIjDo"/>
-</div>
-</div>
-<div class="absolute -bottom-4 -right-4 glass-card p-6 rounded-2xl shadow-2xl">
-<p class="font-headline-md text-secondary">25+</p>
-<p class="font-label-sm text-label-sm uppercase tracking-widest">Years of Wisdom</p>
-</div>
-</div>
-<div class="md:col-span-7 space-y-8">
-<h2 class="font-headline-lg text-headline-lg">The Soul Behind the Stars</h2>
-<p class="text-on-surface-variant text-body-lg">
-                        I am Sunny, a lifelong seeker and interpreter of celestial languages. My journey began under the vast night skies of the East, where I learned that the stars do not just watch us—they guide us. 
-                        <br/><br/>
-                        Through decades of study in Vedic astrology, palmistry, and numerology, I have helped thousands of souls find their true north in an ever-shifting universe.
-                    </p>
-<button class="border-b-2 border-secondary pb-1 text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em] hover:opacity-80 transition-opacity">
-                        Read My Full Story
-                    </button>
-</div>
-</div>
-</section>
-<!-- Testimonials -->
-<section class="py-24 bg-surface-container-lowest">
-<div class="max-w-[1200px] mx-auto px-12">
-<h2 class="font-headline-lg text-headline-lg text-center mb-16">Voices of the Awakened</h2>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="glass-card p-8 rounded-2xl relative">
-<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
-<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"Sunny's reading was a turning point in my career. The precision regarding my upcoming transit was uncanny and gave me the confidence to make the leap."</p>
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
-<div>
-<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Elena Vance</p>
-<p class="text-xs text-on-tertiary-container">Entrepreneur</p>
-</div>
-</div>
-</div>
-<div class="glass-card p-8 rounded-2xl relative border-secondary/40">
-<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
-<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"The Kundli analysis provided me with a peace of mind I haven't felt in years. It explained so much about my internal struggles and how to navigate them."</p>
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
-<div>
-<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Marcus Chen</p>
-<p class="text-xs text-on-tertiary-container">Creative Director</p>
-</div>
-</div>
-</div>
-<div class="glass-card p-8 rounded-2xl relative">
-<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-4 right-8" data-icon="format_quote">format_quote</span>
-<p class="text-on-surface italic mb-8 relative z-10 font-body-lg">"A truly spiritual experience. Sunny doesn't just predict; he interprets with deep empathy and intellectual rigor. Highly recommended."</p>
-<div class="flex items-center gap-4">
-<div class="w-10 h-10 rounded-full bg-secondary/20"></div>
-<div>
-<p class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Sarah Jenkins</p>
-<p class="text-xs text-on-tertiary-container">Writer</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-secondary/20">
-<div class="max-w-[1200px] mx-auto py-12 px-12 flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-<div class="space-y-2 text-center md:text-left">
-<p class="font-headline-md text-headline-md text-secondary">Sunny Astrology</p>
-<p class="text-on-tertiary-container text-body-md opacity-70">© 2024 Sunny Astrology. Crafted in the Stars.</p>
-</div>
-<div class="flex gap-8">
-<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Celestial Calendar</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors font-body-md text-body-md" href="#">Affiliates</a>
-</div>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="public">public</span>
-</a>
-<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="mail">mail</span>
-</a>
-</div>
-</div>
-</footer>
-</body></html>
-
-
-<!-- ===== END OF LANDING PAGE CODE (File 1) ===== -->
-
-
-
-
-<!-- ===== START OF SERVICES PAGE CODE (File 2) ===== -->
-
-
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-                  "on-surface-variant": "#c6c6cc",
-                  "surface": "#111415",
-                  "surface-tint": "#c0c6d9",
-                  "on-tertiary-fixed": "#101b30",
-                  "on-secondary-container": "#342800",
-                  "tertiary-fixed-dim": "#bbc6e2",
-                  "surface-container-low": "#191c1d",
-                  "on-tertiary-container": "#6f7a93",
-                  "on-secondary-fixed": "#241a00",
-                  "secondary-container": "#af8d11",
-                  "on-tertiary": "#263046",
-                  "inverse-primary": "#585e6e",
-                  "secondary": "#e9c349",
-                  "on-secondary-fixed-variant": "#574500",
-                  "tertiary": "#bbc6e2",
-                  "surface-variant": "#323536",
-                  "on-tertiary-fixed-variant": "#3c475d",
-                  "error": "#ffb4ab",
-                  "on-primary-fixed-variant": "#404756",
-                  "primary-fixed": "#dce2f5",
-                  "background": "#111415",
-                  "surface-container-high": "#282a2b",
-                  "outline": "#909096",
-                  "surface-container-lowest": "#0c0f10",
-                  "on-primary": "#2a303f",
-                  "surface-dim": "#111415",
-                  "inverse-on-surface": "#2e3132",
-                  "surface-container-highest": "#323536",
-                  "on-background": "#e1e3e4",
-                  "inverse-surface": "#e1e3e4",
-                  "primary-fixed-dim": "#c0c6d9",
-                  "tertiary-fixed": "#d7e2ff",
-                  "on-error-container": "#ffdad6",
-                  "primary": "#c0c6d9",
-                  "outline-variant": "#45474c",
-                  "on-surface": "#e1e3e4",
-                  "secondary-fixed-dim": "#e9c349",
-                  "primary-container": "#050b18",
-                  "on-primary-container": "#737a8b",
-                  "tertiary-container": "#010b1f",
-                  "on-error": "#690005",
-                  "on-primary-fixed": "#151c29",
-                  "secondary-fixed": "#ffe088",
-                  "surface-container": "#1d2021",
-                  "on-secondary": "#3c2f00",
-                  "error-container": "#93000a",
-                  "surface-bright": "#373a3b"
-          },
-          "borderRadius": {
-                  "DEFAULT": "0.25rem",
-                  "lg": "0.5rem",
-                  "xl": "0.75rem",
-                  "full": "9999px"
-          },
-          "spacing": {
-                  "unit": "8px",
-                  "container-max": "1200px",
-                  "margin-mobile": "16px",
-                  "margin-desktop": "48px",
-                  "gutter": "24px"
-          },
-          "fontFamily": {
-                  "headline-md": ["EB Garamond"],
-                  "display-lg": ["EB Garamond"],
-                  "body-lg": ["Manrope"],
-                  "headline-lg": ["EB Garamond"],
-                  "body-md": ["Manrope"],
-                  "label-sm": ["Manrope"],
-                  "display-lg-mobile": ["EB Garamond"]
-          },
-          "fontSize": {
-                  "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                  "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
-                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                  "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
-                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                  "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
-          }
-        },
-      },
-    }
-  </script>
-<style>
-    body {
-      background-color: #111415;
-      background-image: radial-gradient(circle at 50% 50%, #1b263b 0%, #111415 100%);
-      background-attachment: fixed;
-    }
-    .glass-card {
-      background: rgba(27, 38, 59, 0.4);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(233, 195, 73, 0.1);
-    }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-<body class="font-body-md text-on-surface selection:bg-secondary/30">
-<!-- TopNavBar Navigation Shell -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
-<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">Horoscopes</a>
-<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1 transition-colors" href="#">Services</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">About</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5 p-2 rounded-lg" href="#">Contact</a>
-</div>
-<div class="flex items-center gap-6">
-<button class="bg-secondary text-on-secondary-container px-6 py-2.5 rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 active:scale-90 transition-transform">Book Reading</button>
-</div>
-</div>
-</nav>
-<main class="pt-32 pb-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<!-- Hero Section -->
-<header class="mb-20 text-center">
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-secondary mb-4">Celestial Services</h1>
-<p class="font-body-lg text-body-lg text-on-tertiary-container max-w-2xl mx-auto">
-        Unlock the secrets of the cosmos with personalized consultations rooted in ancient wisdom and astrological precision.
-      </p>
-</header>
-<!-- Bento Grid Services -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Kundli Matching (Featured) -->
-<section class="md:col-span-8 glass-card rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
-<div class="flex-1 space-y-4 z-10">
-<span class="inline-block px-3 py-1 bg-secondary/10 text-secondary font-label-sm text-label-sm rounded-full">MOST POPULAR</span>
-<h2 class="font-headline-lg text-headline-lg text-secondary">Kundli Matching</h2>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-            Ensure celestial harmony for your lifelong union. Our detailed Guna Milan analysis goes beyond basic numbers to examine planetary alignments, Manglik Dosha, and emotional compatibility.
-          </p>
-<div class="flex items-center gap-4 pt-4">
-<span class="text-2xl font-bold text-on-surface">$49.00</span>
-<button class="bg-secondary text-on-secondary-container px-8 py-3 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 active:scale-90 transition-transform">Generate Now</button>
-</div>
-</div>
-<div class="w-full md:w-1/3 aspect-square relative">
-<img class="w-full h-full object-cover rounded-xl border border-secondary/20 shadow-2xl" data-alt="A detailed Vedic astrological chart on parchment paper, illuminated by soft golden candlelight in a dark, atmospheric study. The scene is filled with mystical symbols and a focused, serene energy. The color palette features deep indigo backgrounds with shimmering gold leaf accents, reflecting a high-end celestial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyPX8v5J9oYqA6-syKAtNGbiQ4pE9D9UAwk7hAEuqqQsnUEXLwVH5LDJDiaxn9nMoWiIVwFI4HrSo3lQRiE8hOp3G2lhML4v4iCU0MEft86kx1xh6SQssINMgneD0kXYJWZDSyjCHhWHCSSvUmqLcAATYrvmpwoelFO77uswhJlQ8QAAZ3p5Qz2DXVmnMSTd7HjQJqUcamcMuQLPS40vydIg-gcZZoJQsaW0cVrGDeieA-jtXSW0L3vL0yt43AT3T0PAE_E-4LZRU"/>
-</div>
-</section>
-<!-- Palmistry -->
-<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="front_hand">front_hand</span>
-<h2 class="font-headline-md text-headline-md text-secondary mb-2">Palmistry</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Your life's blueprint is written in your palms. Discover deep insights into your character, health, and future paths.
-          </p>
-</div>
-<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
-<span class="text-xl font-bold text-on-surface">$35.00</span>
-<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Book Now</button>
-</div>
-</section>
-<!-- Numerology -->
-<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="numbers">numbers</span>
-<h2 class="font-headline-md text-headline-md text-secondary mb-2">Numerology</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Discover the vibrational influence of your birth number and name. Align your life with the mathematical rhythm of the universe.
-          </p>
-</div>
-<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
-<span class="text-xl font-bold text-on-surface">$29.00</span>
-<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Analyze</button>
-</div>
-</section>
-<!-- Vastu Consultation -->
-<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
-<div class="z-10">
-<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="home">home</span>
-<h2 class="font-headline-md text-headline-md text-secondary mb-2">Vastu Consultation</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Balance the cosmic energy of your living and workspace. Enhance prosperity, health, and peace through spatial alignment.
-          </p>
-</div>
-<div class="z-10 mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
-<span class="text-xl font-bold text-on-surface">$120.00</span>
-<button class="bg-secondary text-on-secondary-container px-6 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:scale-95 transition-transform">Consult</button>
-</div>
-<!-- Decorative subtle watermark -->
-<span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[180px] text-secondary/5 group-hover:text-secondary/10 transition-colors" data-icon="architecture">architecture</span>
-</section>
-<!-- Gemstone Recommendation -->
-<section class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="diamond">diamond</span>
-<h2 class="font-headline-md text-headline-md text-secondary mb-2">Gemstone Guide</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-            Harness the power of planetary stones. Get an expert recommendation for the lucky stone that strengthens your weak planets.
-          </p>
-</div>
-<div class="mt-8 border-t border-secondary/10 pt-6 flex justify-between items-center">
-<span class="text-xl font-bold text-on-surface">$15.00</span>
-<button class="text-secondary border border-secondary/50 px-4 py-2 rounded-lg font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/10 transition-colors">Find Stone</button>
-</div>
-</section>
-</div>
-<!-- Specialized UI Element: Progress Cycles -->
-<section class="mt-24 text-center">
-<h3 class="font-headline-md text-headline-md text-secondary mb-12">Cosmic Cycle Alignment</h3>
-<div class="flex flex-wrap justify-center gap-12">
-<div class="flex flex-col items-center">
-<div class="relative w-24 h-24 mb-4">
-<svg class="w-full h-full -rotate-90">
-<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
-<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="69" stroke-width="2"></circle>
-</svg>
-<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">75%</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Mercury Phase</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="relative w-24 h-24 mb-4">
-<svg class="w-full h-full -rotate-90">
-<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
-<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="138" stroke-width="2"></circle>
-</svg>
-<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">50%</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Lunar Cycle</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="relative w-24 h-24 mb-4">
-<svg class="w-full h-full -rotate-90">
-<circle class="text-secondary/20" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-width="2"></circle>
-<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="200" stroke-width="2"></circle>
-</svg>
-<span class="absolute inset-0 flex items-center justify-center font-label-sm text-secondary">28%</span>
-</div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Solar Tide</span>
-</div>
-</div>
-</section>
-</main>
-<!-- SideNavBar Navigation Shell (Hidden on Mobile) -->
-<aside class="hidden xl:flex h-full w-64 fixed left-0 top-0 z-40 flex-col p-6 space-y-4 bg-surface-container-low/95 backdrop-blur-2xl border-r border-secondary/10 shadow-2xl">
-<div class="flex items-center gap-3 mb-8">
-<div class="w-10 h-10 rounded-full border border-secondary/30 overflow-hidden">
-<img alt="Astrologer Sunny Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR2CzBvBStLv2S9Oa1BkGrlTDpsGY6ZU-PmnzhvhSc524ohODgBR1MBXqzLgAz0bnvvSs-Od5XRo3kSYwFf2oZu__8RT8nTAZl_3FG6cvw-iXZ-rMbL7ZHgZJTyWl5DApvrL34NAcBzSfsqpfarUKCa_GPuoLBcmVVlPA0gIWLazXPE6FFMUTVzuqoVn3tkBLAGXIHlFS7k0k6bjhtY6TY0Cm6GRh6ZXyaihgr_S-x3CX-UDQU4v0s51WyqzyP6ARxpxryAo9kBwc"/>
-</div>
-<div>
-<h4 class="font-label-sm text-label-sm text-secondary">Celestial Insights</h4>
-<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Your Cosmic Guide</p>
-</div>
-</div>
-<nav class="space-y-2">
-<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined text-secondary" data-icon="brightness_7">brightness_7</span> Daily Horoscope
-      </a>
-<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span> Kundli
-      </a>
-<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined text-secondary" data-icon="front_hand">front_hand</span> Palmistry
-      </a>
-<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined text-secondary" data-icon="numbers">numbers</span> Numerology
-      </a>
-<a class="flex items-center gap-3 p-3 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-all duration-200 rounded-lg mt-auto" href="#">
-<span class="material-symbols-outlined text-secondary" data-icon="settings">settings</span> Settings
-      </a>
-</nav>
-<div class="mt-auto">
-<button class="w-full bg-secondary/10 text-secondary border border-secondary/30 py-4 rounded-xl font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary/20 transition-all duration-300">
-        Premium Access
-      </button>
-</div>
-</aside>
-<!-- Footer Shell -->
-<footer class="w-full mt-auto bg-surface-container-lowest border-t border-secondary/20">
-<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-<div class="space-y-4 text-center md:text-left">
-<div class="font-headline-md text-headline-md text-secondary">Sunny Astrology</div>
-<p class="font-body-md text-body-md text-on-tertiary-container max-w-xs">© 2024 Sunny Astrology. Crafted in the Stars.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Celestial Calendar</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity hover:opacity-80" href="#">Affiliates</a>
-</div>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full flex items-center justify-center border border-secondary/20 hover:bg-secondary/10 text-secondary transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="share">share</span>
-</a>
-<a class="w-10 h-10 rounded-full flex items-center justify-center border border-secondary/20 hover:bg-secondary/10 text-secondary transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="mail">mail</span>
-</a>
-</div>
-</div>
-</footer>
-</body></html>
-
-
-<!-- ===== END OF SERVICES PAGE CODE (File 2) ===== -->
-
-
-
-
-<!-- ===== START OF HOROSCOPES PAGE CODE (File 3) ===== -->
-
-
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Horoscopes | Sunny Astrology</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F2D06B;
+            --gold-dark: #996515;
+            --black-pure: #000000;
+            --black-soft: #080808;
+            --glass-bg: rgba(15, 15, 15, 0.9);
+            --card-border: rgba(212, 175, 55, 0.2);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            background-color: #111415;
-            background-image: radial-gradient(circle at 50% 50%, #1a1d2e 0%, #111415 100%);
+            background-color: var(--black-pure);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
+            /* Background remains fixed to give the 'floating' feel between cards */
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
             background-attachment: fixed;
         }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--black-pure); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
+
+        /* --- Luxury Splash Screen --- */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.5s ease;
+        }
+        .splash-logo {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 20px;
+            font-weight: 900;
+            animation: pulseGlow 2s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            from { opacity: 0.6; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 25px 0;
+            z-index: 9000;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .logo-box h1 { font-family: 'Cinzel'; font-size: 28px; letter-spacing: 6px; color: var(--gold-primary); font-weight: 900; cursor: pointer; }
+        .logo-box p { font-size: 8px; letter-spacing: 5px; text-transform: uppercase; color: #fff; margin-top: -5px; }
+
+        .main-nav { display: flex; gap: 40px; }
+        .main-nav a { 
+            text-decoration: none; color: #fff; font-size: 12px; font-weight: 600; 
+            letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s;
+        }
+        .main-nav a:hover, .main-nav a.active { color: var(--gold-primary); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+
+        /* --- Floating Content Sections --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .floating-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            border: 1px solid var(--card-border);
+            padding: 80px 60px;
+            margin-bottom: 120px; /* Space between sections to see background */
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-tag { color: var(--gold-primary); letter-spacing: 6px; font-size: 12px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .section-title { font-family: 'Cinzel'; font-size: 45px; margin-bottom: 30px; line-height: 1.2; }
+
+        /* --- Distributed Image Styling --- */
+        .premium-img-frame {
+            width: 100%;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--gold-dark);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .premium-img-frame img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
+        .premium-img-frame:hover img { transform: scale(1.1); }
+
+        /* --- Master Price Menu (Precise Data from Image) --- */
+        .price-list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: 0.4s;
+        }
+        .price-row:hover { border-bottom-color: var(--gold-primary); transform: translateX(10px); }
+        .p-service { font-family: 'Cinzel'; font-size: 17px; font-weight: 700; letter-spacing: 1px; }
+        .p-meta { font-size: 10px; color: #666; display: block; text-transform: uppercase; margin-top: 5px; font-weight: 600; }
+        .p-price { color: var(--gold-primary); font-family: 'Cinzel'; font-size: 20px; font-weight: 900; }
+
+        /* --- Hero Section --- */
+        .hero-banner {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            margin-bottom: 100px;
+            border-bottom-left-radius: 100px; border-bottom-right-radius: 100px;
+        }
+        .hero-banner h2 { font-family: 'Cinzel'; font-size: clamp(40px, 10vw, 90px); letter-spacing: -2px; }
+
+        /* --- Professional Booking UI --- */
+        .booking-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; }
+        .form-side { background: rgba(0,0,0,0.4); padding: 40px; border-radius: 30px; border: 1px solid #222; }
+        
+        select, input {
+            width: 100%; background: #000; color: #fff; padding: 20px;
+            border: 1px solid #333; border-radius: 15px; margin: 10px 0 30px;
+            font-family: inherit; font-size: 15px; outline: none; transition: 0.3s;
+        }
+        select:focus { border-color: var(--gold-primary); }
+
+        .btn-gold-action {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: #000; border: none; padding: 25px 60px; border-radius: 100px;
+            font-family: 'Cinzel'; font-weight: 900; letter-spacing: 3px;
+            cursor: pointer; width: 100%; transition: 0.5s; font-size: 16px;
+        }
+        .btn-gold-action:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4); }
+
+        /* --- Floating Concierge --- */
+        .floating-concierge { position: fixed; bottom: 40px; right: 40px; z-index: 9999; display: flex; flex-direction: column; gap: 20px; }
+        .f-item { 
+            width: 75px; height: 75px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 32px; color: #fff; text-decoration: none; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: 0.4s;
+        }
+        .f-wa { background: #25D366; }
+        .f-tel { background: var(--gold-primary); }
+        .f-item:hover { transform: scale(1.1) rotate(15deg); }
+
+        /* --- Functional Screens --- */
+        .screen { display: none; padding: 150px 0 100px; animation: slideUp 1s ease; }
+        .screen.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Success Page Overlay */
+        #success-page {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.98);
+            z-index: 10000; display: none; align-items: center; justify-content: center; text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .price-list-grid, .booking-grid { grid-template-columns: 1fr; }
+            .floating-section { padding: 50px 25px; border-radius: 40px; margin-bottom: 80px; }
+            .premium-img-frame { height: 400px; }
+            .main-nav { display: none; }
+            .logo-box h1 { font-size: 22px; }
+        }
     </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-surface-variant": "#c6c6cc",
-                    "surface": "#111415",
-                    "surface-tint": "#c0c6d9",
-                    "on-tertiary-fixed": "#101b30",
-                    "on-secondary-container": "#342800",
-                    "tertiary-fixed-dim": "#bbc6e2",
-                    "surface-container-low": "#191c1d",
-                    "on-tertiary-container": "#6f7a93",
-                    "on-secondary-fixed": "#241a00",
-                    "secondary-container": "#af8d11",
-                    "on-tertiary": "#263046",
-                    "inverse-primary": "#585e6e",
-                    "secondary": "#e9c349",
-                    "on-secondary-fixed-variant": "#574500",
-                    "tertiary": "#bbc6e2",
-                    "surface-variant": "#323536",
-                    "on-tertiary-fixed-variant": "#3c475d",
-                    "error": "#ffb4ab",
-                    "on-primary-fixed-variant": "#404756",
-                    "primary-fixed": "#dce2f5",
-                    "background": "#111415",
-                    "surface-container-high": "#282a2b",
-                    "outline": "#909096",
-                    "surface-container-lowest": "#0c0f10",
-                    "on-primary": "#2a303f",
-                    "surface-dim": "#111415",
-                    "inverse-on-surface": "#2e3132",
-                    "surface-container-highest": "#323536",
-                    "on-background": "#e1e3e4",
-                    "inverse-surface": "#e1e3e4",
-                    "primary-fixed-dim": "#c0c6d9",
-                    "tertiary-fixed": "#d7e2ff",
-                    "on-error-container": "#ffdad6",
-                    "primary": "#c0c6d9",
-                    "outline-variant": "#45474c",
-                    "on-surface": "#e1e3e4",
-                    "secondary-fixed-dim": "#e9c349",
-                    "primary-container": "#050b18",
-                    "on-primary-container": "#737a8b",
-                    "tertiary-container": "#010b1f",
-                    "on-error": "#690005",
-                    "on-primary-fixed": "#151c29",
-                    "secondary-fixed": "#ffe088",
-                    "surface-container": "#1d2021",
-                    "on-secondary": "#3c2f00",
-                    "error-container": "#93000a",
-                    "surface-bright": "#373a3b"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "container-max": "1200px",
-                    "margin-mobile": "16px",
-                    "margin-desktop": "48px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "headline-md": ["EB Garamond"],
-                    "display-lg": ["EB Garamond"],
-                    "body-lg": ["Manrope"],
-                    "headline-lg": ["EB Garamond"],
-                    "body-md": ["Manrope"],
-                    "label-sm": ["Manrope"],
-                    "display-lg-mobile": ["EB Garamond"]
-            },
-            "fontSize": {
-                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-logo">AAROHANA</div>
+        <p style="letter-spacing: 15px; color: var(--gold-primary); font-size: 14px; margin-top: 30px;">THE PINNACLE OF WELLNESS</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-wrapper">
+            <div class="logo-box" onclick="switchTab('home')">
+                <h1>AAROHANA</h1>
+                <p>Divine Luxury Spa</p>
+            </div>
+            <nav class="main-nav">
+                <a onclick="switchTab('home')" id="nav-home" class="active">The Sanctuary</a>
+                <a onclick="switchTab('services')" id="nav-services">Spa Menu</a>
+                <a onclick="switchTab('booking')" id="nav-booking">Reservations</a>
+                <a onclick="switchTab('profile')" id="nav-profile">Elite Profile</a>
+            </nav>
+            <div class="nav-call">
+                <a href="tel:7390928912" style="text-decoration: none; color: var(--gold-primary); border: 1px solid var(--gold-primary); padding: 12px 30px; border-radius: 100px; font-weight: 700; font-size: 13px;">
+                    <i class="fa-solid fa-phone-volume"></i> 7390928912
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Actions -->
+    <div class="floating-concierge">
+        <a href="https://wa.me/917390928912" class="f-item f-wa"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:7390928912" class="f-item f-tel"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <main>
+        
+        <!-- 1. HOME SCREEN (Floating Design) -->
+        <div id="home" class="screen active" style="padding-top: 0;">
+            <section class="hero-banner">
+                <div class="container">
+                    <span class="section-tag" style="color: #fff; opacity: 0.8;">Established in Luxury</span>
+                    <h2 class="cinzel"><span class="gold-text">A Journey</span> to<br>Divine Serenity</h2>
+                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="switchTab('booking')">RESERVE AN EXPERIENCE</button>
+                </div>
+            </section>
+
+            <div class="container">
+                
+                <!-- Category 1: The Ambience (Floating Card) -->
+                <div class="floating-section animate__animated animate__fadeInUp">
+                    <span class="section-tag">Premium Ambience</span>
+                    <h2 class="section-title">The Sanctuary of Peace</h2>
+                    <div class="premium-img-frame">
+                        <!-- Ambience Image from provided links -->
+                        <img src="https://i.ibb.co/jkcYYzh5/9f279feb-f916-41b2-8835-f734d03aa390.png" alt="Aarohana Sanctuary Interior">
+                    </div>
+                    <p style="color: #aaa; font-size: 16px; max-width: 800px;">Step into a world crafted for the elite. Our sanctuary features pure marble pathways, golden illumination, and an atmosphere that immediately silences the noise of the modern world.</p>
+                </div>
+
+                <!-- Category 2: Healing Art (Floating Card) -->
+                <div class="floating-section animate__animated animate__fadeInUp">
+                    <span class="section-tag">Master Therapies</span>
+                    <h2 class="section-title">The Art of Healing</h2>
+                    <div class="premium-img-frame">
+                        <!-- Treatment Image from provided links -->
+                        <img src="https://i.ibb.co/1trRhHdx/f11ed011-e780-4442-a206-6127e9a34ddb.png" alt="Healing Rituals at Aarohana">
+                    </div>
+                    <p style="color: #aaa; font-size: 16px; max-width: 800px;">Every ritual at Aarohana is a customized masterpiece. Our master therapists use ancient techniques combined with modern luxury to restore your mind, body, and soul.</p>
+                </div>
+
+                <!-- Category 3: The Authentic Ritual Menu (Floating Card) -->
+                <div class="floating-section animate__animated animate__fadeInUp" id="menu-board">
+                    <span class="section-tag" style="text-align: center;">Curated Rituals</span>
+                    <h2 class="section-title" style="text-align: center;">The Divine Spa Menu</h2>
+                    
+                    <div class="price-list-grid">
+                        <!-- Accurate Service List from Image -->
+                        <div class="p-col">
+                            <div class="price-row">
+                                <div><span class="p-service">Rejuvenation</span><span class="p-meta">Full Body Renewal</span></div>
+                                <span class="p-price">₹8000</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Extreme Relaxation</span><span class="p-meta">Deep Calm Ritual</span></div>
+                                <span class="p-price">₹7000</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Stress Buster</span><span class="p-meta">60 / 90 Mins Available</span></div>
+                                <span class="p-price">₹5500 / 6k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Synchronized 4 Hand</span><span class="p-meta">Two Therapists Symmetrically</span></div>
+                                <span class="p-price">₹5000 / 5.5k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Thai Herbal Compress</span><span class="p-meta">Authentic Herbs Therapy</span></div>
+                                <span class="p-price">₹4500 / 5k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Aarohana Signature</span><span class="p-meta">Our Exclusive Best-Seller</span></div>
+                                <span class="p-price">₹4000 / 5k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Aroma Thai Massage</span><span class="p-meta">Infusion of Essential Oils</span></div>
+                                <span class="p-price">₹4000 / 4.5k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Traditional Thai</span><span class="p-meta">Ancient Stretching Art</span></div>
+                                <span class="p-price">₹4000 / 4.5k</span>
+                            </div>
+                        </div>
+                        <div class="p-col">
+                            <div class="price-row">
+                                <div><span class="p-service">Sports Massage</span><span class="p-meta">Deep Muscle Recovery</span></div>
+                                <span class="p-price">₹3500 / 4k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Advanced Deep Tissue</span><span class="p-meta">Intense Tissue Release</span></div>
+                                <span class="p-price">₹3500 / 4k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Classical Swedish</span><span class="p-meta">The Fluidity Ritual</span></div>
+                                <span class="p-price">₹3500 / 4k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Traditional Balinese</span><span class="p-meta">Indonesian Healing Art</span></div>
+                                <span class="p-price">₹3500 / 4k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Aromatherapy</span><span class="p-meta">Sacred Scent Therapy</span></div>
+                                <span class="p-price">₹2500 / 3k</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Scrubs / Wraps</span><span class="p-meta">30 Mins Body Polish</span></div>
+                                <span class="p-price">₹3000</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Signature Facials</span><span class="p-meta">60 Mins Radiance Glow</span></div>
+                                <span class="p-price">₹3500</span>
+                            </div>
+                            <div class="price-row">
+                                <div><span class="p-service">Clean Ups</span><span class="p-meta">30 Mins Quick Hydration</span></div>
+                                <span class="p-price">₹1500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Authentic Menu Card Image -->
+                    <div class="premium-img-frame" style="margin-top: 60px; height: auto;">
+                        <img src="https://i.ibb.co/qY0RgWkz/6afe24c6-5a86-4aad-a7fc-c3f7d33bd059.png" alt="Official Naturence Spa Menu at Aarohana" style="object-fit: contain;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. SERVICES ENCYCLOPEDIA SCREEN -->
+        <div id="services" class="screen">
+            <div class="container">
+                <div class="floating-section">
+                    <h2 class="section-title gold-text">Ritual Descriptions</h2>
+                    <p style="margin-bottom: 25px;">Each therapy at Aarohana is designed to achieve a specific energetic and physical outcome.</p>
+                    <div style="border-left: 2px solid var(--gold-primary); padding-left: 25px; margin-bottom: 30px;">
+                        <h4 class="cinzel gold-text">Full Body Rejuvenation</h4>
+                        <p style="font-size: 14px; color: #888;">A deep cellular renewal process using rhythmic strokes to flush out toxins and balance the life force.</p>
+                    </div>
+                    <div style="border-left: 2px solid var(--gold-primary); padding-left: 25px;">
+                        <h4 class="cinzel gold-text">The Stress Buster</h4>
+                        <p style="font-size: 14px; color: #888;">Specifically targets the high-tension areas of the shoulders, neck, and lower back to melt away chronic fatigue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PRIVATE RESERVATIONS SCREEN -->
+        <div id="booking" class="screen">
+            <div class="container">
+                <div class="floating-section">
+                    <div class="booking-grid">
+                        <div class="form-side">
+                            <h2 class="cinzel gold-text" style="font-size: 35px; margin-bottom: 30px;">Reservation</h2>
+                            
+                            <label class="gold-text cinzel" style="font-size: 11px; letter-spacing: 2px;">SELECT RITUAL</label>
+                            <select id="ritual-select" onchange="calculatePrice()">
+                                <option value="8000">Rejuvenation Ritual (₹8000)</option>
+                                <option value="7000">Extreme Relaxation (₹7000)</option>
+                                <option value="5500">Stress Buster (₹5500)</option>
+                                <option value="5000">Four Hand Massage (₹5000)</option>
+                                <option value="4500">Thai Herbal Compress (₹4500)</option>
+                                <option value="4000">Signature Therapy (₹4000)</option>
+                                <option value="4000">Aroma Thai Massage (₹4000)</option>
+                                <option value="4000">Traditional Thai Massage (₹4000)</option>
+                                <option value="3500">Sports Massage (₹3500)</option>
+                                <option value="3500">Advanced Deep Tissue (₹3500)</option>
+                                <option value="3500">Classical Swedish (₹3500)</option>
+                                <option value="3500">Traditional Balinese (₹3500)</option>
+                                <option value="2500">Aromatherapy (₹2500)</option>
+                                <option value="3000">Scrubs / Wraps (₹3000)</option>
+                                <option value="3500">Signature Facial (₹3500)</option>
+                                <option value="1500">Clean Up Session (₹1500)</option>
+                            </select>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                                <div>
+                                    <label class="gold-text cinzel" style="font-size: 11px;">DATE</label>
+                                    <input type="date" value="2024-01-01">
+                                </div>
+                                <div>
+                                    <label class="gold-text cinzel" style="font-size: 11px;">DURATION</label>
+                                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                        <button class="btn-gold-action" id="d60" onclick="updateDur(60)" style="padding: 15px; font-size: 11px; border: 1px solid var(--gold-primary);">60 MIN</button>
+                                        <button class="btn-gold-action" id="d90" onclick="updateDur(90)" style="padding: 15px; font-size: 11px; background: #000; color: #fff; border: 1px solid #333;">90 MIN</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-side">
+                            <div style="background: linear-gradient(145deg, #111, #000); padding: 50px; border-radius: 40px; border: 1px solid var(--gold-dark); text-align: center;">
+                                <h3 class="cinzel gold-text">Summary</h3>
+                                <div style="margin: 30px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 25px 0;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span style="color: #666;">Ritual Base</span><span id="summ-base">₹8000</span></div>
+                                    <div style="display: flex; justify-content: space-between;"><span style="color: #666;">Surcharge</span><span id="summ-extra">₹0</span></div>
+                                </div>
+                                <p style="font-size: 11px; letter-spacing: 2px; color: #555;">GRAND TOTAL</p>
+                                <h2 class="cinzel gold-text" id="grand-total" style="font-size: 55px;">₹8000</h2>
+                                <button class="btn-gold-action" style="margin-top: 35px;" onclick="showSuccess()">CONFIRM BOOKING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. ELITE PROFILE SCREEN -->
+        <div id="profile" class="screen">
+            <div class="container">
+                <div class="floating-section" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <div style="width: 180px; height: 180px; margin: 0 auto 30px; position: relative;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 100%; border-radius: 50%; border: 4px solid var(--gold-primary); padding: 8px;">
+                    </div>
+                    <h2 class="cinzel" style="font-size: 40px;">Vikram Rathore</h2>
+                    <p class="gold-text" style="letter-spacing: 5px; font-weight: 700;">GOLD ELITE MEMBER</p>
+                    
+                    <div style="text-align: left; margin-top: 60px; border-top: 1px solid #222; padding-top: 40px;">
+                        <div class="price-row"><span><i class="fa-solid fa-history gold-text" style="width: 40px;"></i> Ritual History</span><i class="fa-solid fa-chevron-right"></i></div>
+                        <div class="price-row"><span><i class="fa-solid fa-gem gold-text" style="width: 40px;"></i> Elite Benefits</span><i class="fa-solid fa-chevron-right"></i></div>
+                        <div class="price-row"><span><i class="fa-solid fa-headset gold-text" style="width: 40px;"></i> Concierge (7390928912)</span><i class="fa-solid fa-chevron-right"></i></div>
+                    </div>
+                    <button style="background: transparent; color: #ff4444; border: 1px solid #ff4444; padding: 20px 60px; border-radius: 100px; margin-top: 60px; cursor: pointer; font-family: 'Cinzel'; font-weight: 700; letter-spacing: 2px;">LOGOUT SESSION</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="padding: 100px 0; background: #000; text-align: center; border-top: 1px solid #111;">
+        <h2 class="cinzel gold-text" style="letter-spacing: 15px;">AAROHANA</h2>
+        <p style="color: #444; font-size: 11px; margin-top: 40px;">7390928912 | LUXURY SPA & WELLNESS | ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <!-- Success Page -->
+    <div id="success-page">
+        <div style="background: #0a0a0a; padding: 80px; border-radius: 60px; border: 1px solid var(--gold-primary); max-width: 600px; width: 90%;">
+            <i class="fa-solid fa-crown gold-text animate__animated animate__zoomIn" style="font-size: 100px;"></i>
+            <h2 class="cinzel gold-text" style="margin-top: 40px; font-size: 40px;">Reserved</h2>
+            <p style="color: #666; margin: 30px 0; font-size: 18px;">Your private sanctuary is reserved. Our concierge will contact you shortly.</p>
+            <button class="btn-gold-action" style="width: auto; padding: 20px 80px;" onclick="closeModal()">EXCELLENT</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Splash Screen Control
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => splash.style.display = 'none', 1500);
+            }, 3000);
+        });
+
+        // 2. Tab Navigation Logic
+        function switchTab(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+            if(document.getElementById('nav-' + id)) document.getElementById('nav-' + id).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // 3. Dynamic Price Engine
+        let duration = 60;
+        function updateDur(min) {
+            duration = min;
+            document.getElementById('d60').style.background = (min === 60) ? 'var(--gold-dark)' : '#000';
+            document.getElementById('d60').style.color = (min === 60) ? '#000' : '#fff';
+            document.getElementById('d90').style.background = (min === 90) ? 'var(--gold-dark)' : '#000';
+            document.getElementById('d90').style.color = (min === 90) ? '#000' : '#fff';
+            calculatePrice();
+        }
+
+        function calculatePrice() {
+            const basePrice = parseInt(document.getElementById('ritual-select').value);
+            let surcharge = 0;
+            
+            // As per the price list image: 90 mins usually adds 500
+            if(duration === 90) {
+                if(basePrice >= 2500) surcharge = 500;
             }
-          },
-        },
-      }
+            
+            document.getElementById('summ-base').innerText = "₹" + basePrice;
+            document.getElementById('summ-extra').innerText = "₹" + surcharge;
+            document.getElementById('grand-total').innerText = "₹" + (basePrice + surcharge);
+        }
+
+        // 4. Modal Functions
+        function showSuccess() { document.getElementById('success-page').style.display = 'flex'; }
+        function closeModal() { document.getElementById('success-page').style.display = 'none'; switchTab('home'); }
+
+        // Initial Price Check
+        calculatePrice();
     </script>
-</head>
-<body class="font-body-md text-on-surface antialiased overflow-x-hidden">
-<!-- TopNavBar Navigation Shell -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
-<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Horoscopes</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">Services</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">About</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors hover:bg-white/5" href="#">Contact</a>
-</div>
-<div class="flex items-center space-x-4">
-<button class="material-symbols-outlined text-secondary scale-95 active:scale-90 transition-transform">search</button>
-<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-sm uppercase tracking-widest scale-95 active:scale-90 transition-transform">Book Reading</button>
-</div>
-</div>
-</nav>
-<!-- SideNavBar (Desktop Hidden on this view but kept for system rules) -->
-<aside class="hidden lg:flex h-full w-64 fixed left-0 top-0 z-40 bg-surface-container-low/95 backdrop-blur-2xl border-r border-secondary/10 shadow-2xl flex-col p-6 space-y-4 pt-24">
-<div class="mb-8">
-<div class="font-headline-lg text-headline-lg text-secondary">Celestial Insights</div>
-<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-tertiary-container">Your Cosmic Guide</div>
-</div>
-<nav class="space-y-2">
-<a class="flex items-center space-x-3 p-3 text-secondary font-bold bg-secondary/10 rounded-lg ease-in-out duration-200" href="#">
-<span class="material-symbols-outlined" data-icon="brightness_7">brightness_7</span>
-<span class="font-label-sm">Daily Horoscope</span>
-</a>
-<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
-<span class="font-label-sm">Kundli</span>
-</a>
-<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="front_hand">front_hand</span>
-<span class="font-label-sm">Palmistry</span>
-</a>
-<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="numbers">numbers</span>
-<span class="font-label-sm">Numerology</span>
-</a>
-<a class="flex items-center space-x-3 p-3 text-on-surface-variant hover:bg-white/5 hover:translate-x-1 transition-transform" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-label-sm">Settings</span>
-</a>
-</nav>
-<button class="mt-auto bg-primary-container text-on-primary-container p-4 rounded-xl font-label-sm uppercase tracking-widest text-center border border-primary/20">Premium Access</button>
-</aside>
-<main class="lg:pl-64 pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<!-- Hero Zodiac Selection -->
-<section class="mb-16">
-<div class="text-center mb-12">
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Choose Your Sign</h1>
-<p class="font-body-lg text-body-lg text-on-tertiary-container max-w-2xl mx-auto italic">Tap into the celestial currents and discover what the stars have aligned for you today.</p>
-</div>
-<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-<!-- Zodiac Card 1 (Active) -->
-<div class="relative group cursor-pointer">
-<div class="absolute inset-0 bg-secondary/20 blur-xl opacity-50 rounded-full"></div>
-<div class="relative flex flex-col items-center p-6 bg-surface-container-high border-2 border-secondary rounded-2xl shadow-[0_0_20px_rgba(233,195,73,0.3)] transition-all duration-300 transform group-hover:-translate-y-2">
-<span class="material-symbols-outlined text-secondary text-5xl mb-2" data-icon="brightness_7">brightness_7</span>
-<span class="font-label-sm uppercase tracking-widest text-secondary">Leo</span>
-<span class="text-[10px] text-on-tertiary-container">Jul 23 - Aug 22</span>
-</div>
-</div>
-<!-- Zodiac Card 2 -->
-<div class="group cursor-pointer">
-<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
-<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="waves">waves</span>
-<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Aquarius</span>
-<span class="text-[10px] text-on-tertiary-container">Jan 20 - Feb 18</span>
-</div>
-</div>
-<!-- Zodiac Card 3 -->
-<div class="group cursor-pointer">
-<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
-<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="grass">grass</span>
-<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Virgo</span>
-<span class="text-[10px] text-on-tertiary-container">Aug 23 - Sep 22</span>
-</div>
-</div>
-<!-- Zodiac Card 4 -->
-<div class="group cursor-pointer">
-<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
-<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="flare">flare</span>
-<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Aries</span>
-<span class="text-[10px] text-on-tertiary-container">Mar 21 - Apr 19</span>
-</div>
-</div>
-<!-- Zodiac Card 5 -->
-<div class="group cursor-pointer">
-<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
-<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="agriculture">agriculture</span>
-<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Taurus</span>
-<span class="text-[10px] text-on-tertiary-container">Apr 20 - May 20</span>
-</div>
-</div>
-<!-- Zodiac Card 6 -->
-<div class="group cursor-pointer">
-<div class="flex flex-col items-center p-6 bg-surface-container-low/50 backdrop-blur-md border border-secondary/10 rounded-2xl transition-all duration-300 transform hover:border-secondary/40 hover:-translate-y-1">
-<span class="material-symbols-outlined text-on-surface-variant text-5xl mb-2 group-hover:text-secondary transition-colors" data-icon="groups">groups</span>
-<span class="font-label-sm uppercase tracking-widest text-on-surface-variant group-hover:text-on-surface">Gemini</span>
-<span class="text-[10px] text-on-tertiary-container">May 21 - Jun 20</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Horoscope Details Bento Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<!-- Left Column: Main Prediction -->
-<div class="lg:col-span-8 space-y-8">
-<!-- Content Tabs -->
-<div class="flex border-b border-secondary/20">
-<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-secondary border-b-2 border-secondary">Daily</button>
-<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-on-tertiary-container hover:text-secondary transition-colors">Weekly</button>
-<button class="px-8 py-4 font-label-sm uppercase tracking-widest text-on-tertiary-container hover:text-secondary transition-colors">Monthly</button>
-</div>
-<!-- Main Card -->
-<div class="relative bg-surface-container-low border border-secondary/10 p-10 rounded-3xl backdrop-blur-2xl overflow-hidden">
-<div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-<span class="material-symbols-outlined text-[200px]" data-icon="brightness_7">brightness_7</span>
-</div>
-<div class="relative">
-<div class="flex items-center space-x-4 mb-8">
-<div class="w-12 h-[1px] bg-secondary"></div>
-<span class="font-label-sm text-secondary uppercase tracking-[0.2em]">Leo • June 14, 2024</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">A Day for Bold Initiatives</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
-                            The cosmic alignment today favors your natural charisma, Leo. With the Moon transiting through your sector of personal growth, you'll find that your ideas carry more weight than usual in professional settings. It's a prime moment to pitch that ambitious project or have a heart-to-heart conversation you've been putting off. The golden threads of fate are weaving a pattern of success—all you need to do is step into the light. 
-                            <br/><br/>
-                            Be mindful of your energy levels mid-afternoon as Mars creates a subtle tension with Venus. Avoid impulsive expenditures and instead focus on the emotional wealth you've cultivated. Your magnetism is at an all-time high tonight, making it an excellent time for social gatherings or intimate dinners.
-                        </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="bg-surface/40 p-6 rounded-xl border border-secondary/5">
-<h4 class="font-label-sm text-secondary uppercase tracking-widest mb-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">stars</span> Love &amp; Relationships
-                                </h4>
-<p class="text-on-surface-variant text-sm">A surprise message from someone in your past could spark a new perspective on current connections.</p>
-</div>
-<div class="bg-surface/40 p-6 rounded-xl border border-secondary/5">
-<h4 class="font-label-sm text-secondary uppercase tracking-widest mb-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">payments</span> Career &amp; Finance
-                                </h4>
-<p class="text-on-surface-variant text-sm">Practical investments made today will yield long-term stability. Trust your intuition but verify the data.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Contextual Insights -->
-<div class="lg:col-span-4 space-y-8">
-<!-- Lucky Numbers Card -->
-<div class="bg-surface-container-high border border-secondary/10 p-8 rounded-3xl shadow-xl">
-<h3 class="font-headline-md text-headline-md text-secondary mb-6">Cosmic Sync</h3>
-<div class="space-y-6">
-<div>
-<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container block mb-3">Lucky Numbers</span>
-<div class="flex space-x-3">
-<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">07</div>
-<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">22</div>
-<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">49</div>
-<div class="w-10 h-10 rounded-full border border-secondary flex items-center justify-center text-secondary font-bold text-sm">81</div>
-</div>
-</div>
-<div class="h-[1px] bg-secondary/10"></div>
-<div>
-<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container block mb-3">Compatible Signs</span>
-<div class="flex items-center space-x-4">
-<div class="flex items-center space-x-2 bg-surface p-2 pr-4 rounded-full border border-secondary/20">
-<span class="material-symbols-outlined text-secondary" data-icon="flare">flare</span>
-<span class="font-label-sm">Aries</span>
-</div>
-<div class="flex items-center space-x-2 bg-surface p-2 pr-4 rounded-full border border-secondary/20">
-<span class="material-symbols-outlined text-secondary" data-icon="groups">groups</span>
-<span class="font-label-sm">Gemini</span>
-</div>
-</div>
-</div>
-<div class="h-[1px] bg-secondary/10"></div>
-<div class="flex justify-between items-center">
-<span class="font-label-sm uppercase tracking-widest text-on-tertiary-container">Mood Of The Day</span>
-<span class="text-secondary italic">Radiant &amp; Creative</span>
-</div>
-</div>
-</div>
-<!-- CTA Card -->
-<div class="relative group overflow-hidden rounded-3xl bg-primary-container border border-primary/20 p-8 text-center">
-<img alt="Cosmic Sky" class="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-110" data-alt="A mesmerizing view of a deep blue night sky filled with millions of twinkling stars and a swirling, ethereal purple and gold nebula. The atmosphere is mystical and vast, suggesting the infinite wonders of the universe. In the foreground, subtle silhouettes of ancient observatory towers add a sense of history and wisdom to the celestial scene. The lighting is soft and otherworldly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPFYlkNayb-72mTfn69EUe4R_gQLVJ-m3vrAz8Ji_Kc2UyhFeHrRn-9dVNEqR3rEmmXQOeAMZkUoD6nK2boxAalHEsN_JLsOk3UtcRr7NBJMX2BrM2hluKnxf6mV0AEnWu0tQTAkurS23RBu4wCRGTSips1RvxiBL0uymrTVnaO5Oe9WJRsacFECDt2y_iejXmAFY8JtZs6uudSAaLpuaDa2pfbRbYByvSGG2ne7iAfyY2VLgKXovQIQyXqzBbx_JAGBf1ZnmwmLE"/>
-<div class="relative">
-<h3 class="font-headline-md text-headline-md text-tertiary mb-4">Deeper Wisdom?</h3>
-<p class="text-on-tertiary-container font-body-md mb-6">Unlock your full 20-page natal chart analysis and 12-month transit forecast.</p>
-<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-label-sm uppercase tracking-widest shadow-lg hover:shadow-secondary/20 transition-all">Get Personalized Report</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Secondary CTA Section -->
-<section class="mt-24 text-center py-20 border-t border-secondary/10">
-<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-on-surface mb-8">Consult the Oracle</h2>
-<div class="flex flex-wrap justify-center gap-6">
-<button class="bg-surface-container-high border border-secondary/40 px-10 py-5 rounded-full flex items-center space-x-3 group hover:bg-secondary transition-all">
-<span class="material-symbols-outlined text-secondary group-hover:text-on-secondary">chat_bubble</span>
-<span class="font-label-sm uppercase tracking-widest group-hover:text-on-secondary">Chat with an Astrologer</span>
-</button>
-<button class="bg-surface-container-high border border-secondary/40 px-10 py-5 rounded-full flex items-center space-x-3 group hover:bg-secondary transition-all">
-<span class="material-symbols-outlined text-secondary group-hover:text-on-secondary">schedule</span>
-<span class="font-label-sm uppercase tracking-widest group-hover:text-on-secondary">Book Video Session</span>
-</button>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full mt-auto bg-surface-container-lowest border-t border-secondary/20">
-<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-<div>
-<div class="font-headline-md text-headline-md text-secondary mb-2">Sunny Astrology</div>
-<p class="text-on-tertiary-container font-body-md">© 2024 Sunny Astrology. Crafted in the Stars.</p>
-</div>
-<div class="flex space-x-8">
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Celestial Calendar</a>
-<a class="font-body-md text-body-md text-on-tertiary-container hover:text-secondary transition-opacity" href="#">Affiliates</a>
-</div>
-<div class="flex space-x-4">
-<button class="w-10 h-10 rounded-full border border-secondary/20 flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors">
-<span class="material-symbols-outlined text-lg" data-icon="public">public</span>
-</button>
-<button class="w-10 h-10 rounded-full border border-secondary/20 flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors">
-<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
-</button>
-</div>
-</div>
-</footer>
-</body></html>
-
-
-<!-- ===== END OF HOROSCOPES PAGE CODE (File 3) ===== -->
-
-
-
-
-<!-- ===== START OF BOOKING PAGE CODE (File 4) ===== -->
-
-
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sunny Astrology | Book Your Celestial Reading</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            background-color: #111415;
-            color: #e1e3e4;
-            overflow-x: hidden;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .celestial-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(233, 195, 73, 0.05) 0%, transparent 70%);
-        }
-    </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-surface-variant": "#c6c6cc",
-                        "surface": "#111415",
-                        "surface-tint": "#c0c6d9",
-                        "on-tertiary-fixed": "#101b30",
-                        "on-secondary-container": "#342800",
-                        "tertiary-fixed-dim": "#bbc6e2",
-                        "surface-container-low": "#191c1d",
-                        "on-tertiary-container": "#6f7a93",
-                        "on-secondary-fixed": "#241a00",
-                        "secondary-container": "#af8d11",
-                        "on-tertiary": "#263046",
-                        "inverse-primary": "#585e6e",
-                        "secondary": "#e9c349",
-                        "on-secondary-fixed-variant": "#574500",
-                        "tertiary": "#bbc6e2",
-                        "surface-variant": "#323536",
-                        "on-tertiary-fixed-variant": "#3c475d",
-                        "error": "#ffb4ab",
-                        "on-primary-fixed-variant": "#404756",
-                        "primary-fixed": "#dce2f5",
-                        "background": "#111415",
-                        "surface-container-high": "#282a2b",
-                        "outline": "#909096",
-                        "surface-container-lowest": "#0c0f10",
-                        "on-primary": "#2a303f",
-                        "surface-dim": "#111415",
-                        "inverse-on-surface": "#2e3132",
-                        "surface-container-highest": "#323536",
-                        "on-background": "#e1e3e4",
-                        "inverse-surface": "#e1e3e4",
-                        "primary-fixed-dim": "#c0c6d9",
-                        "tertiary-fixed": "#d7e2ff",
-                        "on-error-container": "#ffdad6",
-                        "primary": "#c0c6d9",
-                        "outline-variant": "#45474c",
-                        "on-surface": "#e1e3e4",
-                        "secondary-fixed-dim": "#e9c349",
-                        "primary-container": "#050b18",
-                        "on-primary-container": "#737a8b",
-                        "tertiary-container": "#010b1f",
-                        "on-error": "#690005",
-                        "on-primary-fixed": "#151c29",
-                        "secondary-fixed": "#ffe088",
-                        "surface-container": "#1d2021",
-                        "on-secondary": "#3c2f00",
-                        "error-container": "#93000a",
-                        "surface-bright": "#373a3b"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "unit": "8px",
-                        "container-max": "1200px",
-                        "margin-mobile": "16px",
-                        "margin-desktop": "48px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-md": ["EB Garamond"],
-                        "display-lg": ["EB Garamond"],
-                        "body-lg": ["Manrope"],
-                        "headline-lg": ["EB Garamond"],
-                        "body-md": ["Manrope"],
-                        "label-sm": ["Manrope"],
-                        "display-lg-mobile": ["EB Garamond"]
-                    },
-                    "fontSize": {
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
-                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "500"}]
-                    }
-                },
-            },
-        }
-    </script>
-</head>
-<body class="font-body-md text-on-surface">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-secondary/20 shadow-[0_8px_32px_rgba(212,175,55,0.15)]">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
-<div class="font-headline-md text-headline-md font-bold text-secondary tracking-wide">Sunny Astrology</div>
-<div class="hidden md:flex space-x-8 items-center">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Horoscopes</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">About</a>
-<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1" href="#">Contact</a>
-<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-bold hover:opacity-90 transition-all active:scale-95">Book Reading</button>
-</div>
-<div class="md:hidden">
-<span class="material-symbols-outlined text-secondary">menu</span>
-</div>
-</div>
-</nav>
-<main class="pt-32 pb-24 celestial-glow">
-<div class="max-w-container-max mx-auto px-margin-desktop">
-<!-- Header Section -->
-<div class="text-center mb-16">
-<h1 class="font-display-lg text-display-lg text-secondary mb-4">Consult the Cosmos</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-                    Align your path with the stars. Book a personalized reading or reach out to our celestial sanctuary for guidance.
-                </p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Booking Form Column -->
-<div class="lg:col-span-7 bg-surface-container-low/95 backdrop-blur-2xl p-8 rounded-xl border border-secondary/10 shadow-2xl">
-<h2 class="font-headline-md text-headline-md text-secondary mb-8">Personalized Reading Request</h2>
-<form class="space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Full Name</label>
-<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="Aria Starlight" type="text"/>
-</div>
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Email Address</label>
-<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="aria@cosmos.com" type="email"/>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Date</label>
-<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" type="date"/>
-</div>
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Time</label>
-<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" type="time"/>
-</div>
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Birth Location</label>
-<input class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="London, UK" type="text"/>
-</div>
-</div>
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Service Type</label>
-<select class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all">
-<option>Natal Chart Reading (60 Min)</option>
-<option>Yearly Forecast (90 Min)</option>
-<option>Synastry &amp; Relationship (120 Min)</option>
-<option>Horary Astrology Question</option>
-</select>
-</div>
-<div class="flex flex-col space-y-2">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Specific Intentions or Questions</label>
-<textarea class="bg-surface-container-highest border border-outline-variant text-on-surface rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="What would you like to explore in your reading?" rows="4"></textarea>
-</div>
-<button class="w-full bg-secondary text-on-secondary font-bold py-4 rounded-lg shadow-[0_4px_16px_rgba(233,195,73,0.3)] hover:scale-[1.02] active:scale-95 transition-all" type="submit">
-                            Schedule My Celestial Session
-                        </button>
-</form>
-</div>
-<!-- Contact & Map Column -->
-<div class="lg:col-span-5 flex flex-col space-y-gutter">
-<!-- Contact Cards -->
-<div class="bg-surface-container-low/95 backdrop-blur-2xl p-8 rounded-xl border border-secondary/10 shadow-2xl flex flex-col space-y-6">
-<h2 class="font-headline-md text-headline-md text-secondary">Contact Us</h2>
-<div class="flex items-start space-x-4 group">
-<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Email Us</p>
-<p class="text-on-surface-variant">oracle@sunnyastrology.com</p>
-</div>
-</div>
-<div class="flex items-start space-x-4 group">
-<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined">call</span>
-</div>
-<div>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Call the Studio</p>
-<p class="text-on-surface-variant">+1 (555) CEL-ESTL</p>
-</div>
-</div>
-<div class="flex items-start space-x-4 group">
-<div class="bg-secondary/10 p-3 rounded-full text-secondary group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined">location_on</span>
-</div>
-<div>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-1">Our Sanctuary</p>
-<p class="text-on-surface-variant">42 Zodiac Lane, Astral Heights<br/>Sedona, AZ 86336</p>
-</div>
-</div>
-</div>
-<!-- Map Placeholder -->
-<div class="flex-grow rounded-xl overflow-hidden border border-secondary/20 relative min-h-[300px]">
-<div class="absolute inset-0 bg-surface-container-highest">
-<img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="A stylized, artistic map rendering with dark indigo and gold accents, showing a mystical landscape reminiscent of an ancient star chart or a premium location guide. The aesthetic is sophisticated and celestial, using golden lines and glowing points of light to mark key destinations within a dark, moody environment that matches the midnight blue and gold brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHs-QntitLUtnMtz47yieiPVVWcajDS0ohetwE_ws1R_DUXWKXLOAnwmSughlPv_YIyyxI8vcW7loZKGuOIX5Yw6AearhwJ--j8vveklZ3m-ikjQmGEfcDTrmq0owVQ_QYpwLbo4kxQvLO-opDYArOJwnzxyNuFllLvoEHHCYbB_CunNPXjXF7JbrIT79sk876cWWV17uy9eIJ2KHr3sXa8ditSVesPfnK3lGzBeeQ-XXiQmacfgp3AwHzA-DTn8Cf-WQnw2l8h9E"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-surface/90 backdrop-blur-md p-4 rounded-lg border border-secondary text-center shadow-2xl">
-<span class="material-symbols-outlined text-secondary text-4xl mb-2">stars</span>
-<p class="font-headline-md text-secondary">Sunny Astrology HQ</p>
-<p class="text-label-sm text-on-surface-variant">Sedona, Arizona</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- FAQ Section -->
-<section class="mt-24">
-<div class="text-center mb-12">
-<h2 class="font-headline-lg text-headline-lg text-secondary">Seek &amp; Find</h2>
-<p class="text-on-surface-variant font-body-md">Frequently asked questions about our celestial services</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-<!-- FAQ Item 1 -->
-<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
-<div class="flex justify-between items-center mb-2">
-<h3 class="font-bold text-secondary">Why do I need my exact birth time?</h3>
-<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
-</div>
-<p class="text-on-surface-variant text-body-md">Precision is key in the stars. The birth time determines your Rising Sign (Ascendant) and the specific house placements of planets, ensuring your chart is unique to your specific location and moment of arrival.</p>
-</div>
-<!-- FAQ Item 2 -->
-<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
-<div class="flex justify-between items-center mb-2">
-<h3 class="font-bold text-secondary">Can astrology predict the future?</h3>
-<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
-</div>
-<p class="text-on-surface-variant text-body-md">Astrology maps energetic potentials and cycles. While it doesn't dictate fate, it provides a cosmic weather report, helping you navigate life's seasons with intention and clarity.</p>
-</div>
-<!-- FAQ Item 3 -->
-<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
-<div class="flex justify-between items-center mb-2">
-<h3 class="font-bold text-secondary">What if I don't know my birth time?</h3>
-<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
-</div>
-<p class="text-on-surface-variant text-body-md">We can perform a 'Rectification' reading where we work backward from major life events to estimate your birth time, or we can use a solar chart for general guidance.</p>
-</div>
-<!-- FAQ Item 4 -->
-<div class="p-6 rounded-xl bg-surface-container-high border border-secondary/5 hover:border-secondary/20 transition-all cursor-pointer group">
-<div class="flex justify-between items-center mb-2">
-<h3 class="font-bold text-secondary">Are readings held in-person?</h3>
-<span class="material-symbols-outlined text-secondary group-hover:rotate-180 transition-transform">expand_more</span>
-</div>
-<p class="text-on-surface-variant text-body-md">We offer both virtual sessions via encrypted video link and intimate in-person readings at our Sedona sanctuary for a fully immersive experience.</p>
-</div>
-</div>
-</section>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-secondary/20 w-full mt-auto">
-<div class="max-w-container-max mx-auto py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-<div class="flex flex-col items-center md:items-start space-y-2">
-<span class="font-headline-md text-headline-md text-secondary">Sunny Astrology</span>
-<p class="text-on-tertiary-container text-body-md">© 2024 Sunny Astrology. Crafted in the Stars.</p>
-</div>
-<div class="flex space-x-8">
-<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Privacy Policy</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Terms of Service</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Celestial Calendar</a>
-<a class="text-on-tertiary-container hover:text-secondary transition-colors" href="#">Affiliates</a>
-</div>
-</div>
-</footer>
-
-<!-- ===== WHATSAPP ICON CODE START (ADD THIS BEFORE </body> ON EVERY PAGE) ===== -->
-<div class="fixed bottom-8 right-8 z-50 group">
-    <!-- The two chat options, hidden by default, appear on hover -->
-    <div class="absolute bottom-20 right-0 flex flex-col items-end space-y-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2">
-        <!-- Link 1 -->
-        <a href="https://wa.me/919784880065" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg shadow-lg border border-secondary/20 hover:bg-surface-container-highest transition-colors">
-            <span class="font-label-sm text-on-surface-variant whitespace-nowrap">Chat on WhatsApp</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.7-.8.9-.1.1-.3.1-.5.1-.2 0-.9-.3-1.6-1-.6-.5-1-1.1-1.2-1.3-.1-.2 0-.4.1-.5.1-.1.2-.2.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.5 2.3 3.7 3.2.5.2.9.4 1.2.5.5.2 1 .1 1.3-.1.4-.2 1.5-1.7 1.7-1.8.2-.2.2-.3.1-.4 0-.1-.1-.1-.2-.2zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-        </a>
-        <!-- Link 2 -->
-        <a href="https://wa.me/919996279278" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-surface-container-high px-4 py-2 rounded-lg shadow-lg border border-secondary/20 hover:bg-surface-container-highest transition-colors">
-            <span class="font-label-sm text-on-surface-variant whitespace-nowrap">Chat on WhatsApp</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.7-.8.9-.1.1-.3.1-.5.1-.2 0-.9-.3-1.6-1-.6-.5-1-1.1-1.2-1.3-.1-.2 0-.4.1-.5.1-.1.2-.2.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.5 2.3 3.7 3.2.5.2.9.4 1.2.5.5.2 1 .1 1.3-.1.4-.2 1.5-1.7 1.7-1.8.2-.2.2-.3.1-.4 0-.1-.1-.1-.2-.2zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
-        </a>
-    </div>
-
-    <!-- Main floating icon -->
-    <div class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center cursor-pointer shadow-xl hover:scale-110 transition-transform">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.225.651 4.315 1.731 6.086l.001.004 4.971 4.971z"/>
-        </svg>
-    </div>
-</div>
-<!-- ===== WHATSAPP ICON CODE END ===== -->
-
-</body></html>
-
+</body>
+</html>
