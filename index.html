@@ -259,11 +259,43 @@
                 <div class="container">
                     <span class="section-tag" style="color: #fff; opacity: 0.8;">Established in Luxury</span>
                     <h2 class="cinzel"><span class="gold-text">A Journey</span> to<br>Divine Serenity</h2>
-                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="switchTab('booking')">RESERVE AN EXPERIENCE</button>
+                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="document.getElementById('whatsapp-form-section').scrollIntoView({behavior:'smooth'})">BOOK VIA WHATSAPP</button>
                 </div>
             </section>
 
             <div class="container">
+
+                <!-- NEW: WhatsApp Contact Form Section on First Page -->
+                <div class="floating-section animate__animated animate__fadeInUp" id="whatsapp-form-section">
+                    <span class="section-tag">Instant Reservation</span>
+                    <h2 class="section-title">Direct WhatsApp Booking</h2>
+                    <div class="form-side" style="background: rgba(212, 175, 55, 0.05); border: 1px solid var(--gold-dark);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div>
+                                <label class="gold-text cinzel" style="font-size: 11px;">FULL NAME</label>
+                                <input type="text" id="wa-name" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label class="gold-text cinzel" style="font-size: 11px;">SELECT RITUAL</label>
+                                <select id="wa-ritual">
+                                    <option>Aarohana Signature Ritual</option>
+                                    <option>Full Body Rejuvenation</option>
+                                    <option>Stress Buster Therapy</option>
+                                    <option>Traditional Thai Massage</option>
+                                    <option>Deep Tissue Massage</option>
+                                    <option>Other / Not Sure</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="gold-text cinzel" style="font-size: 11px;">DATE & TIME</label>
+                                <input type="text" id="wa-datetime" placeholder="e.g. Tomorrow at 5 PM">
+                            </div>
+                        </div>
+                        <button class="btn-gold-action" onclick="sendWhatsAppBooking()">
+                            <i class="fa-brands fa-whatsapp"></i> SEND BOOKING REQUEST
+                        </button>
+                    </div>
+                </div>
                 
                 <!-- Category 1: The Ambience (Floating Card) -->
                 <div class="floating-section animate__animated animate__fadeInUp">
@@ -358,7 +390,7 @@
                                 <span class="p-price">₹3500</span>
                             </div>
                             <div class="price-row">
-                                <div><span class="p-service">Clean Ups</span><span class="p-meta">30 Mins Quick Hydration</span></div>
+                                <div><span class="p-service">Clean Up Session</span><span class="p-meta">30 Mins Quick Hydration</span></div>
                                 <span class="p-price">₹1500</span>
                             </div>
                         </div>
@@ -519,10 +551,11 @@
         }
 
         function calculatePrice() {
-            const basePrice = parseInt(document.getElementById('ritual-select').value);
+            const basePriceSelect = document.getElementById('ritual-select');
+            if(!basePriceSelect) return;
+            const basePrice = parseInt(basePriceSelect.value);
             let surcharge = 0;
             
-            // As per the price list image: 90 mins usually adds 500
             if(duration === 90) {
                 if(basePrice >= 2500) surcharge = 500;
             }
@@ -535,6 +568,23 @@
         // 4. Modal Functions
         function showSuccess() { document.getElementById('success-page').style.display = 'flex'; }
         function closeModal() { document.getElementById('success-page').style.display = 'none'; switchTab('home'); }
+
+        // NEW: WhatsApp Booking Logic
+        function sendWhatsAppBooking() {
+            const name = document.getElementById('wa-name').value;
+            const ritual = document.getElementById('wa-ritual').value;
+            const time = document.getElementById('wa-datetime').value;
+            const phone = "917390928912";
+
+            if(!name || !time) {
+                alert("Please fill your Name and Time to proceed.");
+                return;
+            }
+
+            const message = `Namaste Aarohana Spa,%0A%0AI would like to book a ritual:%0A*Name:* ${name}%0A*Ritual:* ${ritual}%0A*Date/Time:* ${time}%0A%0APlease confirm my reservation.`;
+            
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
 
         // Initial Price Check
         calculatePrice();
