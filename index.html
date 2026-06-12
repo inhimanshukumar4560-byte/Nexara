@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAROHANA | The Ultimate Luxury Spa & Wellness</title>
+    <title>AAROHANA | Delhi's Ultimate Luxury Spa & Wellness</title>
     
     <!-- Ultra-Premium Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -45,6 +45,39 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--black-pure); }
         ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
+
+        /* --- AI Assistant Sticker --- */
+        .ai-assistant-sticker {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            z-index: 9999;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4AF37, #fff);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+            cursor: pointer;
+            animation: pulse-border 2s infinite, float 3s infinite ease-in-out;
+            border: 2px solid #000;
+        }
+        .ai-assistant-sticker i { font-size: 30px; color: #000; }
+        .ai-assistant-sticker span { font-size: 9px; color: #000; font-weight: 900; text-transform: uppercase; margin-top: 2px; }
+        
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
 
         /* --- Luxury Splash Screen --- */
         #splash-screen {
@@ -119,7 +152,7 @@
         .section-tag { color: var(--gold-primary); letter-spacing: 6px; font-size: 12px; text-transform: uppercase; margin-bottom: 15px; display: block; }
         .section-title { font-family: 'Cinzel'; font-size: 45px; margin-bottom: 30px; line-height: 1.2; }
 
-        /* --- Distributed Image Styling --- */
+        /* --- Image Styling --- */
         .premium-img-frame {
             width: 100%;
             height: 600px;
@@ -132,7 +165,7 @@
         .premium-img-frame img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
         .premium-img-frame:hover img { transform: scale(1.1); }
 
-        /* --- Master Price Menu --- */
+        /* --- Price Menu --- */
         .price-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; }
         .price-row {
             display: flex; justify-content: space-between; align-items: flex-end; padding: 18px 0;
@@ -146,7 +179,7 @@
         /* --- Hero Section --- */
         .hero-banner {
             height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070');
             background-size: cover; background-position: center; background-attachment: fixed;
             margin-bottom: 100px; border-bottom-left-radius: 100px; border-bottom-right-radius: 100px;
         }
@@ -173,43 +206,46 @@
         .f-tel { background: var(--gold-primary); }
         .f-item:hover { transform: scale(1.1) rotate(15deg); }
 
-        /* --- Features & Footer --- */
-        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .feature-card { text-align: center; padding: 30px; border: 1px solid var(--card-border); border-radius: 20px; background: rgba(255,255,255,0.03); }
-        .feature-card i { font-size: 40px; color: var(--gold-primary); margin-bottom: 20px; }
-
+        /* --- Footer --- */
         footer { background: #050505; padding: 100px 0 50px; border-top: 1px solid var(--card-border); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
         .footer-col h4 { font-family: 'Cinzel'; color: var(--gold-primary); margin-bottom: 25px; letter-spacing: 2px; }
         .footer-col p, .footer-col li { color: #888; font-size: 14px; margin-bottom: 12px; list-style: none; }
         .footer-bottom { border-top: 1px solid #111; padding-top: 40px; text-align: center; color: #444; font-size: 12px; }
 
-        /* --- Functional Screens --- */
         .screen { display: none; padding: 150px 0 100px; animation: slideUp 1s ease; }
         .screen.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
-        #success-page { position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; display: none; align-items: center; justify-content: center; text-align: center; }
-
         @media (max-width: 1024px) {
-            .footer-grid, .feature-grid, .price-list-grid { grid-template-columns: 1fr; }
+            .footer-grid, .price-list-grid { grid-template-columns: 1fr; }
             .floating-section { padding: 50px 25px; border-radius: 40px; }
             .main-nav { display: none; }
+            .ai-assistant-sticker { width: 60px; height: 60px; left: 20px; bottom: 20px; }
+            .ai-assistant-sticker i { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- AI Assistant Sticker -->
+    <a href="https://zinggoo.site/ai.html" target="_blank" class="ai-assistant-sticker">
+        <i class="fa-solid fa-robot"></i>
+        <span>AI Assistant</span>
+    </a>
+
+    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-logo">AAROHANA</div>
-        <p style="letter-spacing: 15px; color: var(--gold-primary); font-size: 14px; margin-top: 30px;">THE PINNACLE OF WELLNESS</p>
+        <p style="letter-spacing: 15px; color: var(--gold-primary); font-size: 14px; margin-top: 30px;">DELHI'S PINNACLE OF WELLNESS</p>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="nav-wrapper">
             <div class="logo-box" onclick="switchTab('home')">
                 <h1>AAROHANA</h1>
-                <p>Divine Luxury Spa</p>
+                <p>Luxury Spa South Delhi</p>
             </div>
             <nav class="main-nav">
                 <a onclick="switchTab('home')" id="nav-home" class="active">The Sanctuary</a>
@@ -225,6 +261,7 @@
         </div>
     </header>
 
+    <!-- Floating Concierge -->
     <div class="floating-concierge">
         <a href="https://wa.me/917390928912" class="f-item f-wa"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="tel:7390928912" class="f-item f-tel"><i class="fa-solid fa-phone"></i></a>
@@ -232,121 +269,75 @@
 
     <main>
         
+        <!-- 1. HOME SCREEN -->
         <div id="home" class="screen active" style="padding-top: 0;">
             <section class="hero-banner">
                 <div class="container">
-                    <span class="section-tag" style="color: #fff; opacity: 0.8;">The Ultimate Healing Experience</span>
-                    <h2 class="cinzel"><span class="gold-text">Timeless Luxury</span><br>For Modern Royalty</h2>
-                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="document.getElementById('wa-booking-form').scrollIntoView({behavior:'smooth'})">INSTANT WHATSAPP BOOKING</button>
+                    <span class="section-tag" style="color: #fff; opacity: 0.8;">The Most Exclusive Retreat in Delhi NCR</span>
+                    <h2 class="cinzel"><span class="gold-text">Divine Serenity</span><br>For Delhi's Elite</h2>
+                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="document.getElementById('wa-booking-form').scrollIntoView({behavior:'smooth'})">BOOK VIA WHATSAPP</button>
                 </div>
             </section>
 
             <div class="container">
 
-                <!-- PROFESSIONAL WHATSAPP FORM -->
-                <div class="floating-section" id="wa-booking-form">
-                    <span class="section-tag">Direct Access</span>
-                    <h2 class="section-title">Quick Concierge Booking</h2>
-                    <p style="margin-bottom: 40px; color: #888;">Fill this form to instantly connect with our manager via WhatsApp for guaranteed slot confirmation.</p>
+                <!-- WhatsApp Form -->
+                <div class="floating-section animate__animated animate__fadeInUp" id="wa-booking-form">
+                    <span class="section-tag">Instant Access</span>
+                    <h2 class="section-title">Direct WhatsApp Concierge</h2>
                     <div class="form-side" style="background: linear-gradient(145deg, #0a0a0a, #111);">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
                             <div>
                                 <label class="gold-text cinzel" style="font-size: 11px;">GUEST NAME</label>
-                                <input type="text" id="wa-name" placeholder="Enter Full Name">
+                                <input type="text" id="wa-name" placeholder="Full Name">
                             </div>
                             <div>
-                                <label class="gold-text cinzel" style="font-size: 11px;">CHOOSE THERAPY</label>
+                                <label class="gold-text cinzel" style="font-size: 11px;">CHOOSE RITUAL</label>
                                 <select id="wa-ritual">
-                                    <option>Aarohana Signature (Recommended)</option>
+                                    <option>Aarohana Signature Ritual</option>
                                     <option>Full Body Rejuvenation</option>
+                                    <option>Synchronized 4-Hand Massage</option>
                                     <option>Deep Tissue Therapy</option>
-                                    <option>Traditional Thai stretching</option>
-                                    <option>Synchronized 4-Hand Ritual</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="gold-text cinzel" style="font-size: 11px;">PREFFERED DATE & TIME</label>
-                                <input type="text" id="wa-datetime" placeholder="e.g. 15th Oct, 4:00 PM">
+                                <input type="text" id="wa-datetime" placeholder="e.g. Today at 6:00 PM">
                             </div>
                         </div>
                         <button class="btn-gold-action" onclick="sendWhatsAppBooking()">
-                            <i class="fa-brands fa-whatsapp"></i> INITIATE WHATSAPP BOOKING
+                            <i class="fa-brands fa-whatsapp"></i> REQUEST CONFIRMATION
                         </button>
                     </div>
                 </div>
 
-                <!-- AMBIENCE -->
+                <!-- Delhi Standard Ambience -->
                 <div class="floating-section">
-                    <span class="section-tag">Philosophy</span>
-                    <h2 class="section-title">The Sanctuary of Sacred Peace</h2>
+                    <span class="section-tag">Our Delhi Sanctuary</span>
+                    <h2 class="section-title">Experience 7-Star Tranquility</h2>
                     <div class="premium-img-frame">
-                        <img src="https://i.ibb.co/jkcYYzh5/9f279feb-f916-41b2-8835-f734d03aa390.png" alt="Aarohana Luxury">
+                        <img src="https://i.ibb.co/jkcYYzh5/9f279feb-f916-41b2-8835-f734d03aa390.png" alt="Delhi Luxury Spa Interior">
                     </div>
-                    <p style="color: #aaa; font-size: 18px;">At Aarohana, we don't just provide massages; we offer a transformation. Every corner of our spa is designed using ancient Vastu and Zen principles to ensure your energy is restored the moment you enter.</p>
+                    <p style="color: #aaa; font-size: 18px;">Located in the heart of South Delhi, Aarohana offers a level of sophistication unmatched in NCR. Our marble suites, gold-infused therapies, and elite therapists ensure a world-class experience.</p>
                 </div>
 
-                <!-- HYGIENE & QUALITY -->
+                <!-- Menu Table -->
                 <div class="floating-section">
-                    <span class="section-tag">Excellence</span>
-                    <h2 class="section-title">The Gold Standard of Hygiene</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <i class="fa-solid fa-sparkles"></i>
-                            <h4 class="cinzel gold-text">Sterilized Environment</h4>
-                            <p>Every room is UV-sterilized after every ritual.</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fa-solid fa-leaf"></i>
-                            <h4 class="cinzel gold-text">Organic Oils</h4>
-                            <p>100% Cold-pressed, therapeutic grade essential oils.</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fa-solid fa-user-check"></i>
-                            <h4 class="cinzel gold-text">Certified Masters</h4>
-                            <p>Therapists with over 500+ hours of training.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MENU -->
-                <div class="floating-section">
-                    <span class="section-tag" style="text-align: center;">Menu Excellence</span>
-                    <h2 class="section-title" style="text-align: center;">Curated Rituals & Pricing</h2>
+                    <span class="section-tag" style="text-align: center;">Curated Rituals</span>
+                    <h2 class="section-title" style="text-align: center;">The Divine Menu</h2>
                     
                     <div class="price-list-grid">
                         <div class="p-col">
                             <div class="price-row"><div><span class="p-service">Rejuvenation</span><span class="p-meta">Full Body Renewal</span></div><span class="p-price">₹8000</span></div>
-                            <div class="price-row"><div><span class="p-service">Extreme Relaxation</span><span class="p-meta">Deep Calm Ritual</span></div><span class="p-price">₹7000</span></div>
-                            <div class="price-row"><div><span class="p-service">Stress Buster</span><span class="p-meta">Tension Release</span></div><span class="p-price">₹5500</span></div>
-                            <div class="price-row"><div><span class="p-service">4 Hand Massage</span><span class="p-meta">Dual Therapist</span></div><span class="p-price">₹5000</span></div>
+                            <div class="price-row"><div><span class="p-service">Stress Buster</span><span class="p-meta">Tension Relief</span></div><span class="p-price">₹5500</span></div>
+                            <div class="price-row"><div><span class="p-service">4-Hand Ritual</span><span class="p-meta">Dual Therapist</span></div><span class="p-price">₹5000</span></div>
+                            <div class="price-row"><div><span class="p-service">Aarohana Signature</span><span class="p-meta">Our Best Seller</span></div><span class="p-price">₹4000</span></div>
                         </div>
                         <div class="p-col">
-                            <div class="price-row"><div><span class="p-service">Aarohana Signature</span><span class="p-meta">Best Seller</span></div><span class="p-price">₹4000</span></div>
-                            <div class="price-row"><div><span class="p-service">Traditional Balinese</span><span class="p-meta">Authentic Art</span></div><span class="p-price">₹3500</span></div>
-                            <div class="price-row"><div><span class="p-service">Aromatherapy</span><span class="p-meta">Scent Ritual</span></div><span class="p-price">₹2500</span></div>
+                            <div class="price-row"><div><span class="p-service">Advanced Deep Tissue</span><span class="p-meta">Intense Release</span></div><span class="p-price">₹3500</span></div>
+                            <div class="price-row"><div><span class="p-service">Aromatherapy</span><span class="p-meta">Sacred Scents</span></div><span class="p-price">₹2500</span></div>
                             <div class="price-row"><div><span class="p-service">Signature Facials</span><span class="p-meta">Glow Ritual</span></div><span class="p-price">₹3500</span></div>
-                        </div>
-                    </div>
-
-                    <div class="premium-img-frame" style="margin-top: 60px; height: auto;">
-                        <img src="https://i.ibb.co/qY0RgWkz/6afe24c6-5a86-4aad-a7fc-c3f7d33bd059.png" alt="Aarohana Menu" style="object-fit: contain;">
-                    </div>
-                </div>
-
-                <!-- TESTIMONIALS -->
-                <div class="floating-section" style="text-align: center;">
-                    <span class="section-tag">Reviews</span>
-                    <h2 class="section-title">Voices of Serenity</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
-                        <div style="background: #000; padding: 40px; border-radius: 30px; border: 1px solid #222;">
-                            <div style="color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p style="font-style: italic; color: #ccc;">"The best spa experience in the city. The Aarohana Signature ritual completely cured my back pain. Highly recommended for professionals."</p>
-                            <h5 class="cinzel gold-text" style="margin-top: 20px;">- Rahul Sharma</h5>
-                        </div>
-                        <div style="background: #000; padding: 40px; border-radius: 30px; border: 1px solid #222;">
-                            <div style="color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p style="font-style: italic; color: #ccc;">"Extremely hygienic and professional. The therapists are very well-trained. A true 5-star luxury experience."</p>
-                            <h5 class="cinzel gold-text" style="margin-top: 20px;">- Priya Kapoor</h5>
+                            <div class="price-row"><div><span class="p-service">Clean Ups</span><span class="p-meta">30 Mins Quick Hydration</span></div><span class="p-price">₹1500</span></div>
                         </div>
                     </div>
                 </div>
@@ -354,103 +345,65 @@
             </div>
         </div>
 
-        <!-- OTHER SCREENS (STAY THE SAME) -->
-        <div id="services" class="screen">
-            <div class="container"><div class="floating-section"><h2 class="section-title gold-text">Therapy Encyclopedia</h2><p>Our rituals are categorized by their energetic benefits...</p></div></div>
-        </div>
+        <!-- OTHER SCREENS -->
+        <div id="services" class="screen"><div class="container"><div class="floating-section"><h2 class="section-title gold-text">Therapy Encyclopedia</h2><p>Our rituals are categorized by their energetic benefits...</p></div></div></div>
 
         <div id="booking" class="screen">
             <div class="container">
                 <div class="floating-section">
-                    <div class="booking-grid">
-                        <div class="form-side">
-                            <h2 class="cinzel gold-text">Reservations</h2>
-                            <label class="gold-text cinzel">SELECT RITUAL</label>
-                            <select id="ritual-select" onchange="calculatePrice()">
-                                <option value="8000">Rejuvenation (₹8000)</option>
-                                <option value="4000">Aarohana Signature (₹4000)</option>
-                                <option value="3500">Balinese Ritual (₹3500)</option>
-                            </select>
-                            <input type="date" value="2024-01-01">
-                            <div style="display: flex; gap: 10px;">
-                                <button class="btn-gold-action" id="d60" onclick="updateDur(60)" style="padding: 15px;">60 MIN</button>
-                                <button class="btn-gold-action" id="d90" onclick="updateDur(90)" style="padding: 15px; background: #000; color: #fff;">90 MIN</button>
-                            </div>
-                        </div>
-                        <div class="summary-side">
-                            <div style="background: #111; padding: 50px; border-radius: 40px; border: 1px solid var(--gold-dark); text-align: center;">
-                                <h3 class="cinzel gold-text">Grand Total</h3>
-                                <h2 class="cinzel gold-text" id="grand-total" style="font-size: 55px;">₹8000</h2>
-                                <button class="btn-gold-action" style="margin-top: 35px;" onclick="showSuccess()">RESERVE NOW</button>
-                            </div>
-                        </div>
+                    <div style="text-align:center; margin-bottom:50px;">
+                        <h2 class="cinzel gold-text">Secure Reservation</h2>
+                        <p>Calculate your grand total below.</p>
                     </div>
+                    <div class="price-row" style="border:none;">
+                        <select id="ritual-select" onchange="calculatePrice()" style="margin:0;">
+                            <option value="8000">Rejuvenation Ritual (₹8000)</option>
+                            <option value="5500">Stress Buster (₹5500)</option>
+                            <option value="4000">Aarohana Signature (₹4000)</option>
+                        </select>
+                    </div>
+                    <h2 class="cinzel gold-text" id="grand-total" style="font-size: 60px; text-align:center; margin: 40px 0;">₹8000</h2>
+                    <button class="btn-gold-action" onclick="alert('Proceeding to Checkout...')">CONFIRM RESERVATION</button>
                 </div>
             </div>
         </div>
 
         <div id="profile" class="screen">
-            <div class="container">
-                <div class="floating-section" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <div style="width: 150px; height: 150px; margin: 0 auto 30px; border: 3px solid var(--gold-primary); border-radius: 50%; padding: 5px;">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 100%; border-radius: 50%;">
-                    </div>
-                    <h2 class="cinzel">Vikram Rathore</h2>
-                    <p class="gold-text">ELITE PLATINUM MEMBER</p>
-                    <button class="btn-gold-action" style="margin-top: 40px; width: auto; padding: 15px 40px;">VIEW LOYALTY POINTS</button>
-                </div>
-            </div>
+            <div class="container"><div class="floating-section" style="text-align:center;"><h2 class="cinzel">Guest Profile</h2><p class="gold-text">ELITE MEMBER</p></div></div>
         </div>
 
     </main>
 
-    <!-- MEGA FOOTER -->
+    <!-- Delhi Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h1 class="cinzel gold-text" style="font-size: 24px; margin-bottom: 20px;">AAROHANA</h1>
-                    <p>India's leading name in luxury wellness. We provide an escape from the mundane into the world of absolute serenity and physical restoration.</p>
-                    <div style="display: flex; gap: 20px; font-size: 20px; margin-top: 25px;">
-                        <i class="fa-brands fa-instagram gold-text"></i>
-                        <i class="fa-brands fa-facebook gold-text"></i>
-                        <i class="fa-brands fa-youtube gold-text"></i>
-                    </div>
+                    <p>South Delhi's most prestigious name in wellness. Providing an unparalleled escape into absolute serenity for the city's most discerning guests.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Experience</h4>
-                    <li>The Sanctuary</li>
-                    <li>The Spa Menu</li>
-                    <li>Membership</li>
-                    <li>Gift Cards</li>
+                    <h4>Concierge</h4>
+                    <li>Spa Etiquette</li>
+                    <li>Member Benefits</li>
+                    <li>Gift Certificates</li>
                 </div>
                 <div class="footer-col">
-                    <h4>Opening Hours</h4>
-                    <p>Mon - Sun</p>
-                    <p class="gold-text">10:00 AM - 10:00 PM</p>
-                    <p>Late Night Rituals available by appointment only.</p>
+                    <h4>Hours</h4>
+                    <p>Daily: 10:00 AM - 10:00 PM</p>
+                    <p class="gold-text">Open 365 Days</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Connect</h4>
-                    <p><i class="fa-solid fa-location-dot gold-text"></i> Luxury Hub, Sector 45, Lucknow</p>
+                    <h4>New Delhi Hub</h4>
+                    <p><i class="fa-solid fa-location-dot gold-text"></i> South Extension II, New Delhi, 110049</p>
                     <p><i class="fa-solid fa-phone gold-text"></i> +91 7390928912</p>
-                    <p><i class="fa-solid fa-envelope gold-text"></i> concierge@aarohanaspa.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 AAROHANA LUXURY WELLNESS. DESIGNED FOR THE ELITE. <br> ALL RIGHTS RESERVED.</p>
+                <p>&copy; 2024 AAROHANA DELHI | ALL RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
-
-    <div id="success-page">
-        <div style="background: #0a0a0a; padding: 80px; border-radius: 60px; border: 1px solid var(--gold-primary); max-width: 600px; width: 90%;">
-            <i class="fa-solid fa-crown gold-text" style="font-size: 80px;"></i>
-            <h2 class="cinzel gold-text" style="margin-top: 40px;">Reserved</h2>
-            <p style="color: #666; margin: 30px 0;">Your sanctuary is ready. Our manager will call you for final confirmation.</p>
-            <button class="btn-gold-action" style="width: auto; padding: 20px 80px;" onclick="closeModal()">EXCELLENT</button>
-        </div>
-    </div>
 
     <script>
         window.addEventListener('load', () => {
@@ -469,23 +422,10 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        let duration = 60;
-        function updateDur(min) {
-            duration = min;
-            document.getElementById('d60').style.background = (min === 60) ? 'var(--gold-dark)' : '#000';
-            document.getElementById('d90').style.background = (min === 90) ? 'var(--gold-dark)' : '#000';
-            calculatePrice();
-        }
-
         function calculatePrice() {
             const base = parseInt(document.getElementById('ritual-select').value);
-            let total = base;
-            if(duration === 90) total += 500;
-            document.getElementById('grand-total').innerText = "₹" + total;
+            document.getElementById('grand-total').innerText = "₹" + base;
         }
-
-        function showSuccess() { document.getElementById('success-page').style.display = 'flex'; }
-        function closeModal() { document.getElementById('success-page').style.display = 'none'; switchTab('home'); }
 
         function sendWhatsAppBooking() {
             const name = document.getElementById('wa-name').value;
@@ -494,15 +434,13 @@
             const phone = "917390928912";
 
             if(!name || !datetime) {
-                alert("Please provide Name and Date/Time for confirmation.");
+                alert("Kindly provide Guest Name and Timing.");
                 return;
             }
 
-            const message = `Namaste Aarohana Spa,%0A%0A*Luxury Booking Request*%0A*Guest:* ${name}%0A*Ritual:* ${ritual}%0A*Time:* ${datetime}%0A%0APlease check availability and confirm.`;
+            const message = `Namaste Aarohana Delhi,%0A%0A*Luxury Booking Request*%0A*Guest:* ${name}%0A*Ritual:* ${ritual}%0A*Time:* ${datetime}%0A%0APlease confirm availability at South Ext.`;
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
-
-        calculatePrice();
     </script>
 </body>
 </html>
