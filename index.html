@@ -3,561 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAROHANA DELHI | The Capital's Ultimate Luxury Spa</title>
+    <title>AAROHANA DELHI | Official Elite Sanctuary</title>
     
-    <!-- Ultra-Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Icons & Premium Animations -->
+    <!-- Ultra-Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- UI Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 
     <style>
         :root {
-            --gold-primary: #D4AF37;
-            --gold-light: #F2D06B;
-            --gold-dark: #996515;
-            --black-pure: #000000;
-            --black-soft: #080808;
-            --glass-bg: rgba(15, 15, 15, 0.9);
-            --card-border: rgba(212, 175, 55, 0.3);
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --gold: #D4AF37;
+            --deep-black: #050505;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
         body {
-            background-color: var(--black-pure);
-            color: #ffffff;
+            background-color: #000;
+            color: #fff;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            line-height: 1.8;
-            background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-            background-attachment: fixed;
+            /* Anti-Copy Features */
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--black-pure); }
-        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
+        /* Anti-Download & Anti-Long Press */
+        img {
+            pointer-events: none !important;
+            -webkit-touch-callout: none !important;
+            -webkit-user-drag: none !important;
+        }
 
-        /* --- Luxury Splash Screen --- */
+        .gold-text { color: var(--gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        .cinzel { font-family: 'Cinzel', serif; }
+
+        /* Splash Screen */
         #splash-screen {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 1.5s ease;
-        }
-        .splash-logo {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 20px;
-            font-weight: 900;
-            animation: pulseGlow 2s infinite alternate;
-        }
-        @keyframes pulseGlow {
-            from { opacity: 0.6; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1.02); }
+            position: fixed; inset: 0; background: #000; z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: 1s ease-in-out;
         }
 
-        /* --- AI Assistant Sticker --- */
-        .ai-sticker {
-            position: fixed;
-            left: 30px;
-            bottom: 40px;
-            z-index: 9999;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .ai-sticker:hover { transform: scale(1.1); }
-        .ai-icon-box {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(58, 123, 213, 0.5);
-            border: 2px solid rgba(255,255,255,0.2);
-            animation: bounce 2s infinite;
-        }
-        .ai-sticker span {
-            color: #fff;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-top: 8px;
-            text-shadow: 0 2px 10px rgba(0,0,0,1);
-            background: var(--gold-dark);
-            padding: 2px 8px;
-            border-radius: 5px;
-        }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        /* --- Navigation --- */
         header {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 25px 0;
-            z-index: 9000;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-        }
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        .logo-box h1 { font-family: 'Cinzel'; font-size: 28px; letter-spacing: 6px; color: var(--gold-primary); font-weight: 900; cursor: pointer; }
-        .logo-box p { font-size: 8px; letter-spacing: 5px; text-transform: uppercase; color: #fff; margin-top: -5px; }
-
-        .main-nav { display: flex; gap: 40px; }
-        .main-nav a { 
-            text-decoration: none; color: #fff; font-size: 12px; font-weight: 600; 
-            letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s;
-        }
-        .main-nav a:hover, .main-nav a.active { color: var(--gold-primary); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-
-        /* --- Content Layout --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        .floating-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            border: 1px solid var(--card-border);
-            padding: 80px 60px;
-            margin-bottom: 120px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-            position: relative;
-            overflow: hidden;
+            position: fixed; top: 0; width: 100%; z-index: 900;
+            background: rgba(0,0,0,0.98); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 18px 0;
         }
 
-        .section-tag { color: var(--gold-primary); letter-spacing: 6px; font-size: 12px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .section-title { font-family: 'Cinzel'; font-size: 45px; margin-bottom: 30px; line-height: 1.2; }
-
-        /* --- Images --- */
-        .premium-img-frame {
-            width: 100%;
-            height: 600px;
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid var(--gold-dark);
-            margin-bottom: 40px;
-            position: relative;
+        .nav-container {
+            max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 25px;
         }
-        .premium-img-frame img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
-        .premium-img-frame:hover img { transform: scale(1.1); }
 
-        /* --- Menu Grid --- */
-        .price-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; }
-        .price-row {
-            display: flex; justify-content: space-between; align-items: flex-end; padding: 18px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15); transition: 0.4s;
+        /* Gallery Grid */
+        .therapist-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 50px; padding: 50px 0;
         }
-        .price-row:hover { border-bottom-color: var(--gold-primary); transform: translateX(10px); }
-        .p-service { font-family: 'Cinzel'; font-size: 17px; font-weight: 700; letter-spacing: 1px; }
-        .p-meta { font-size: 10px; color: #666; display: block; text-transform: uppercase; margin-top: 5px; font-weight: 600; }
-        .p-price { color: var(--gold-primary); font-family: 'Cinzel'; font-size: 20px; font-weight: 900; }
 
-        /* --- Hero --- */
-        .hero-banner {
-            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            margin-bottom: 100px; border-bottom-left-radius: 100px; border-bottom-right-radius: 100px;
+        .t-card {
+            background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 40px;
+            overflow: hidden; position: relative; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease;
         }
-        .hero-banner h2 { font-family: 'Cinzel'; font-size: clamp(35px, 8vw, 85px); letter-spacing: -1px; line-height: 1.1; }
 
-        /* --- UI Elements --- */
-        .form-side { background: rgba(0,0,0,0.5); padding: 40px; border-radius: 30px; border: 1px solid #333; }
-        select, input {
-            width: 100%; background: #000; color: #fff; padding: 20px; border: 1px solid #333;
-            border-radius: 15px; margin: 10px 0 30px; font-family: inherit; font-size: 15px; outline: none; transition: 0.3s;
+        /* Profile Index Number */
+        .profile-number {
+            position: absolute; top: 25px; left: 25px;
+            background: var(--gold); color: #000;
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 20px; z-index: 30;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            border: 3px solid #000;
         }
-        .btn-gold-action {
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-            color: #000; border: none; padding: 25px 60px; border-radius: 100px;
-            font-family: 'Cinzel'; font-weight: 900; letter-spacing: 3px; cursor: pointer; width: 100%; transition: 0.5s; font-size: 16px;
+
+        .img-container {
+            width: 100%; height: 500px; background: #000;
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
-        .btn-gold-action:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4); }
 
-        /* --- Concierge --- */
-        .floating-concierge { position: fixed; bottom: 40px; right: 40px; z-index: 9999; display: flex; flex-direction: column; gap: 20px; }
-        .f-item { width: 75px; height: 75px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff; text-decoration: none; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: 0.4s; }
-        .f-wa { background: #25D366; }
-        .f-tel { background: var(--gold-primary); }
+        /* Invisible Layer to prevent clicking on image */
+        .shield-layer {
+            position: absolute; inset: 0; z-index: 25;
+            background: transparent;
+        }
 
-        /* --- Footer & Locations --- */
-        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .feature-card { text-align: center; padding: 40px; border: 1px solid var(--card-border); border-radius: 25px; background: rgba(255,255,255,0.02); }
-        .feature-card i { font-size: 45px; color: var(--gold-primary); margin-bottom: 25px; }
+        .therapist-img {
+            width: 100%; height: 100%; object-fit: contain;
+            filter: blur(60px) brightness(0.3); /* Ultra Blur */
+            transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-        footer { background: #050505; padding: 100px 0 50px; border-top: 1px solid var(--card-border); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
-        .footer-col h4 { font-family: 'Cinzel'; color: var(--gold-primary); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; }
-        .footer-col p, .footer-col li { color: #888; font-size: 14px; margin-bottom: 12px; list-style: none; }
-        .footer-bottom { border-top: 1px solid #111; padding-top: 40px; text-align: center; color: #444; font-size: 12px; letter-spacing: 2px; }
+        .therapist-img.unlocked {
+            filter: blur(0px) brightness(1);
+        }
 
-        .screen { display: none; padding: 150px 0 100px; animation: slideUp 1s ease; }
-        .screen.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .timer-bar {
+            position: absolute; bottom: 0; left: 0; height: 8px;
+            background: linear-gradient(90deg, #D4AF37, #fcf6ba, #D4AF37);
+            width: 0%; z-index: 40;
+        }
 
-        @media (max-width: 1024px) {
-            .footer-grid, .feature-grid, .price-list-grid { grid-template-columns: 1fr; }
-            .floating-section { padding: 50px 25px; }
-            .main-nav { display: none; }
-            .ai-sticker { left: 15px; bottom: 120px; }
-            .hero-banner h2 { font-size: 40px; }
+        .btn-gold {
+            background: linear-gradient(135deg, #996515, #D4AF37, #fcf6ba);
+            color: #000; font-weight: 900; padding: 20px;
+            border-radius: 20px; cursor: pointer; border: none;
+            text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            transition: 0.4s; width: 100%;
+        }
+
+        .wa-float {
+            position: fixed; bottom: 40px; right: 40px; z-index: 1000;
+            background: #25D366; width: 70px; height: 70px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 35px; color: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-decoration: none;
+        }
+
+        .screen { display: none; padding-top: 140px; min-height: 100vh; }
+        .active { display: block; }
+
+        .seen-overlay {
+            position: absolute; inset: 0; background: #000;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; z-index: 50; text-align: center; padding: 40px;
+        }
+
+        .scanner-active {
+            position: absolute; inset: 0;
+            background: linear-gradient(transparent, rgba(212, 175, 55, 0.1), transparent);
+            background-size: 100% 200px;
+            animation: scanMove 1.5s infinite linear;
+            z-index: 28; display: none;
+        }
+        @keyframes scanMove { 0% { background-position: 0 -200px; } 100% { background-position: 0 100%; } }
+
+        input, select {
+            width: 100%; background: #0f0f0f !important; border: 1px solid #222 !important;
+            color: white !important; padding: 20px; border-radius: 15px; margin-bottom: 20px;
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false" onkeydown="return false">
 
     <!-- Splash Screen -->
     <div id="splash-screen">
-        <div class="splash-logo">AAROHANA</div>
-        <p style="letter-spacing: 15px; color: var(--gold-primary); font-size: 14px; margin-top: 30px;">DELHI'S PINNACLE OF WELLNESS</p>
+        <h1 class="cinzel gold-text" style="font-size: 4rem; letter-spacing: 20px; font-weight: 900;">AAROHANA</h1>
+        <p style="letter-spacing: 10px; font-size: 12px; margin-top: 20px; color: #555;">NATIONAL CAPITAL'S ULTIMATE WELLNESS</p>
     </div>
 
-    <!-- AI Assistant Sticker -->
-    <a href="https://zingoo.site/ai.html" class="ai-sticker">
-        <div class="ai-icon-box">
-            <i class="fa-solid fa-robot" style="color: white; font-size: 35px;"></i>
-        </div>
-        <span>AI ASSISTANT</span>
-    </a>
-
-    <!-- Header -->
+    <!-- Main Navigation -->
     <header>
-        <div class="nav-wrapper">
-            <div class="logo-box" onclick="switchTab('home')">
-                <h1>AAROHANA</h1>
-                <p>National Capital's Finest</p>
+        <div class="nav-container">
+            <div onclick="showScreen('home-screen')" style="cursor:pointer">
+                <h2 class="cinzel gold-text" style="font-size: 24px; font-weight: 900; margin:0">AAROHANA</h2>
+                <p style="font-size: 8px; letter-spacing: 5px; color: #fff;">DELHI NCR PORTAL</p>
             </div>
-            <nav class="main-nav">
-                <a onclick="switchTab('home')" id="nav-home" class="active">The Sanctuary</a>
-                <a onclick="switchTab('services')" id="nav-services">Spa Menu</a>
-                <a onclick="switchTab('booking')" id="nav-booking">Reservations</a>
-                <a onclick="switchTab('profile')" id="nav-profile">Elite Profile</a>
+            <nav class="hidden md:flex gap-10">
+                <a href="#" onclick="showScreen('home-screen')" class="text-[11px] uppercase tracking-[3px] font-bold">The Estate</a>
+                <a href="#" onclick="showScreen('gallery-screen')" class="text-[11px] uppercase tracking-[3px] font-bold">The Gallery</a>
+                <a href="#" onclick="showScreen('admin-login-screen')" class="gold-text text-[11px] uppercase tracking-[3px] font-black underline">Personnel Only</a>
             </nav>
-            <div class="nav-call">
-                <a href="tel:7390928912" style="text-decoration: none; color: var(--gold-primary); border: 1px solid var(--gold-primary); padding: 12px 30px; border-radius: 100px; font-weight: 700; font-size: 13px;">
-                    <i class="fa-solid fa-phone-volume"></i> 7390928912
-                </a>
-            </div>
         </div>
     </header>
 
-    <!-- Floating Concierge -->
-    <div class="floating-concierge">
-        <a href="https://wa.me/917390928912" class="f-item f-wa"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="tel:7390928912" class="f-item f-tel"><i class="fa-solid fa-phone"></i></a>
-    </div>
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://wa.me/917390928912" class="wa-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-    <main>
+    <main class="container mx-auto px-6">
         
-        <!-- 1. HOME SCREEN -->
-        <div id="home" class="screen active" style="padding-top: 0;">
-            <section class="hero-banner">
-                <div class="container">
-                    <span class="section-tag" style="color: #fff; opacity: 0.8;">The Grandeur of Delhi NCR</span>
-                    <h2 class="cinzel"><span class="gold-text">A Royal Escape</span><br>For The City's Elite</h2>
-                    <p style="margin-top: 20px; color: #ccc; letter-spacing: 3px;">EXPERIENCE DIVINE SERENITY IN THE HEART OF THE CAPITAL</p>
-                    <button class="btn-gold-action" style="width: auto; margin-top: 40px; padding: 22px 70px;" onclick="document.getElementById('wa-form').scrollIntoView({behavior:'smooth'})">SECURE A PRIVATE SLOT</button>
-                </div>
-            </section>
-
-            <div class="container">
-
-                <!-- WHATSAPP BOOKING FORM (DELHI SPECIAL) -->
-                <div class="floating-section" id="wa-form">
-                    <span class="section-tag">Elite Concierge</span>
-                    <h2 class="section-title">Instant WhatsApp Reservation</h2>
-                    <div class="form-side" style="background: linear-gradient(145deg, #0a0a0a, #111);">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                            <div>
-                                <label class="gold-text cinzel" style="font-size: 11px;">GUEST FULL NAME</label>
-                                <input type="text" id="wa-name" placeholder="Name as per ID">
-                            </div>
-                            <div>
-                                <label class="gold-text cinzel" style="font-size: 11px;">SELECT ELITE RITUAL</label>
-                                <select id="wa-ritual">
-                                    <option>Aarohana Signature Ritual (90 Mins)</option>
-                                    <option>Full Body Rejuvenation Ritual</option>
-                                    <option>Deep Tissue / Sports Therapy</option>
-                                    <option>Traditional Thai stretching</option>
-                                    <option>Four-Hand Synchronized Ritual</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="gold-text cinzel" style="font-size: 11px;">ARRIVAL DATE & TIME</label>
-                                <input type="text" id="wa-datetime" placeholder="e.g. Today, 6:00 PM">
-                            </div>
-                        </div>
-                        <button class="btn-gold-action" onclick="sendWhatsAppBooking()">
-                            <i class="fa-brands fa-whatsapp"></i> INITIATE PRIORITY BOOKING
-                        </button>
-                    </div>
-                </div>
-
-                <!-- AMBIENCE & LEGACY -->
-                <div class="floating-section">
-                    <span class="section-tag">The Sanctuary</span>
-                    <h2 class="section-title">Where Heritage Meets Luxury</h2>
-                    <div class="premium-img-frame">
-                        <img src="https://i.ibb.co/jkcYYzh5/9f279feb-f916-41b2-8835-f734d03aa390.png" alt="Aarohana Interior">
-                    </div>
-                    <p style="color: #aaa; font-size: 18px;">Designed for the connoisseurs of luxury in Delhi, Aarohana combines the ancient healing secrets of the East with the opulent comfort of the West. Our therapy rooms are sound-proof sanctuaries that offer a complete disconnect from the city's hustle.</p>
-                </div>
-
-                <!-- HYGIENE COMMITMENT -->
-                <div class="floating-section">
-                    <span class="section-tag">Excellence</span>
-                    <h2 class="section-title">Professionalism & Hygiene</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <i class="fa-solid fa-shield-virus"></i>
-                            <h4 class="cinzel gold-text">Safety Protocol</h4>
-                            <p>Hospital-grade sterilization for every private suite.</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fa-solid fa-droplet"></i>
-                            <h4 class="cinzel gold-text">Pure Botanicals</h4>
-                            <p>Imported organic oils and exotic herbs used in every ritual.</p>
-                        </div>
-                        <div class="feature-card">
-                            <i class="fa-solid fa-award"></i>
-                            <h4 class="cinzel gold-text">Expert Masters</h4>
-                            <p>Therapists trained in international wellness standards.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MASTER MENU -->
-                <div class="floating-section">
-                    <span class="section-tag" style="text-align: center;">Menu Card</span>
-                    <h2 class="section-title" style="text-align: center;">Rituals & Elite Pricing</h2>
-                    
-                    <div class="price-list-grid">
-                        <div class="p-col">
-                            <div class="price-row"><div><span class="p-service">Rejuvenation</span><span class="p-meta">Cellular Renewal</span></div><span class="p-price">₹8000</span></div>
-                            <div class="price-row"><div><span class="p-service">Stress Buster</span><span class="p-meta">Deep Relaxation</span></div><span class="p-price">₹5500</span></div>
-                            <div class="price-row"><div><span class="p-service">Synchronized 4-Hand</span><span class="p-meta">Ultimate Luxury</span></div><span class="p-price">₹5000</span></div>
-                            <div class="price-row"><div><span class="p-service">Aarohana Signature</span><span class="p-meta">Must Try</span></div><span class="p-price">₹4000</span></div>
-                        </div>
-                        <div class="p-col">
-                            <div class="price-row"><div><span class="p-service">Traditional Thai</span><span class="p-meta">Ancient Art</span></div><span class="p-price">₹4000</span></div>
-                            <div class="price-row"><div><span class="p-service">Balinese Massage</span><span class="p-meta">Indonesian Healing</span></div><span class="p-price">₹3500</span></div>
-                            <div class="price-row"><div><span class="p-service">Sports / Deep Tissue</span><span class="p-meta">Muscle Recovery</span></div><span class="p-price">₹3500</span></div>
-                            <div class="price-row"><div><span class="p-service">Aromatherapy</span><span class="p-meta">Essential Oil Ritual</span></div><span class="p-price">₹2500</span></div>
-                        </div>
-                    </div>
-
-                    <div class="premium-img-frame" style="margin-top: 60px; height: auto;">
-                        <img src="https://i.ibb.co/qY0RgWkz/6afe24c6-5a86-4aad-a7fc-c3f7d33bd059.png" alt="Official Menu" style="object-fit: contain;">
-                    </div>
-                </div>
-
-                <!-- TESTIMONIALS -->
-                <div class="floating-section">
-                    <span class="section-tag" style="text-align: center;">Elite Feedback</span>
-                    <h2 class="section-title" style="text-align: center;">What Our Guests Say</h2>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
-                        <div style="background: #000; padding: 40px; border-radius: 30px; border: 1px solid #222;">
-                            <div style="color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p style="font-style: italic; color: #ccc;">"Unmatched luxury. The ambience reminded me of premium spas in Bali. A must-visit for anyone in Delhi NCR."</p>
-                            <h5 class="cinzel gold-text" style="margin-top: 20px;">- Sameer Malhotra</h5>
-                        </div>
-                        <div style="background: #000; padding: 40px; border-radius: 30px; border: 1px solid #222;">
-                            <div style="color: var(--gold-primary); margin-bottom: 15px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p style="font-style: italic; color: #ccc;">"The Signature Ritual is phenomenal. Professional, clean, and truly restorative."</p>
-                            <h5 class="cinzel gold-text" style="margin-top: 20px;">- Ananya Singhal</h5>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- HOME SCREEN -->
+        <div id="home-screen" class="screen active">
+            <div class="text-center py-20">
+                <h1 class="cinzel text-6xl md:text-9xl mb-10 leading-tight">ROYAL<br><span class="gold-text">REJUVENATION</span></h1>
+                <p class="max-w-3xl mx-auto text-zinc-500 text-lg font-light leading-relaxed mb-12 italic">Welcome to Aarohana. A confidential gateway to the most premium wellness therapists in Delhi NCR. Every profile is ephemeral—view once, or lose access forever.</p>
+                <button class="btn-gold max-w-sm mx-auto" onclick="showScreen('gallery-screen')">Enter Secure Gallery</button>
             </div>
         </div>
 
-        <!-- 2. SERVICES SCREEN -->
-        <div id="services" class="screen">
-            <div class="container">
-                <div class="floating-section">
-                    <h2 class="section-title gold-text">The Art of Healing</h2>
-                    <div class="premium-img-frame" style="height: 400px;">
-                        <img src="https://i.ibb.co/1trRhHdx/f11ed011-e780-4442-a206-6127e9a34ddb.png" alt="Healing Art">
-                    </div>
-                    <p style="font-size: 18px; color: #888;">We offer a spectrum of therapies designed for modern professionals. From stress-buster rituals to high-intensity sports massages, every session is customized.</p>
-                </div>
+        <!-- GALLERY SCREEN -->
+        <div id="gallery-screen" class="screen">
+            <div class="text-center mb-16">
+                <h2 class="cinzel gold-text text-5xl font-black">Elite Selection</h2>
+                <p class="text-zinc-600 text-[10px] tracking-[8px] uppercase mt-4 font-bold">Encrypted Profiles • Single View Access</p>
+            </div>
+            <div id="therapist-list" class="therapist-grid">
+                <!-- Data will be dynamically injected here -->
             </div>
         </div>
 
-        <!-- 3. BOOKING SCREEN -->
-        <div id="booking" class="screen">
-            <div class="container">
-                <div class="floating-section">
-                    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px;">
-                        <div class="form-side">
-                            <h2 class="cinzel gold-text">Reservations</h2>
-                            <label class="gold-text cinzel">SELECT RITUAL</label>
-                            <select id="ritual-select" onchange="calculatePrice()">
-                                <option value="8000">Rejuvenation Ritual (₹8000)</option>
-                                <option value="4000">Aarohana Signature (₹4000)</option>
-                                <option value="3500">Deep Tissue Massage (₹3500)</option>
-                            </select>
-                            <label class="gold-text cinzel">CHOOSE DURATION</label>
-                            <div style="display: flex; gap: 15px;">
-                                <button class="btn-gold-action" id="d60" onclick="updateDur(60)" style="padding: 15px;">60 MIN</button>
-                                <button class="btn-gold-action" id="d90" onclick="updateDur(90)" style="padding: 15px; background: #000; color: #fff;">90 MIN</button>
-                            </div>
-                        </div>
-                        <div style="background: #111; padding: 50px; border-radius: 40px; border: 1px solid var(--gold-dark); text-align: center;">
-                            <h3 class="cinzel gold-text">Estimate</h3>
-                            <h2 class="cinzel gold-text" id="grand-total" style="font-size: 60px;">₹8000</h2>
-                            <button class="btn-gold-action" style="margin-top: 30px;" onclick="showSuccess()">BOOK NOW</button>
-                        </div>
-                    </div>
-                </div>
+        <!-- ADMIN LOGIN -->
+        <div id="admin-login-screen" class="screen">
+            <div class="max-w-md mx-auto bg-zinc-950 p-12 rounded-[50px] border border-zinc-900">
+                <h2 class="cinzel gold-text text-3xl mb-10 text-center font-bold">Staff Login</h2>
+                <input type="password" id="admin-pass" placeholder="Enter Command Key">
+                <button class="btn-gold" onclick="verifyAdmin()">Authenticate</button>
             </div>
         </div>
 
-        <!-- 4. PROFILE SCREEN -->
-        <div id="profile" class="screen">
-            <div class="container">
-                <div class="floating-section" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <div style="width: 150px; height: 150px; margin: 0 auto 30px; border: 3px solid var(--gold-primary); border-radius: 50%; padding: 5px;">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 100%; border-radius: 50%;">
+        <!-- ADMIN DASHBOARD -->
+        <div id="admin-panel" class="screen">
+            <div class="max-w-6xl mx-auto pb-20">
+                <div class="flex justify-between items-end mb-12 border-b border-zinc-800 pb-8">
+                    <h2 class="cinzel gold-text text-4xl font-black">Admin Control</h2>
+                    <button onclick="location.reload()" class="text-red-500 font-bold uppercase text-xs tracking-widest">Terminate Session</button>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="bg-zinc-950 p-10 rounded-[40px] border border-zinc-900">
+                        <h3 class="cinzel text-xl mb-8">Add New Asset</h3>
+                        <input type="text" id="t-name" placeholder="Full Name">
+                        <input type="text" id="t-price" placeholder="Price (e.g. ₹6000)">
+                        <input type="text" id="t-timing" placeholder="Shift Timing">
+                        <input type="file" id="t-file" accept="image/*">
+                        <div id="extra-fields" class="mt-4"></div>
+                        <button onclick="addExtraField()" class="text-[10px] text-zinc-500 mb-6 uppercase font-black">+ Add Custom Field</button>
+                        <button id="upload-btn" onclick="uploadTherapist()" class="btn-gold">Deploy to Gallery</button>
                     </div>
-                    <h2 class="cinzel">Elite Member</h2>
-                    <p class="gold-text">PLATINUM ACCESS ACTIVATED</p>
+
+                    <div class="bg-zinc-950 p-10 rounded-[40px] border border-zinc-900">
+                        <h3 class="cinzel text-xl mb-8">Live Status</h3>
+                        <div id="admin-list-view" class="space-y-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- MEGA FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h1 class="cinzel gold-text">AAROHANA</h1>
-                    <p>Delhi's most prestigious luxury spa and wellness sanctuary. Dedicated to providing an unparalleled experience of relaxation and rejuvenation.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <li>The Sanctuary</li>
-                    <li>Spa Menu</li>
-                    <li>Memberships</li>
-                    <li>Privacy Policy</li>
-                </div>
-                <div class="footer-col">
-                    <h4>Concierge</h4>
-                    <p>Open Daily</p>
-                    <p class="gold-text">10:00 AM - 10:00 PM</p>
-                    <p>Priority Booking via WA</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Delhi NCR</h4>
-                    <p><i class="fa-solid fa-map-pin gold-text"></i> Vasant Vihar | GK | Gurgaon</p>
-                    <p><i class="fa-solid fa-phone gold-text"></i> +91 7390928912</p>
-                    <p><i class="fa-solid fa-envelope gold-text"></i> concierge@aarohanaspa.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 AAROHANA DELHI - NATIONAL CAPITAL'S ULTIMATE WELLNESS. ALL RIGHTS RESERVED.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- SUCCESS OVERLAY -->
-    <div id="success-page" style="position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; display: none; align-items: center; justify-content: center; text-align: center;">
-        <div style="background: #0a0a0a; padding: 80px; border-radius: 60px; border: 1px solid var(--gold-primary); max-width: 600px; width: 90%;">
-            <i class="fa-solid fa-crown gold-text" style="font-size: 80px;"></i>
-            <h2 class="cinzel gold-text" style="margin-top: 40px;">Reserved</h2>
-            <p style="color: #666; margin: 30px 0;">Our Delhi Concierge will contact you shortly for final confirmation.</p>
-            <button class="btn-gold-action" style="width: auto; padding: 20px 80px;" onclick="closeModal()">EXCELLENT</button>
-        </div>
-    </div>
-
     <script>
-        // Splash screen control
-        window.addEventListener('load', () => {
+        // --- DATABASE CONFIGURATION ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyD9dd-bAdi-bXicIUp4THO0VGExzPn3FsI",
+            authDomain: "zingoo-ae309.firebaseapp.com",
+            databaseURL: "https://zingoo-ae309-default-rtdb.firebaseio.com",
+            projectId: "zingoo-ae309",
+            storageBucket: "zingoo-ae309.firebasestorage.app",
+            messagingSenderId: "276852537232",
+            appId: "1:276852537232:web:6b345eb808a5afa1b4e515"
+        };
+        const IMGBB_API_KEY = "dd62e4b97882cd9c85b233056f6171e9";
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // --- UI CORE ---
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        window.onload = () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
                 splash.style.opacity = '0';
-                setTimeout(() => splash.style.display = 'none', 1500);
-            }, 3000);
-        });
+                setTimeout(() => splash.style.display = 'none', 1000);
+            }, 2000);
+            loadGallery();
+        };
 
-        // Tab System
-        function switchTab(id) {
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
-            if(document.getElementById('nav-' + id)) document.getElementById('nav-' + id).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        // Pricing Engine
-        let duration = 60;
-        function updateDur(min) {
-            duration = min;
-            document.getElementById('d60').style.background = (min === 60) ? 'var(--gold-dark)' : '#000';
-            document.getElementById('d90').style.background = (min === 90) ? 'var(--gold-dark)' : '#000';
-            calculatePrice();
-        }
-
-        function calculatePrice() {
-            const base = parseInt(document.getElementById('ritual-select').value);
-            let total = base;
-            if(duration === 90) total += 500;
-            document.getElementById('grand-total').innerText = "₹" + total;
-        }
-
-        // WhatsApp Logic
-        function sendWhatsAppBooking() {
-            const name = document.getElementById('wa-name').value;
-            const ritual = document.getElementById('wa-ritual').value;
-            const datetime = document.getElementById('wa-datetime').value;
-            const phone = "917390928912";
-
-            if(!name || !datetime) {
-                alert("Delhi Concierge requires Guest Name and Timing for priority booking.");
-                return;
+        // --- SECURITY & ADMIN ---
+        function verifyAdmin() {
+            if(document.getElementById('admin-pass').value === "7390928912") {
+                showScreen('admin-panel');
+                loadAdminList();
+            } else {
+                alert("UNAUTHORIZED ACCESS DETECTED.");
             }
-
-            const message = `Namaste Aarohana Delhi,%0A%0A*VVIP Booking Request*%0A*Guest:* ${name}%0A*Ritual:* ${ritual}%0A*Time Slot:* ${datetime}%0A%0APlease confirm slot availability.`;
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
-        function showSuccess() { document.getElementById('success-page').style.display = 'flex'; }
-        function closeModal() { document.getElementById('success-page').style.display = 'none'; switchTab('home'); }
+        function addExtraField() {
+            const cont = document.getElementById('extra-fields');
+            const d = document.createElement('div');
+            d.className = "flex gap-2";
+            d.innerHTML = `<input type="text" placeholder="Key" class="w-1/3 extra-k"><input type="text" placeholder="Value" class="w-2/3 extra-v">`;
+            cont.appendChild(d);
+        }
 
-        calculatePrice();
+        async function uploadTherapist() {
+            const file = document.getElementById('t-file').files[0];
+            const btn = document.getElementById('upload-btn');
+            if(!file) return alert("Photo Required.");
+
+            btn.innerText = "PROCESSING..."; btn.disabled = true;
+
+            const fData = new FormData(); fData.append("image", file);
+            const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: "POST", body: fData });
+            const d = await res.json();
+            const imageUrl = d.data.url;
+
+            const extras = {};
+            document.querySelectorAll('.extra-k').forEach((k, i) => {
+                if(k.value) extras[k.value] = document.querySelectorAll('.extra-v')[i].value;
+            });
+
+            db.ref('therapists').push({
+                name: document.getElementById('t-name').value,
+                price: document.getElementById('t-price').value,
+                timing: document.getElementById('t-timing').value,
+                imageUrl, extras,
+                createdAt: Date.now()
+            }).then(() => location.reload());
+        }
+
+        // --- ADVANCED GALLERY ENGINE ---
+        function loadGallery() {
+            const list = document.getElementById('therapist-list');
+            db.ref('therapists').on('value', snap => {
+                list.innerHTML = "";
+                const data = snap.val();
+                if(!data) return;
+
+                // Sort and Index
+                const keys = Object.keys(data).reverse();
+                keys.forEach((id, index) => {
+                    const item = data[id];
+                    const isBlocked = localStorage.getItem('blocked_' + id); // PERMANENT BLOCK CHECK
+
+                    const card = document.createElement('div');
+                    card.className = "t-card";
+                    
+                    let extraInfo = "";
+                    if(item.extras) {
+                        for(let key in item.extras) {
+                            extraInfo += `<div class="flex justify-between py-2 border-b border-zinc-900"><span class="text-[9px] font-black text-zinc-600 uppercase">${key}</span><span class="text-[10px] text-zinc-300 font-bold">${item.extras[key]}</span></div>`;
+                        }
+                    }
+
+                    card.innerHTML = `
+                        <div class="profile-number">${index + 1}</div>
+                        <div class="img-container" id="container-${id}">
+                            ${isBlocked ? `
+                                <div class="seen-overlay">
+                                    <i class="fa-solid fa-ban text-red-500 text-5xl mb-4"></i>
+                                    <h3 class="cinzel gold-text text-lg">ACCESS REVOKED</h3>
+                                    <p class="text-[9px] text-zinc-600 mt-4 leading-relaxed uppercase tracking-widest">Security Protocol 404: Profile Permanently Deleted for this device.</p>
+                                </div>
+                            ` : `
+                                <div class="shield-layer"></div>
+                                <div class="scanner-active" id="scan-${id}"></div>
+                                <img src="${item.imageUrl}" class="therapist-img" id="img-${id}">
+                                <div class="timer-bar" id="bar-${id}"></div>
+                            `}
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="cinzel gold-text text-2xl font-black">${item.name}</h3>
+                                <div class="text-right">
+                                    <p class="text-sm font-black">${item.price}</p>
+                                    <p class="text-[9px] text-zinc-600 font-bold">${item.timing}</p>
+                                </div>
+                            </div>
+                            <div class="mb-8">${extraInfo}</div>
+                            <button class="btn-gold" id="btn-${id}" onclick="startSecureView('${id}')" ${isBlocked ? 'disabled style="opacity:0.2"' : ''}>
+                                ${isBlocked ? 'ACCESS EXPIRED' : 'Decrypt Profile (20s)'}
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(card);
+                });
+            });
+        }
+
+        // --- THE 20 SECOND SECURITY LOGIC ---
+        function startSecureView(id) {
+            const img = document.getElementById('img-' + id);
+            const bar = document.getElementById('bar-' + id);
+            const btn = document.getElementById('btn-' + id);
+            const scanner = document.getElementById('scan-' + id);
+            const container = document.getElementById('container-' + id);
+
+            btn.innerText = "AUTHENTICATING...";
+            btn.disabled = true;
+            scanner.style.display = "block";
+
+            // Verification Delay
+            setTimeout(() => {
+                scanner.style.display = "none";
+                img.classList.add('unlocked');
+                btn.innerText = "VIEWING ACTIVE";
+                btn.style.background = "red";
+                btn.style.color = "white";
+
+                let timeLeft = 100;
+                // 20 SECONDS = 20000ms
+                // Update interval 100ms
+                const tick = 100 / (20000 / 100); 
+
+                const timer = setInterval(() => {
+                    timeLeft -= tick;
+                    bar.style.width = (100 - timeLeft) + "%";
+
+                    if(timeLeft <= 0) {
+                        clearInterval(timer);
+                        finalizeBlock(id, container);
+                    }
+                }, 100);
+            }, 2000);
+        }
+
+        function finalizeBlock(id, container) {
+            // PERMANENT STORAGE BLOCK
+            localStorage.setItem('blocked_' + id, 'true');
+            
+            container.innerHTML = `
+                <div class="seen-overlay">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-5xl mb-4"></i>
+                    <h3 class="cinzel text-white text-lg">SESSION COMPLETE</h3>
+                    <p class="text-[9px] text-zinc-600 mt-4 leading-relaxed uppercase">This profile has been shredded from your session for security.</p>
+                </div>
+            `;
+            
+            setTimeout(() => location.reload(), 2000);
+        }
+
+        function loadAdminList() {
+            const l = document.getElementById('admin-list-view');
+            db.ref('therapists').on('value', snap => {
+                l.innerHTML = "";
+                const d = snap.val(); if(!d) return;
+                Object.keys(d).forEach(id => {
+                    const item = d[id];
+                    const div = document.createElement('div');
+                    div.className = "flex items-center justify-between bg-black p-4 rounded-2xl border border-zinc-800";
+                    div.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <img src="${item.imageUrl}" class="w-10 h-10 rounded-full object-cover">
+                            <div><p class="text-xs font-bold">${item.name}</p><p class="text-[9px] text-zinc-600">${item.price}</p></div>
+                        </div>
+                        <button onclick="db.ref('therapists/${id}').remove()" class="text-red-500 text-[10px] font-black uppercase">Wipe</button>
+                    `;
+                    l.appendChild(div);
+                });
+            });
+        }
+
+        // Disable Keyboard Shortcuts (F12, Ctrl+U, etc.)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74))) || (e.ctrlKey && e.keyCode == 85)) {
+                return false;
+            }
+        };
     </script>
 </body>
 </html>
