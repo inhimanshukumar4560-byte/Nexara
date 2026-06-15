@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,10 +110,12 @@
             filter: blur(0px) brightness(1);
         }
 
+        /* TIMER BAR HIDDEN - USER KO NA PTA CHLE */
         .timer-bar {
             position: absolute; bottom: 0; left: 0; height: 8px;
             background: linear-gradient(90deg, #D4AF37, #fcf6ba, #D4AF37);
             width: 0%; z-index: 40;
+            opacity: 0; pointer-events: none;
         }
 
         .btn-gold {
@@ -200,7 +203,7 @@
         <div id="gallery-screen" class="screen">
             <div class="text-center mb-16">
                 <h2 class="cinzel gold-text text-5xl font-black">Elite Selection</h2>
-                <p class="text-zinc-600 text-[10px] tracking-[8px] uppercase mt-4 font-bold">Encrypted Profiles • Single View Access</p>
+                <p class="text-zinc-600 text-[10px] tracking-[8px] uppercase mt-4 font-bold">Encrypted Profiles • Secure Access</p>
             </div>
             <div id="therapist-list" class="therapist-grid">
                 <!-- Data will be dynamically injected here -->
@@ -330,11 +333,10 @@
                 const data = snap.val();
                 if(!data) return;
 
-                // Sort and Index
                 const keys = Object.keys(data).reverse();
                 keys.forEach((id, index) => {
                     const item = data[id];
-                    const isBlocked = localStorage.getItem('blocked_' + id); // PERMANENT BLOCK CHECK
+                    const isBlocked = localStorage.getItem('blocked_' + id); 
 
                     const card = document.createElement('div');
                     card.className = "t-card";
@@ -372,7 +374,7 @@
                             </div>
                             <div class="mb-8">${extraInfo}</div>
                             <button class="btn-gold" id="btn-${id}" onclick="startSecureView('${id}')" ${isBlocked ? 'disabled style="opacity:0.2"' : ''}>
-                                ${isBlocked ? 'ACCESS EXPIRED' : 'Decrypt Profile (20s)'}
+                                ${isBlocked ? 'ACCESS EXPIRED' : 'Decrypt Secure Profile'}
                             </button>
                         </div>
                     `;
@@ -381,7 +383,7 @@
             });
         }
 
-        // --- THE 20 SECOND SECURITY LOGIC ---
+        // --- THE 10 SECOND HIDDEN SECURITY LOGIC ---
         function startSecureView(id) {
             const img = document.getElementById('img-' + id);
             const bar = document.getElementById('bar-' + id);
@@ -402,9 +404,8 @@
                 btn.style.color = "white";
 
                 let timeLeft = 100;
-                // 20 SECONDS = 20000ms
-                // Update interval 100ms
-                const tick = 100 / (20000 / 100); 
+                // CHANGED TO 10 SECONDS (10000ms)
+                const tick = 100 / (10000 / 100); 
 
                 const timer = setInterval(() => {
                     timeLeft -= tick;
@@ -419,7 +420,6 @@
         }
 
         function finalizeBlock(id, container) {
-            // PERMANENT STORAGE BLOCK
             localStorage.setItem('blocked_' + id, 'true');
             
             container.innerHTML = `
@@ -454,7 +454,6 @@
             });
         }
 
-        // Disable Keyboard Shortcuts (F12, Ctrl+U, etc.)
         document.onkeydown = function(e) {
             if(e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74))) || (e.ctrlKey && e.keyCode == 85)) {
                 return false;
