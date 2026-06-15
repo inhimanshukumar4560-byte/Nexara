@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAROHANA DELHI | Official Elite Sanctuary</title>
+    
+    <!-- Ultra-Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- UI Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --deep-black: #050505;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            /* Anti-Copy Features */
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+        }
+
+        /* Anti-Download & Anti-Long Press */
+        img {
+            pointer-events: none !important;
+            -webkit-touch-callout: none !important;
+            -webkit-user-drag: none !important;
+        }
+
+        .gold-text { color: var(--gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        .cinzel { font-family: 'Cinzel', serif; }
+
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed; inset: 0; background: #000; z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: 1s ease-in-out;
+        }
+
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 900;
+            background: rgba(0,0,0,0.98); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 18px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 25px;
+        }
+
+        /* Gallery Grid */
+        .therapist-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 50px; padding: 50px 0;
+        }
+
+        .t-card {
+            background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 40px;
+            overflow: hidden; position: relative; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease;
+        }
+
+        /* Profile Index Number */
+        .profile-number {
+            position: absolute; top: 25px; left: 25px;
+            background: var(--gold); color: #000;
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 20px; z-index: 30;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            border: 3px solid #000;
+        }
+
+        .img-container {
+            width: 100%; height: 500px; background: #000;
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Invisible Layer to prevent clicking on image */
+        .shield-layer {
+            position: absolute; inset: 0; z-index: 25;
+            background: transparent;
+        }
+
+        .therapist-img {
+            width: 100%; height: 100%; object-fit: contain;
+            filter: blur(60px) brightness(0.3); /* Ultra Blur */
+            transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .therapist-img.unlocked {
+            filter: blur(0px) brightness(1);
+        }
+
+        .timer-bar {
+            position: absolute; bottom: 0; left: 0; height: 8px;
+            background: linear-gradient(90deg, #D4AF37, #fcf6ba, #D4AF37);
+            width: 0%; z-index: 40;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #996515, #D4AF37, #fcf6ba);
+            color: #000; font-weight: 900; padding: 20px;
+            border-radius: 20px; cursor: pointer; border: none;
+            text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            transition: 0.4s; width: 100%;
+        }
+
+        .wa-float {
+            position: fixed; bottom: 40px; right: 40px; z-index: 1000;
+            background: #25D366; width: 70px; height: 70px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-size: 35px; color: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-decoration: none;
+        }
+
+        .screen { display: none; padding-top: 140px; min-height: 100vh; }
+        .active { display: block; }
+
+        .seen-overlay {
+            position: absolute; inset: 0; background: #000;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; z-index: 50; text-align: center; padding: 40px;
+        }
+
+        .scanner-active {
+            position: absolute; inset: 0;
+            background: linear-gradient(transparent, rgba(212, 175, 55, 0.1), transparent);
+            background-size: 100% 200px;
+            animation: scanMove 1.5s infinite linear;
+            z-index: 28; display: none;
+        }
+        @keyframes scanMove { 0% { background-position: 0 -200px; } 100% { background-position: 0 100%; } }
+
+        input, select {
+            width: 100%; background: #0f0f0f !important; border: 1px solid #222 !important;
+            color: white !important; padding: 20px; border-radius: 15px; margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onkeydown="return false">
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <h1 class="cinzel gold-text" style="font-size: 4rem; letter-spacing: 20px; font-weight: 900;">AAROHANA</h1>
+        <p style="letter-spacing: 10px; font-size: 12px; margin-top: 20px; color: #555;">NATIONAL CAPITAL'S ULTIMATE WELLNESS</p>
+    </div>
+
+    <!-- Main Navigation -->
+    <header>
+        <div class="nav-container">
+            <div onclick="showScreen('home-screen')" style="cursor:pointer">
+                <h2 class="cinzel gold-text" style="font-size: 24px; font-weight: 900; margin:0">AAROHANA</h2>
+                <p style="font-size: 8px; letter-spacing: 5px; color: #fff;">DELHI NCR PORTAL</p>
+            </div>
+            <nav class="hidden md:flex gap-10">
+                <a href="#" onclick="showScreen('home-screen')" class="text-[11px] uppercase tracking-[3px] font-bold">The Estate</a>
+                <a href="#" onclick="showScreen('gallery-screen')" class="text-[11px] uppercase tracking-[3px] font-bold">The Gallery</a>
+                <a href="#" onclick="showScreen('admin-login-screen')" class="gold-text text-[11px] uppercase tracking-[3px] font-black underline">Personnel Only</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://wa.me/917390928912" class="wa-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <main class="container mx-auto px-6">
+        
+        <!-- HOME SCREEN -->
+        <div id="home-screen" class="screen active">
+            <div class="text-center py-20">
+                <h1 class="cinzel text-6xl md:text-9xl mb-10 leading-tight">ROYAL<br><span class="gold-text">REJUVENATION</span></h1>
+                <p class="max-w-3xl mx-auto text-zinc-500 text-lg font-light leading-relaxed mb-12 italic">Welcome to Aarohana. A confidential gateway to the most premium wellness therapists in Delhi NCR. Every profile is ephemeral—view once, or lose access forever.</p>
+                <button class="btn-gold max-w-sm mx-auto" onclick="showScreen('gallery-screen')">Enter Secure Gallery</button>
+            </div>
+        </div>
+
+        <!-- GALLERY SCREEN -->
+        <div id="gallery-screen" class="screen">
+            <div class="text-center mb-16">
+                <h2 class="cinzel gold-text text-5xl font-black">Elite Selection</h2>
+                <p class="text-zinc-600 text-[10px] tracking-[8px] uppercase mt-4 font-bold">Encrypted Profiles • Single View Access</p>
+            </div>
+            <div id="therapist-list" class="therapist-grid">
+                <!-- Data will be dynamically injected here -->
+            </div>
+        </div>
+
+        <!-- ADMIN LOGIN -->
+        <div id="admin-login-screen" class="screen">
+            <div class="max-w-md mx-auto bg-zinc-950 p-12 rounded-[50px] border border-zinc-900">
+                <h2 class="cinzel gold-text text-3xl mb-10 text-center font-bold">Staff Login</h2>
+                <input type="password" id="admin-pass" placeholder="Enter Command Key">
+                <button class="btn-gold" onclick="verifyAdmin()">Authenticate</button>
+            </div>
+        </div>
+
+        <!-- ADMIN DASHBOARD -->
+        <div id="admin-panel" class="screen">
+            <div class="max-w-6xl mx-auto pb-20">
+                <div class="flex justify-between items-end mb-12 border-b border-zinc-800 pb-8">
+                    <h2 class="cinzel gold-text text-4xl font-black">Admin Control</h2>
+                    <button onclick="location.reload()" class="text-red-500 font-bold uppercase text-xs tracking-widest">Terminate Session</button>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="bg-zinc-950 p-10 rounded-[40px] border border-zinc-900">
+                        <h3 class="cinzel text-xl mb-8">Add New Asset</h3>
+                        <input type="text" id="t-name" placeholder="Full Name">
+                        <input type="text" id="t-price" placeholder="Price (e.g. ₹6000)">
+                        <input type="text" id="t-timing" placeholder="Shift Timing">
+                        <input type="file" id="t-file" accept="image/*">
+                        <div id="extra-fields" class="mt-4"></div>
+                        <button onclick="addExtraField()" class="text-[10px] text-zinc-500 mb-6 uppercase font-black">+ Add Custom Field</button>
+                        <button id="upload-btn" onclick="uploadTherapist()" class="btn-gold">Deploy to Gallery</button>
+                    </div>
+
+                    <div class="bg-zinc-950 p-10 rounded-[40px] border border-zinc-900">
+                        <h3 class="cinzel text-xl mb-8">Live Status</h3>
+                        <div id="admin-list-view" class="space-y-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- DATABASE CONFIGURATION ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyD9dd-bAdi-bXicIUp4THO0VGExzPn3FsI",
+            authDomain: "zingoo-ae309.firebaseapp.com",
+            databaseURL: "https://zingoo-ae309-default-rtdb.firebaseio.com",
+            projectId: "zingoo-ae309",
+            storageBucket: "zingoo-ae309.firebasestorage.app",
+            messagingSenderId: "276852537232",
+            appId: "1:276852537232:web:6b345eb808a5afa1b4e515"
+        };
+        const IMGBB_API_KEY = "dd62e4b97882cd9c85b233056f6171e9";
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // --- UI CORE ---
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        window.onload = () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => splash.style.display = 'none', 1000);
+            }, 2000);
+            loadGallery();
+        };
+
+        // --- SECURITY & ADMIN ---
+        function verifyAdmin() {
+            if(document.getElementById('admin-pass').value === "7390928912") {
+                showScreen('admin-panel');
+                loadAdminList();
+            } else {
+                alert("UNAUTHORIZED ACCESS DETECTED.");
+            }
+        }
+
+        function addExtraField() {
+            const cont = document.getElementById('extra-fields');
+            const d = document.createElement('div');
+            d.className = "flex gap-2";
+            d.innerHTML = `<input type="text" placeholder="Key" class="w-1/3 extra-k"><input type="text" placeholder="Value" class="w-2/3 extra-v">`;
+            cont.appendChild(d);
+        }
+
+        async function uploadTherapist() {
+            const file = document.getElementById('t-file').files[0];
+            const btn = document.getElementById('upload-btn');
+            if(!file) return alert("Photo Required.");
+
+            btn.innerText = "PROCESSING..."; btn.disabled = true;
+
+            const fData = new FormData(); fData.append("image", file);
+            const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: "POST", body: fData });
+            const d = await res.json();
+            const imageUrl = d.data.url;
+
+            const extras = {};
+            document.querySelectorAll('.extra-k').forEach((k, i) => {
+                if(k.value) extras[k.value] = document.querySelectorAll('.extra-v')[i].value;
+            });
+
+            db.ref('therapists').push({
+                name: document.getElementById('t-name').value,
+                price: document.getElementById('t-price').value,
+                timing: document.getElementById('t-timing').value,
+                imageUrl, extras,
+                createdAt: Date.now()
+            }).then(() => location.reload());
+        }
+
+        // --- ADVANCED GALLERY ENGINE ---
+        function loadGallery() {
+            const list = document.getElementById('therapist-list');
+            db.ref('therapists').on('value', snap => {
+                list.innerHTML = "";
+                const data = snap.val();
+                if(!data) return;
+
+                // Sort and Index
+                const keys = Object.keys(data).reverse();
+                keys.forEach((id, index) => {
+                    const item = data[id];
+                    const isBlocked = localStorage.getItem('blocked_' + id); // PERMANENT BLOCK CHECK
+
+                    const card = document.createElement('div');
+                    card.className = "t-card";
+                    
+                    let extraInfo = "";
+                    if(item.extras) {
+                        for(let key in item.extras) {
+                            extraInfo += `<div class="flex justify-between py-2 border-b border-zinc-900"><span class="text-[9px] font-black text-zinc-600 uppercase">${key}</span><span class="text-[10px] text-zinc-300 font-bold">${item.extras[key]}</span></div>`;
+                        }
+                    }
+
+                    card.innerHTML = `
+                        <div class="profile-number">${index + 1}</div>
+                        <div class="img-container" id="container-${id}">
+                            ${isBlocked ? `
+                                <div class="seen-overlay">
+                                    <i class="fa-solid fa-ban text-red-500 text-5xl mb-4"></i>
+                                    <h3 class="cinzel gold-text text-lg">ACCESS REVOKED</h3>
+                                    <p class="text-[9px] text-zinc-600 mt-4 leading-relaxed uppercase tracking-widest">Security Protocol 404: Profile Permanently Deleted for this device.</p>
+                                </div>
+                            ` : `
+                                <div class="shield-layer"></div>
+                                <div class="scanner-active" id="scan-${id}"></div>
+                                <img src="${item.imageUrl}" class="therapist-img" id="img-${id}">
+                                <div class="timer-bar" id="bar-${id}"></div>
+                            `}
+                        </div>
+                        <div class="p-8">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="cinzel gold-text text-2xl font-black">${item.name}</h3>
+                                <div class="text-right">
+                                    <p class="text-sm font-black">${item.price}</p>
+                                    <p class="text-[9px] text-zinc-600 font-bold">${item.timing}</p>
+                                </div>
+                            </div>
+                            <div class="mb-8">${extraInfo}</div>
+                            <button class="btn-gold" id="btn-${id}" onclick="startSecureView('${id}')" ${isBlocked ? 'disabled style="opacity:0.2"' : ''}>
+                                ${isBlocked ? 'ACCESS EXPIRED' : 'Decrypt Profile (20s)'}
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(card);
+                });
+            });
+        }
+
+        // --- THE 20 SECOND SECURITY LOGIC ---
+        function startSecureView(id) {
+            const img = document.getElementById('img-' + id);
+            const bar = document.getElementById('bar-' + id);
+            const btn = document.getElementById('btn-' + id);
+            const scanner = document.getElementById('scan-' + id);
+            const container = document.getElementById('container-' + id);
+
+            btn.innerText = "AUTHENTICATING...";
+            btn.disabled = true;
+            scanner.style.display = "block";
+
+            // Verification Delay
+            setTimeout(() => {
+                scanner.style.display = "none";
+                img.classList.add('unlocked');
+                btn.innerText = "VIEWING ACTIVE";
+                btn.style.background = "red";
+                btn.style.color = "white";
+
+                let timeLeft = 100;
+                // 20 SECONDS = 20000ms
+                // Update interval 100ms
+                const tick = 100 / (20000 / 100); 
+
+                const timer = setInterval(() => {
+                    timeLeft -= tick;
+                    bar.style.width = (100 - timeLeft) + "%";
+
+                    if(timeLeft <= 0) {
+                        clearInterval(timer);
+                        finalizeBlock(id, container);
+                    }
+                }, 100);
+            }, 2000);
+        }
+
+        function finalizeBlock(id, container) {
+            // PERMANENT STORAGE BLOCK
+            localStorage.setItem('blocked_' + id, 'true');
+            
+            container.innerHTML = `
+                <div class="seen-overlay">
+                    <i class="fa-solid fa-circle-check text-emerald-500 text-5xl mb-4"></i>
+                    <h3 class="cinzel text-white text-lg">SESSION COMPLETE</h3>
+                    <p class="text-[9px] text-zinc-600 mt-4 leading-relaxed uppercase">This profile has been shredded from your session for security.</p>
+                </div>
+            `;
+            
+            setTimeout(() => location.reload(), 2000);
+        }
+
+        function loadAdminList() {
+            const l = document.getElementById('admin-list-view');
+            db.ref('therapists').on('value', snap => {
+                l.innerHTML = "";
+                const d = snap.val(); if(!d) return;
+                Object.keys(d).forEach(id => {
+                    const item = d[id];
+                    const div = document.createElement('div');
+                    div.className = "flex items-center justify-between bg-black p-4 rounded-2xl border border-zinc-800";
+                    div.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <img src="${item.imageUrl}" class="w-10 h-10 rounded-full object-cover">
+                            <div><p class="text-xs font-bold">${item.name}</p><p class="text-[9px] text-zinc-600">${item.price}</p></div>
+                        </div>
+                        <button onclick="db.ref('therapists/${id}').remove()" class="text-red-500 text-[10px] font-black uppercase">Wipe</button>
+                    `;
+                    l.appendChild(div);
+                });
+            });
+        }
+
+        // Disable Keyboard Shortcuts (F12, Ctrl+U, etc.)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && (e.keyCode == 73 || e.keyCode == 74))) || (e.ctrlKey && e.keyCode == 85)) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
